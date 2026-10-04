@@ -8,7 +8,7 @@ import { Arrow, Magnetic } from "../primitives";
 
 /**
  * The hero answers two things at a glance: who Ali is, and why you're here.
- * One question to the visitor, one line about Ali, two ways forward, the portrait.
+ * Ali speaks first: one bold line, one line about him, two ways forward, the portrait.
  * (The messy → clear story starts right after, in the philosophy and the Sorting Room.)
  */
 export function Hero() {
@@ -48,12 +48,10 @@ export function Hero() {
           {h.eyebrow}
         </p>
 
-        <h1 className="font-display text-[clamp(2.6rem,6vw,4.9rem)] leading-[1.03] text-ink">
-          <span className="anim-focus block" style={{ animationDelay: "0.1s" }}>
-            {h.question}
-          </span>
-          <span className="anim-focus block pb-[0.08em] font-display-italic text-teal" style={{ animationDelay: "0.22s" }}>
-            {h.em}
+        {/* Ali says it himself: one bold line, his core belief (intention over spec) */}
+        <h1 className="font-display text-[clamp(3rem,7.4vw,6.2rem)] leading-[0.98] text-ink">
+          <span className="anim-focus block pb-[0.08em]" style={{ animationDelay: "0.1s" }}>
+            {h.lead} <span className="font-display-italic text-teal">{h.em}</span>
           </span>
         </h1>
 

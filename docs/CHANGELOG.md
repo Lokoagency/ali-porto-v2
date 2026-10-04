@@ -4,6 +4,32 @@ Newest first. **Add an entry with every change**, using the template in `DEVELOP
 
 ---
 
+## 2026-10-05: Round 6: Ali speaks first, the work moves up, 01 trimmed
+
+**What:**
+- **The hero is Ali speaking:** bold and punchy. The headline is now "I build what you *meant.*", which comes from Ali's line about "understanding what someone actually meant, not just what they managed to put into words". The type is bigger. The line under it is first person: "I'm Ali Farghaly, a developer and product manager. Whatever your product looks like right now, I can probably step into it, from the database to the docs."
+- **The work is 02:** the order is now hero → 01 Why (the quote and the living philosophy) → **02 Proof** (the work, then the numbers) → 03 How → 04 Knowledge (the path, the stack) → 05 Let's talk. The nav, footer and scroll rail follow: Philosophy, Work, Protocol, Journal.
+- **01 is trimmed:** the four principle cards (Read the intention, Four versions one DNA, The calculator rule, Document with purpose) are removed from the home page, along with their glyph animations. The `principles` data stays for `/mind`.
+- **More of Ali's own sayings:**
+  - The work heading is "What I built, and every hat I wore building it." (from "I was all of those").
+  - Working together is "I give honest timelines, and I deliver on them."
+  - Its third card is now "Milestones".
+
+**Why:** the user's round 6 asked to:
+- reflect what we know about Ali;
+- make the work the second thing after the hero and the quote;
+- remove the principle cards from 01;
+- use Ali's own sayings;
+- make the hero sound like Ali, bold, punchy, a hook.
+
+**Verified:**
+- `tsc`, `lint` and `build` are clean.
+- In the browser at 1440 and 375 px:
+  - The headline sits on two lines, and the hero buttons end at 703 px (desktop) and 542 px (phone).
+  - The section order and the labels are right.
+  - 01 has no cards.
+  - There's no sideways scroll.
+
 ## 2026-10-05: Round 5: Ali in his own words (Content Bank v2)
 
 **What:** the site's copy is rewritten from Ali's Content Bank v2. The design, animations and structure are unchanged.

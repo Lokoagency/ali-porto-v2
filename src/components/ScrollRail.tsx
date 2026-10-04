@@ -6,11 +6,11 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } fr
 const sections = [
   { id: "top", label: "Hello" },
   { id: "how", label: "Why · The philosophy" },
+  { id: "work", label: "Proof · The work" },
   { id: "process", label: "How · The method" },
   { id: "paths", label: "How · One path" },
   { id: "roadmap", label: "How · The protocol" },
   { id: "together", label: "How · Working together" },
-  { id: "work", label: "Knowledge · Proof" },
   { id: "path", label: "Knowledge · The path" },
   { id: "stack", label: "Knowledge · The stack" },
   { id: "contact", label: "Let's talk" },

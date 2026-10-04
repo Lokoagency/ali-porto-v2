@@ -25,7 +25,7 @@ If you've just been handed this project, read this first. It covers what the pro
 
 | Area | Status | Notes |
 |---|---|---|
-| Home page (`/`) | Built; the narrative was rewritten 4 Oct (3 rounds) | Simplified in round 4: the hero (who Ali is, why you're here) → 01 Why → 02 How → 03 Knowledge → 04 Let's talk. Never use the word "idea". Includes the metro-map protocol and the "tell Ali where you are" form. See `ARCHITECTURE.md` |
+| Home page (`/`) | Built; the narrative was rewritten 4 Oct (3 rounds) | Since round 6: the hero (Ali speaking) → 01 Why → 02 Proof (the work) → 03 How → 04 Knowledge → 05 Let's talk. Never use the word "idea". Includes the metro-map protocol and the "tell Ali where you are" form. See `ARCHITECTURE.md` |
 | Case studies (`/work/[slug]`) | Built | 7 projects, statically generated |
 | Journal (`/journal`, `/journal/[slug]`) | Built | Notion isn't connected yet; the 3 Markdown posts are placeholders |
 | Ali's mind (`/mind`) | Paused until Phase 8 | Working 3D house. See `MIND.md` |

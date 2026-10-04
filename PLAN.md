@@ -6,7 +6,7 @@ Each phase ends with a review in the browser and a production build.
 > Docs: start with [`docs/HANDOFF.md`](docs/HANDOFF.md). Every change gets an entry in [`docs/CHANGELOG.md`](docs/CHANGELOG.md), an update to the relevant doc, and an update to this plan. The rules are in `CLAUDE.md`.
 
 **Where things stand (4 Oct 2026).** The site has four routes:
-- `/`: the hero (who Ali is, why you're here), then 01 Why (the philosophy), 02 How (the Sorting Room, one path, the protocol, working together), 03 Knowledge (numbers, proof, the path, the stack), the Mind teaser, 04 Let's talk
+- `/`: the hero (Ali speaking: "I build what you meant."), then 01 Why (the quote, the living philosophy), 02 Proof (the work, the numbers), 03 How (the Sorting Room, one path, the protocol, working together), 04 Knowledge (the path, the stack), the Mind teaser, 05 Let's talk
 - `/work/[slug]`: 7 case studies
 - `/journal` and `/journal/[slug]`: Notion-backed, with a Markdown fallback
 - `/mind`: on hold

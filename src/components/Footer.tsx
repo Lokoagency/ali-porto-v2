@@ -22,8 +22,8 @@ export function Footer() {
             <li className="eyebrow mb-3 text-muted">Pages</li>
             {[
               ["Philosophy", "/#how"],
-              ["Protocol", "/#roadmap"],
               ["Work", "/#work"],
+              ["Protocol", "/#roadmap"],
               ["Path", "/#path"],
               ["Journal", "/journal"],
               ["Ali's mind", "/mind"],

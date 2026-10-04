@@ -172,7 +172,7 @@ export const translations = [
 export const workingStyle = [
   { title: "Structured Hours", body: "9 AM to 6 PM GST, Monday to Friday. Focused work blocks. I don't perform busyness, and I don't do midnight Slack messages.", glyph: "sun" },
   { title: "Suggestions, Not Demands", body: "If something in the spec doesn't add up, I research it, make it visual, and show you both options. Your call, always.", glyph: "scope" },
-  { title: "Honest Timelines", body: "Milestone-based delivery. I give honest timelines and I deliver on them. If something shifts, you hear it early.", glyph: "time" },
+  { title: "Milestones", body: "Milestone-based delivery, database first. If something shifts, you hear it early.", glyph: "time" },
   { title: "Documentation", body: "Organized, documented, tested work that you can understand and maintain without me in the room.", glyph: "doc" },
 ] as const;
 
@@ -209,20 +209,21 @@ export const stats = [
 ];
 
 /* ------------------------------------------------------------------
-   The story the home page tells, in four chapters:
-   the hero (who Ali is, why you're here) → 01 why (the philosophy) →
-   02 how (the method, one path, the protocol, working together) →
-   03 knowledge (numbers, proof, the path, the stack) → 04 let's talk.
+   The story the home page tells:
+   the hero (Ali speaking: "I build what you meant.") → 01 why (the quote, the living philosophy) →
+   02 proof (the work, the numbers) → 03 how (the method, one path, the protocol, working together) →
+   04 knowledge (the path, the stack) → 05 let's talk.
    Ali solves the problem first, then builds the product. Never say "idea".
 ------------------------------------------------------------------- */
 export const story = {
   hero: {
     eyebrow: "Have you met Ali?",
-    question: "Need a product built,",
-    em: "and run properly?",
-    who: "Ali Farghaly",
-    role: "developer and product manager.",
-    line: "Whatever your product looks like right now, I can probably step into it: from the database to the docs.",
+    // Ali speaking (Content Bank 2 and 18: "what someone actually meant, not just what they managed to put into words")
+    lead: "I build what you",
+    em: "meant.",
+    who: "I'm Ali Farghaly",
+    role: "a developer and product manager.",
+    line: "Whatever your product looks like right now, I can probably step into it, from the database to the docs.",
     primary: "Tell me where you are",
     secondary: "See the work",
     badge: "Open to projects",
@@ -232,10 +233,10 @@ export const story = {
     label: "Why · The philosophy",
     quote: "The input matters as much as the output. If you don't fully understand what you're working from, you'll build something that looks right but feels wrong.",
   },
-  problem: { index: "02", label: "How · The method", lead: "Messy in.", sort: "Clear out." },
-  solution: { index: "02", label: "How · One person, one path", heading: "One person, one path: build it right, then make it run.", italic: [2, 3] },
+  problem: { index: "03", label: "How · The method", lead: "Messy in.", sort: "Clear out." },
+  solution: { index: "03", label: "How · One person, one path", heading: "One person, one path: build it right, then make it run.", italic: [2, 3] },
   roadmap: {
-    index: "02",
+    index: "03",
     label: "How · The protocol",
     heading: "A protocol you can follow. A line you can track.",
     italic: [4, 9],
@@ -251,14 +252,14 @@ export const story = {
       fine: "Opens WhatsApp or your email with the message already written. Nothing is stored on this site.",
     },
   },
-  together: { index: "02", label: "How · Working together", heading: "Calm, clear, and no surprises.", italic: [3, 4] },
-  proof: { index: "03", label: "Knowledge · Proof", heading: "Problems found, solved and shipped.", italic: [2, 3, 4] },
-  person: { index: "03", label: "Knowledge · The path", heading: "From translator to builder to product manager.", italic: [2, 4, 6, 7] },
-  stack: { index: "03", label: "Knowledge · The stack", heading: "Today's toolbox. Never the whole of it.", italic: [4, 5, 6] },
+  together: { index: "03", label: "How · Working together", heading: "I give honest timelines, and I deliver on them.", italic: [2, 3] },
+  proof: { index: "02", label: "Proof · The work", heading: "What I built, and every hat I wore building it.", italic: [4, 5] },
+  person: { index: "04", label: "Knowledge · The path", heading: "From translator to builder to product manager.", italic: [2, 4, 6, 7] },
+  stack: { index: "04", label: "Knowledge · The stack", heading: "Today's toolbox. Never the whole of it.", italic: [4, 5, 6] },
   // the pill that appears once the visitor reaches the roadmap (until the contact section)
   cta: { idle: "Wherever you are on the line", picked: "Start at", action: "Let's talk" },
   contact: {
-    index: "04",
+    index: "05",
     label: "Let's talk",
     heading: "Tell me where your product is. Let's find the problem first.",
     italic: [9, 10],

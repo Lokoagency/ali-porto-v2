@@ -2,10 +2,11 @@
 
 ## The idea
 
-**The story (since 4 Oct, simplified in round 4): hero → why → how → knowledge → let's talk.**
-- **The hero** says who Ali is and why the visitor is here, as a question: "Need a product built, *and run properly?*" It stays calm: one headline, one line, two buttons and the portrait.
+**The story (since 4 Oct; reordered in round 6): hero → why → proof → how → knowledge → let's talk.**
+- **The hero** is Ali speaking: bold, punchy and first person, "I build what you *meant.*" It stays calm: one headline, one line, two buttons and the portrait.
+- **The work comes second**, right after the philosophy's quote, so visitors see proof early.
 - **Never use the word "idea" in site copy.** The client's thing is their **product**. Ali solves the problem first, then builds the product.
-- Ali is **one person on one path**: he builds the product and the system that runs it, so there's no handover. Don't present his work as two separate tracks. The page runs in chapters: **01 Why** (the philosophy) → **02 How** (the method, one path, the protocol, working together) → **03 Knowledge** (numbers, proof, the path, the stack) → **04 Let's talk**. Ali is a living philosophy (researched, updated with trends). It becomes a methodology, which gives the client a protocol to follow and track. The messy → clear identity stays: the Sorting Room, unchanged, opens "How". Keep new sections inside that arc.
+- Ali is **one person on one path**: he builds the product and the system that runs it, so there's no handover. Don't present his work as two separate tracks. The page runs in chapters: **01 Why** (the quote, the living philosophy) → **02 Proof** (the work, the numbers) → **03 How** (the method, one path, the protocol, working together) → **04 Knowledge** (the path, the stack) → **05 Let's talk**. Ali is a living philosophy (researched, updated with trends). It becomes a methodology, which gives the client a protocol to follow and track. The messy → clear identity stays: the Sorting Room, unchanged, opens "How". Keep new sections inside that arc.
 
 **Keywords:** keep Ali's warm voice, but use the words corporates search for (product discovery, requirements, MVP, no-code development, agile delivery, QA, technical documentation, process automation) where they fit naturally, and as small mono tags on the protocol stations. No keyword stuffing.
 
