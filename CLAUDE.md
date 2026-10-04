@@ -26,9 +26,9 @@ Then read whatever the task needs:
 
 - **Phase 0** (review and optimisation): done, 4 Oct 2026.
 - **Phase 1** (GitHub backup): done, 4 Oct 2026.
-- **Phases 2–4** (narrative, roadmap metro map, journal only in the nav): built 4 Oct, plus review round 2 the same day (one path, open-ended stack, light default, hero line, floating CTA). Waiting for the client's approval.
-- **Next, after approval:** content (5), optimization (6), the deep dive `/mind` (7), polish (8), launch (9).
-- **`/mind` is on hold until Phase 7.** Don't work on it unless the user asks.
+- **Phases 2–4** (narrative, roadmap metro map, journal only in the nav): built 4 Oct, with review rounds 2 and 3 the same day. Round 3 brought philosophy → methodology → protocol, corporate keywords and the "tell Ali where you are" form. Waiting for the client's approval.
+- **Next, after approval:** content (5), admin dashboard with client tracking (6), optimization (7), the deep dive `/mind` (8), polish (9), launch (10).
+- **`/mind` is on hold until Phase 8.** Don't work on it unless the user asks.
 
 ## Rules
 

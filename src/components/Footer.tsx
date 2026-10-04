@@ -21,8 +21,8 @@ export function Footer() {
           <ul className="space-y-2">
             <li className="eyebrow mb-3 text-muted">Pages</li>
             {[
-              ["Process", "/#process"],
-              ["Roadmap", "/#roadmap"],
+              ["Philosophy", "/#how"],
+              ["Protocol", "/#roadmap"],
               ["Work", "/#work"],
               ["Path", "/#path"],
               ["Journal", "/journal"],

@@ -1,6 +1,6 @@
 # Content: copy, projects and the journal
 
-All of Ali's words and data live in data files, so changing copy never means touching components. Phase 1 is the user sending Ali's real content and us putting it here.
+All of Ali's words and data live in data files, so changing copy never means touching components. Phase 5 is the user sending Ali's real content and us putting it here. From Phase 6, Ali edits projects, featured work and the journal from his admin dashboard (Supabase) instead.
 
 ## Where each kind of content lives
 
@@ -17,7 +17,7 @@ Section labels, numbers, headlines and the hero copy now live in `story` in `sit
 - The `MindTeaser` copy.
 - Contact: "Got a messy idea? Bring it over."
 
-Moving these into `site.ts` is part of Phase 1.
+Moving these into `site.ts` is part of Phase 5.
 
 ## `src/content/site.ts`, field by field
 
@@ -27,18 +27,20 @@ Moving these into `site.ts` is part of Phase 1.
 | `person` | `name`, `short`, `tagline`, `photo` (hero portrait), `roles[]` (rotating in the hero), `intro` | Hero, Footer, `/mind` mirror card |
 | `contact` | `email`, `call` (Google Calendar template link), `linkedin`, `upwork`, `whatsapp`, `whatsappLabel` | Contact, Footer, `/mind` phone |
 | `tools` | `{ name, icon, categories: ("Builds"\|"Systems")[], featured? }[]` | The "What I do" toolbox. **`featured` isn't used** |
-| `paths` | The two halves of the one path (keys Builds, Systems): `title` ("Build it", "Run it"), `sub`, `body`, `bullets[]`. Titles also name the stack tabs | The solution |
-| `onePath` | `lede` (no handover between builder and PM), `quote` (the card's closing line) | The solution |
+| `paths` | The two halves of the one path (keys Builds, Systems): `title` ("Build it", "Run it"), `sub`, `body`, `bullets[]`. Titles also name the stack tabs | The methodology |
+| `philosophy` | `edition`, `updated`, `lede`, `researching[]` (rotating topics), `changes[]` (`{ tag: Added\|Changed\|Kept, text }`). **Placeholders: Ali's real topics needed.** Later edited from the dashboard (Phase 6) | The philosophy |
+| `onePath` | `lede` (the philosophy becomes a method; no handover; keywords), `quote` | The methodology |
 | `stack` | `note` (today's toolbox, not the limit), `learning[]`: `{ knows, next }` pairs cycled on the last chip | The stack |
 | `principles` | 4 items: `title`, `body`, `glyph` (`heart`\|`nodes`\|`spark`\|`doc`) | How I build |
-| `competencies` | 4 items | **Not used anywhere.** Use it or delete it in Phase 1 |
+| `competencies` | 4 items | **Not used anywhere.** Use it or delete it in Phase 5 |
 | `journey` | 3 chapters: `years`, `role`, `lede`, `body` | The path, `/mind` diploma |
 | `translations` | `{ from, to }[]` (grammar → database structures …) | The path's translation card |
 | `workingStyle` | 4 items: `title`, `body`, `glyph` (`sun`\|`scope`\|`time`\|`doc`) | Working together, `/mind` fridge |
 | `lanes`, `ideaFragments`, `sorterStages` | The Sorting Room's lanes, raw→clean chips (`{ raw, clean, lane }`), and the 5 stage captions | IdeaSorter |
 | `stats` | `{ value, suffix, label }[]`: 30+, 120+, 2, 4 yrs | Numbers. **Needs Ali's confirmation** |
-| `story` | The home page's narrative: `hero` (lines, scattered word, tagline, sorted phrase, the six notes), then `problem`, `solution`, `how`, `roadmap`, `proof`, `person`, `together`, `cta` (the floating pill: `idle`, `picked`, `action`), `contact`, each with an `index`, a `label` and usually a `heading` plus `italic` word positions | Every home section. **Written for the site; needs Ali's approval** |
-| `roadmap` | `lede`; `stations[]` (`id`, `name`, `what`, `get`); `joins[]` (`id`, `label`, `at`, `color`, `note`), the branch lines where a project can join | The metro map. **Written for the site; needs Ali's approval** |
+| `story` | The home page's narrative: `hero` (lines, scattered word, tagline, sorted phrase, the six notes), then `problem`, `solution`, `how`, `roadmap`, `proof`, `person`, `together`, `cta` (the floating pill: `idle`, `picked`, `action`), `roadmap.send` (the form's copy), `contact`, each with an `index`, a `label` and usually a `heading` plus `italic` word positions | Every home section. **Written for the site; needs Ali's approval** |
+| `stationMessage()` | Builds the WhatsApp/email text from the roadmap form | The protocol |
+| `roadmap` | `lede`; `stations[]` (`id`, `name`, `what`, `get`, `terms[]` = the keyword tags); `joins[]` (`id`, `label`, `at`, `color`, `note`), the branch lines where a project can join | The metro map. **Written for the site; needs Ali's approval** |
 
 Ali's contact details are public on purpose: they appear on the live site.
 
@@ -108,7 +110,7 @@ Setup (also in `README.md`):
 
 **Limits:**
 - Only the first 100 blocks of a page are read, and nested blocks such as toggles and sub-lists are skipped.
-- Notion image links expire after about an hour. Mirror them before launch (Phase 4).
+- Notion image links expire after about an hour. The Phase 6 dashboard replaces Notion, which removes this problem.
 - If Notion fails, the site logs the error and falls back to Markdown.
 
 ### 2. Markdown: the fallback and local development
@@ -127,7 +129,7 @@ tags: [Journey, Reflection]
 Body in Markdown…
 ```
 
-The 3 posts there now (`translation-is-product-work`, `frameworks-are-tools`, `the-next-person`) are **placeholders drafted from Ali's old site copy**. Each starts with a "Seed post" note. Replace them in Phase 1.
+The 3 posts there now (`translation-is-product-work`, `frameworks-are-tools`, `the-next-person`) are **placeholders drafted from Ali's old site copy**. Each starts with a "Seed post" note. Replace them in Phase 5.
 
 Post HTML is injected as-is, so only Ali or the agency should write posts.
 
@@ -135,16 +137,18 @@ Post HTML is injected as-is, so only Ali or the agency should write posts.
 
 | Content | Source | Status |
 |---|---|---|
-| Person, roles, intro, contact | Ali's Bubble site | Real. Confirm with Ali in Phase 1 |
+| Person, roles, intro, contact | Ali's Bubble site | Real. Confirm with Ali in Phase 5 |
 | Projects (text and images) | Ali's Bubble site and Supabase bucket | Real |
 | Paths, principles, journey, working style | Ali's Bubble site, lightly edited | Real; needs Ali's sign-off |
+| Living philosophy (`philosophy`): research topics and recent changes | Written for this site | **Placeholder.** Ali's real ones needed |
+| Station keyword tags, protocol and methodology copy | Written for this site | Needs Ali's sign-off |
 | Sorting Room fragments and stage captions | Written for this site | Invented examples. Check that Ali is happy with them |
 | Stats | Derived from his projects | **Confirm** |
 | Journal posts | Drafted by us | **Placeholder** |
 | Mind teaser copy | Written for this site | **Stale.** It says "Soon / on its way" |
-| `/mind` scattered ideas (`IDEAS` in `world.ts`) | Written for this site; each maps to a real plaque | Not wired up yet (Phase 5) |
+| `/mind` scattered ideas (`IDEAS` in `world.ts`) | Written for this site; each maps to a real plaque | Not wired up yet (Phase 8) |
 
-## Phase 1 intake checklist
+## Phase 5 intake checklist
 
 When the user sends content:
 

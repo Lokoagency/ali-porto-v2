@@ -25,13 +25,13 @@ If you've just been handed this project, read this first. It covers what the pro
 
 | Area | Status | Notes |
 |---|---|---|
-| Home page (`/`) | Built; the narrative was rewritten 4 Oct | It tells one story: problem → solution → how → roadmap → proof → person → together → contact. Includes the metro-map roadmap. See `ARCHITECTURE.md` |
+| Home page (`/`) | Built; the narrative was rewritten 4 Oct (3 rounds) | It tells one story: problem → philosophy → methodology → protocol → proof → person → together → contact. Includes the metro-map protocol and the "tell Ali where you are" form. See `ARCHITECTURE.md` |
 | Case studies (`/work/[slug]`) | Built | 7 projects, statically generated |
 | Journal (`/journal`, `/journal/[slug]`) | Built | Notion isn't connected yet; the 3 Markdown posts are placeholders |
-| Ali's mind (`/mind`) | Paused until Phase 7 | Working 3D house. See `MIND.md` |
+| Ali's mind (`/mind`) | Paused until Phase 8 | Working 3D house. See `MIND.md` |
 | Content | Waiting on the user | They will send Ali's real content: Phase 5 |
-| SEO and social | Not started | No share images, sitemap, robots file or 404 page: Phases 8–9 |
-| Deployment | Not started | Vercel is planned: Phase 9 |
+| SEO and social | Not started | No share images, sitemap, robots file or 404 page: Phases 9–10 |
+| Deployment | Not started | Vercel is planned: Phase 10 |
 | Version control | Git | Baseline backup on GitHub at `Lokoagency/ali-porto` (`main`, commit `6129be9`). Don't push over it until the client approves |
 
 Quality after Phase 0 (Lighthouse, production build, home page):
@@ -48,10 +48,11 @@ Quality after Phase 0 (Lighthouse, production build, home page):
 1. **GitHub backup.** Done 4 Oct.
 2. **Narrative**, 3. **Roadmap**, 4. **Journal only in the nav.** Built 4 Oct, plus review round 2. Waiting for the client's approval.
 5. **Content.** Bring in the user's content and replace placeholders.
-6. **Optimization.** Lighter animation setup (LazyMotion), more server components, aim for 90+ on mobile.
-7. **The deep dive, Ali's mind (`/mind`).** Lighting, character, the scattered-ideas hunt.
-8. **Polish and UX.** Every width, both themes, a 404 page, accessibility, `/mind` included.
-9. **Launch.** SEO and share images, analytics, Vercel, domain, Notion images.
+6. **Admin dashboard (Supabase).** The journal, work inside the real templates, drag-and-drop featured work, and per-client tracking on the metro map.
+7. **Optimization.** Lighter animation setup (LazyMotion), more server components, aim for 90+ on mobile.
+8. **The deep dive, Ali's mind (`/mind`).** Lighting, character, the scattered-ideas hunt.
+9. **Polish and UX.** Every width, both themes, a 404 page, accessibility, `/mind` included.
+10. **Launch.** SEO and share images, analytics, Vercel, domain.
 
 The user asked to go phase by phase. Don't drift into later phases unless asked.
 
@@ -105,7 +106,7 @@ The user asked to go phase by phase. Don't drift into later phases unless asked.
 
 - **Git** has been set up since 4 Oct. Older /mind file versions are in %TEMP%/mind-backup/ (temporary).
 - **Leftover starter files:** the favicon is still the default Next.js one, and `public/` holds unused starter SVGs (`file.svg`, `globe.svg`, `next.svg`, `vercel.svg`, `window.svg`).
-- **Stale teaser copy:** the home page Mind teaser still says "Soon" and "on its way", although `/mind` exists but is paused. Decide in Phase 1 or Phase 5.
+- **Stale teaser copy:** the home page Mind teaser still says "Soon" and "on its way", although `/mind` exists but is paused. Decide in Phase 5.
 - **Placeholder content:**
   - The 3 journal posts in `content/journal/` were drafted from Ali's old copy.
   - The `stats` numbers (30+, 120+, 2, 4 yrs) need Ali's confirmation.
@@ -114,8 +115,8 @@ The user asked to go phase by phase. Don't drift into later phases unless asked.
   - Notion image links expire after an hour, so they need mirroring before launch.
   - Only the first 100 blocks of a Notion page are read, with no nested blocks.
   - Markdown and Notion HTML are injected unsanitised. That's fine while only Ali writes.
-- **Dim words:** the scroll-revealed words in "How I build" start at 30% opacity, which is below contrast guidelines by design. Lighthouse flags it. Decide in Phase 3.
-- **Missing pages and metadata:** no `not-found.tsx`, `sitemap.ts`, `robots.ts`, `metadataBase` or Open Graph images (Phase 4).
+- **Dim words:** the scroll-revealed words in "The philosophy" start at 30% opacity, which is below contrast guidelines by design. Lighthouse flags it. Decide in Phase 9.
+- **Missing pages and metadata:** no `not-found.tsx`, `sitemap.ts`, `robots.ts`, `metadataBase` or Open Graph images (Phase 10).
 - **`/mind` specifics** are in `MIND.md`.
 
 ## Things that live outside this folder

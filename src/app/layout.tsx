@@ -23,9 +23,25 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: { default: "Have you met Ali?", template: "%s · Ali Farghaly" },
+  title: { default: "Have you met Ali? · No-code developer & product manager", template: "%s · Ali Farghaly" },
   description:
-    "Ali Farghaly — no-code developer and product manager. Bring the messy idea; leave with a roadmap, a build, and the docs.",
+    "Ali Farghaly, no-code developer (Bubble.io) and product manager. Problem first: product discovery, requirements, MVP development, agile delivery, QA testing and technical documentation, one person from the problem to a product your team can run.",
+  keywords: [
+    "no-code developer",
+    "Bubble.io developer",
+    "product manager",
+    "product discovery",
+    "requirements gathering",
+    "MVP development",
+    "agile delivery",
+    "sprint planning",
+    "QA testing",
+    "technical documentation",
+    "process automation",
+    "digital transformation",
+    "admin dashboards",
+    "web and mobile apps",
+  ],
 };
 
 // Runs before paint so the theme never flashes.

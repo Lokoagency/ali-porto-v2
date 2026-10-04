@@ -13,7 +13,8 @@ import { Contact } from "@/components/home/Contact";
 import { FloatingCta } from "@/components/home/FloatingCta";
 
 // The home page tells one story (copy in src/content/site.ts → story):
-// the problem → the solution → how → the roadmap → proof → the person → working together → let's talk.
+// the problem → the philosophy → the methodology → the protocol (roadmap) → proof → the person →
+// working together → let's talk. The Sorting Room (the messy → clear animation) still opens it.
 // The journal lives on its own page, reached from the nav. From the roadmap on, a
 // floating "let's talk" pill rides along until the contact section.
 export default function Home() {
@@ -23,8 +24,8 @@ export default function Home() {
       <Hero />
       <Numbers />
       <IdeaSorter />
-      <Paths />
       <Principles />
+      <Paths />
       <Roadmap />
       <Work />
       <Journey />

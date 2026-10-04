@@ -11,7 +11,8 @@ export const ROADMAP_PICK = "roadmap:pick";
 
 /**
  * A small "let's talk" pill that rides along once the visitor reaches the roadmap,
- * and steps aside when the contact section is on screen. Not a page, not a popup.
+ * and steps aside when the contact section (or the roadmap form) is on screen. Once a
+ * station is picked it names it and leads to the roadmap form. Not a page, not a popup.
  */
 export function FloatingCta() {
   const reduce = useReducedMotion();
@@ -21,12 +22,16 @@ export function FloatingCta() {
   useEffect(() => {
     const roadmap = document.getElementById("roadmap");
     const contact = document.getElementById("contact");
+    const send = document.getElementById("tell-ali");
     if (!roadmap || !contact) return;
     let frame = 0;
     const check = () => {
       frame = 0;
       const h = innerHeight;
-      setShow(roadmap.getBoundingClientRect().top < h * 0.5 && contact.getBoundingClientRect().top > h * 0.85);
+      // it steps aside while the roadmap form ("tell Ali where you are") or the contact section is on screen
+      const form = send?.getBoundingClientRect();
+      const formOnScreen = !!form && form.top < h && form.bottom > 0;
+      setShow(roadmap.getBoundingClientRect().top < h * 0.5 && contact.getBoundingClientRect().top > h * 0.85 && !formOnScreen);
     };
     const onScroll = () => {
       if (!frame) frame = requestAnimationFrame(check);
@@ -58,7 +63,7 @@ export function FloatingCta() {
             className="pointer-events-auto"
           >
             <Link
-              href="#contact"
+              href={station ? "#tell-ali" : "#contact"}
               className="press glass group flex h-12 items-center gap-3 rounded-full py-1.5 pl-5 pr-1.5 text-[0.88rem] text-ink shadow-[var(--shadow-lg)]"
             >
               <span className="relative flex size-2">

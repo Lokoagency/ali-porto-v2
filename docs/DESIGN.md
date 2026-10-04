@@ -2,7 +2,9 @@
 
 ## The idea
 
-**The story (since 4 Oct): Ali tackles the problem first, then the solution, not "the idea".** The hero says it gently: "Your idea is brilliant. Let's start with the *problem.*" Ali is **one person on one path**: he builds the product and the system that runs it, so there's no handover. Don't present his work as two separate tracks. The page runs as chapters: problem → solution → how → roadmap → proof → person → working together → let's talk. Keep new sections inside that arc.
+**The story (since 4 Oct): Ali tackles the problem first, then the solution, not "the idea".** The hero says it gently: "Your idea is brilliant. Let's start with the *problem.*" Ali is **one person on one path**: he builds the product and the system that runs it, so there's no handover. Don't present his work as two separate tracks. The page runs as chapters: problem → **philosophy → methodology → protocol** → proof → person → working together → let's talk. Ali is a living philosophy (researched, updated with trends). It becomes a methodology, which gives the client a protocol to follow and track. The messy → clear identity stays: the Sorting Room opens the story unchanged. Keep new sections inside that arc.
+
+**Keywords:** keep Ali's warm voice, but use the words corporates search for (product discovery, requirements, MVP, no-code development, agile delivery, QA, technical documentation, process automation) where they fit naturally, and as small mono tags on the protocol stations. No keyword stuffing.
 
 **Messy in → clear out.** Ali takes a client's tangled idea and organizes it into a roadmap, a build and the docs. The design shows that over and over: scattered things settle into order. When you add something, ask: *does this show disorder becoming order, or support someone who wants that?* If it does neither, it probably doesn't belong.
 
@@ -84,6 +86,8 @@ These come straight from the user's feedback; follow them.
 | Sorting Room (`IdeaSorter`) | The scroll-driven particle funnel: gates → cut noise → lanes → board |
 | "Clear out." | `SortText` |
 | The solution (`Paths`) | One card: a wireframe assembles itself (Build it), a dot rides the line through Ali's portrait, a kanban card walks to Done (Run it). The toolbox sorts itself, and its last chip keeps cycling "Notion → Linear" to show the stack never stops growing |
+| The philosophy | The edition badge pulses. The "currently researching" topic rolls over, with a reading bar filling for each one |
+| Tell Ali where you are | The heading's station rolls to whatever you pick on the map |
 | Floating CTA | A glass pill rises in from the roadmap on and names the station you picked; it steps aside at the contact section |
 | How I build (`Principles`) | The quote reads itself as you scroll. Each glyph draws in, then keeps an idle motion that matches its meaning |
 | Work | Cards slide into place when you filter. The dots on the "next idea" card sort into a line |

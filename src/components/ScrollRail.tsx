@@ -6,9 +6,9 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } fr
 const sections = [
   { id: "top", label: "Hello" },
   { id: "process", label: "The problem" },
-  { id: "paths", label: "The solution" },
-  { id: "how", label: "How I build" },
-  { id: "roadmap", label: "The roadmap" },
+  { id: "how", label: "The philosophy" },
+  { id: "paths", label: "The methodology" },
+  { id: "roadmap", label: "The protocol" },
   { id: "work", label: "Proof" },
   { id: "path", label: "The person" },
   { id: "together", label: "Working together" },

@@ -6,7 +6,7 @@ Each phase ends with a review in the browser and a production build.
 > Docs: start with [`docs/HANDOFF.md`](docs/HANDOFF.md). Every change gets an entry in [`docs/CHANGELOG.md`](docs/CHANGELOG.md), an update to the relevant doc, and an update to this plan. The rules are in `CLAUDE.md`.
 
 **Where things stand (4 Oct 2026).** The site has four routes:
-- `/`: Hero, Numbers, Sorting Room, What I do, Principles, Work, The path, How I work, Journal, Mind teaser, Contact
+- `/`: Hero, Numbers, then the story: 01 The problem (Sorting Room), 02 The philosophy, 03 The methodology, 04 The protocol (metro map), 05 Proof, 06 The person, 07 Working together, Mind teaser, 08 Let's talk
 - `/work/[slug]`: 7 case studies
 - `/journal` and `/journal/[slug]`: Notion-backed, with a Markdown fallback
 - `/mind`: on hold
@@ -47,7 +47,7 @@ Measured with Lighthouse on a production build of the home page:
 
 ## Phase order (set by the user, 4 Oct 2026)
 
-The client approves this version before anything replaces it. Updated 4 Oct (review round 2): after approval the order is **Content (5) → Optimization (6) → Deep dive, `/mind` (7) → Polish (8) → Launch (9)**. Polish comes after the deep dive so it covers `/mind` too.
+The client approves this version before anything replaces it. Updated 4 Oct (review round 2): after approval the order is **Content (5) → Admin dashboard (6) → Optimization (7) → Deep dive, `/mind` (8) → Polish (9) → Launch (10)**. The dashboard comes before optimization because it changes where the data comes from. Polish comes after the deep dive so it covers `/mind` too.
 
 ## Phase 1: GitHub backup (done)
 
@@ -59,6 +59,7 @@ The approved-baseline backup is at https://github.com/Lokoagency/ali-porto (bran
 
 - Done: a gentle tone. The hero reads "Your idea is brilliant. But first, the problem." The chapters run problem → solution → how → roadmap → proof → person → together → contact, and the copy lives in `story` in `site.ts`.
 - Review round 2 (4 Oct): the headline became "Your idea is brilliant. Let's start with the problem." The solution is "one person, one path" (one card, not two). The stack says it isn't the limit. Light mode is the default. A floating "Let's talk" pill rides along from the roadmap on.
+- Round 3 (4 Oct): **philosophy → methodology → protocol**. Ali is a living philosophy (an edition badge, what he's researching now, recent changes). It becomes a methodology (one person, one path), which gives the client a protocol to follow and track (the metro map). The Sorting Room and its messy → clear animation are unchanged. Corporate keywords are woven into the copy, the station tags and the page metadata.
 - Next: Ali reviews the wording.
 
 ## Phase 3: The client roadmap (metro-map style) — built 4 Oct, waiting for the client's approval
@@ -68,7 +69,8 @@ The approved-baseline backup is at https://github.com/Lokoagency/ali-porto (bran
 2. The client sees where they are on the map and what comes next.
 
 - Done: an illustrated metro map on the home page (`home/Roadmap.tsx`), in the journal's old spot. It has 8 stations, 4 branch lines (where Ali can join), an auto-riding train, a "you are here" panel, and a vertical version for phones.
-- Later, if wanted: a private, per-client tracker on top of it.
+- Round 3: it's now "The protocol". Each station has keyword tags, and a "tell Ali where you are" form sends the station plus a line by WhatsApp or email (prefilled, nothing stored).
+- The private per-client tracker is part of Phase 6.
 
 ## Phase 4: Journal only in the nav — done 4 Oct
 
@@ -86,7 +88,29 @@ The approved-baseline backup is at https://github.com/Lokoagency/ali-porto (bran
 
 **Done when** Ali has read every page and approved it.
 
-## Phase 6: Optimization (performance and code health)
+## Phase 6: Admin dashboard for Ali (with client tracking)
+
+**Goal:** Ali runs his own site (journal, work, featured work) and tracks each client on the protocol, **without being able to break the design**.
+
+**Stack:** Supabase, the project Ali already uses for images: Postgres for the data, Auth for the login, Storage for images. The site keeps static pages and refreshes on demand when Ali saves (`revalidateTag`), so it stays fast.
+
+- **Login:** `/admin`, Ali only (Supabase Auth, magic link or password plus row-level security). Not linked from the site.
+- **Data moves into the database:** `projects.ts`, the featured order and the journal are seeded into tables from today's files, so nothing is retyped. Ali's copy in `site.ts` can follow later.
+- **Journal:** write, edit, schedule and publish posts (rich text or Markdown, cover image, tags, a draft/published switch). The preview uses the real post template. This replaces the Notion plan.
+- **Work, inside the real design:** add, edit and remove projects in a form that renders **inside the site's own card and case-study templates**, so Ali sees exactly what visitors will see.
+  - Fields have the limits the design needs (title length, a two-line summary, image ratio and size), so a project can't overflow a card.
+  - Screenshots upload to Storage and are resized automatically.
+  - Statuses: Live, Private, Obsolete, and draft (hidden).
+- **Featured work, drag and drop:** a board that shows the home page's Work grid as it really looks (the first card is double-width). Ali drags projects in, out and around; the site updates on save.
+- **Client tracking (the protocol):**
+  - Ali creates a client, sets their station on the metro line, and ticks off each station's deliverables with notes and dates.
+  - The client gets a private link (`/track/<token>`) showing the same metro map with **their** train at their station, what's done and what's next.
+- **Requests inbox, optional:** the roadmap's "tell Ali where you are" can also save to the dashboard, next to WhatsApp and email.
+- **Guardrails:** drafts, preview before publish, undo and version history, input validation, and nothing deleted for good without confirming.
+
+**Done when** Ali has posted to the journal, re-ordered featured work and updated a client's station from the dashboard, and the site still looks right on every width.
+
+## Phase 7: Optimization (performance and code health)
 
 **Goal:** a mobile performance score of at least 90 under real throttling, with the motion and feel kept.
 
@@ -99,7 +123,7 @@ The approved-baseline backup is at https://github.com/Lokoagency/ali-porto (bran
 
 **Done when** the targets hold on two consecutive runs and nothing looks or moves differently.
 
-## Phase 7: The deep dive, Ali's mind (`/mind`)
+## Phase 8: The deep dive, Ali's mind (`/mind`)
 
 **Goal:** a cozy, explorable home with character, running smoothly on ordinary laptops.
 
@@ -123,13 +147,7 @@ What's left:
 
 ---
 
-## What we need from you
-
-- **Phase 1:** the content (copy, project details, images and journal posts).
-- **Phase 1:** whether Ali will use Notion for the journal, and access to it.
-- **Phase 4:** the domain, an analytics preference, and approval of the share-image design.
-
-## Phase 8: Polish and UX
+## Phase 9: Polish and UX
 
 **Goal:** every section feels deliberate on phone, tablet and desktop, in light and dark themes.
 
@@ -142,7 +160,7 @@ What's left:
 
 **Done when** there are no layout bugs at those widths and keyboard and screen-reader paths work.
 
-## Phase 9: Launch
+## Phase 10: Launch
 
 **Goal:** live on Ali's domain, findable and shareable.
 
@@ -156,7 +174,16 @@ What's left:
   - Environment variables (Notion).
   - The domain and HTTPS.
   - Preview deployments for review.
-- **Notion images:** Notion image links expire after an hour. Mirror them (for example to Supabase) so journal images never break on cached pages.
+- Journal images come from Supabase Storage through the dashboard (Phase 6), so the Notion image-expiry problem goes away.
 - Final checks across devices and browsers: iPhone Safari, Android Chrome, desktop Safari, Firefox and Chrome.
 
 **Done when** the site is live, sharing previews look right, and Ali can publish a journal post himself.
+
+---
+
+## What we need from you
+
+- **Phase 2 (now):** Ali's approval of the narrative, and his real "currently researching" topics and recent changes for the living philosophy.
+- **Phase 5:** the content (copy, project details, images and journal posts).
+- **Phase 6:** access to Ali's Supabase project (or permission to create the tables there), and how Ali wants to log in.
+- **Phase 10:** the domain, an analytics preference, and approval of the share-image design.

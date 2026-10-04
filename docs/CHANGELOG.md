@@ -4,6 +4,63 @@ Newest first. **Add an entry with every change**, using the template in `DEVELOP
 
 ---
 
+## 2026-10-04: Round 3: philosophy → methodology → protocol, corporate keywords, "tell Ali where you are", the admin-dashboard phase
+
+**What:**
+- **The story's middle is re-chaptered** as philosophy → methodology → protocol. The order is now:
+  1. 01 The problem: the Sorting Room, **unchanged** (the mess, the animation and the sorting are as they were).
+  2. 02 **The philosophy** (`Principles`, moved up).
+  3. 03 **The methodology** (`Paths`, one person, one path).
+  4. 04 **The protocol** (`Roadmap`).
+  5. 05 Proof, 06 The person, 07 Working together, 08 Let's talk.
+- **A living philosophy** (new, inside `Principles`):
+  - An "Edition 2026.10 · Updated Oct 2026" badge, and a line saying it isn't a fixed rulebook.
+  - A "Currently researching" topic that rotates, with a reading bar that fills for each one.
+  - A "Recent changes" list (Added / Changed / Kept).
+  - The data is `philosophy` in `site.ts`. **The topics and changes are placeholders for Ali.**
+- **The methodology** lede now bridges from the philosophy and names the services in words corporates search for (product discovery, no-code development, QA, technical documentation).
+- **The protocol:**
+  - The heading is "A protocol you can follow. A line you can track."
+  - The lede says eight stations, clear deliverables, always know where you are.
+  - Each station shows **keyword tags** (for example Product discovery, Requirements gathering, MVP scope, No-code development, QA testing, UAT, Technical documentation, SOPs).
+- **"Tell Ali where you are"** (in `Roadmap`, `#tell-ali`):
+  - The heading follows the picked station ("My project is at *Design*.").
+  - Fields: name, company, and one line about the project.
+  - Send on WhatsApp or Send by email opens a prefilled message: "Hi Ali, I'm … from …. My project is at Design (station 3 of 8 on your protocol)…". It's built by `stationMessage()` in `site.ts`, and nothing is stored.
+  - Typing in the form stops the train.
+- **The floating pill** steps aside while the form is on screen, and once a station is picked it links to the form.
+- **Nav and footer:** Philosophy, Protocol, Work, Journal. The scroll rail follows the new chapter names.
+- **Search metadata:** a new default title ("No-code developer & product manager"), a keyword-rich description and a `keywords` list.
+- **The plan:**
+  - New **Phase 6: an admin dashboard for Ali** on Supabase. It covers:
+    - the journal;
+    - adding, editing and removing work inside the real card templates, with design-safe limits;
+    - drag-and-drop featured work on a board that shows the real grid;
+    - per-client tracking on the metro map through a private link.
+  - The order is now Content (5) → Admin (6) → Optimization (7) → Deep dive (8) → Polish (9) → Launch (10).
+
+**Why:** the user's round 3:
+- Add a narrative while keeping the identity, and keep the keywords corporates search for.
+- Ali is a philosophy that updates with trends and research. It turns into a methodology that gives the client a protocol to follow and track.
+- Add a roadmap CTA where the client says where they are and sends it to Ali.
+- Plan an admin dashboard with design templates and drag-and-drop featured work.
+
+Their answers:
+- Re-chapter, but keep the mess and the sorting animation exactly as they are.
+- Weave the keywords in and add small tags.
+- Send by WhatsApp or email, prefilled.
+- The dashboard comes right after Content, with client tracking.
+
+**Verified:**
+- `tsc`, `lint` and `build` are clean.
+- In the browser at 1280 and 375 px:
+  - The section order and the labels are right.
+  - The nav reads Philosophy / Protocol / Work / Journal.
+  - The research topic shows.
+  - The station tags render.
+  - The form builds the right WhatsApp text and mailto link.
+  - There's no sideways scroll.
+
 ## 2026-10-04: Review round 2: one path, an open-ended stack, light by default, the hero line, a floating call to action
 
 **What:**

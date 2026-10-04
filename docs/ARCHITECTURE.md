@@ -49,16 +49,16 @@ Metadata: `layout.tsx` sets the title template (`"%s · Ali Farghaly"`, default 
 
 ## Home page sections (`src/app/page.tsx`, in order)
 
-`ScrollRail` (home only) sits on top of all of them. So does `home/FloatingCta.tsx`: a glass "Let's talk" pill fixed at the bottom centre, visible from the roadmap until the contact section (it checks on scroll, throttled to one frame). It names the station the visitor picked on the roadmap, via the `roadmap:pick` window event (`ROADMAP_PICK`). Labels, numbers and headlines come from `story` in `src/content/site.ts`. IDs are what the nav, the scroll rail and anchor links use. The order tells a story: problem → solution → how → roadmap → proof → person → working together → let's talk. The journal isn't on the home page; it's in the nav.
+`ScrollRail` (home only) sits on top of all of them. So does `home/FloatingCta.tsx`: a glass "Let's talk" pill fixed at the bottom centre, visible from the roadmap until the contact section, and hidden while the `#tell-ali` form is on screen. Once a station is picked it links to that form (it checks on scroll, throttled to one frame). It names the station the visitor picked on the roadmap, via the `roadmap:pick` window event (`ROADMAP_PICK`). Labels, numbers and headlines come from `story` in `src/content/site.ts`. IDs are what the nav, the scroll rail and anchor links use. The order tells a story: problem → philosophy → methodology → protocol → proof → person → working together → let's talk. The journal isn't on the home page; it's in the nav.
 
 | # | Component | `id` | What it does |
 |---|---|---|---|
 | — | `home/Hero.tsx` | `top` | The hero. Details below |
 | — | `home/Numbers.tsx` | — (aria-label "Ali in numbers") | 4 stats from `stats` that count up when visible |
 | 01 | `home/IdeaSorter.tsx` | `process` | "The problem": the Sorting Room. Details below |
-| 02 | `home/Paths.tsx` | `paths` | "The solution": **one person, one path**. One card with two halves (Build it, Run it), each with a looping sketch, joined by a junction with Ali's portrait. Then the stack: tool chips, a cycling "knows → picks up" chip and a note that the list isn't the limit |
-| 03 | `home/Principles.tsx` | `how` | "How I build": a scroll-revealed quote and 4 principle cards with drawn glyphs |
-| 04 | `home/Roadmap.tsx` | `roadmap` | "The roadmap": the metro map. Details below |
+| 02 | `home/Principles.tsx` | `how` | "The philosophy": the scroll-revealed quote, then the **living philosophy** (an edition badge, a rotating "currently researching" topic with a reading bar, recent changes; data in `philosophy`), then 4 principle cards with drawn glyphs |
+| 03 | `home/Paths.tsx` | `paths` | "The methodology": **one person, one path**. One card with two halves (Build it, Run it), each with a looping sketch, joined by a junction with Ali's portrait. Then the stack: tool chips, a cycling "knows → picks up" chip and a note that the list isn't the limit |
+| 04 | `home/Roadmap.tsx` | `roadmap` | "The protocol": the metro map, then the "tell Ali where you are" form (`#tell-ali`). Details below |
 | 05 | `home/Work.tsx` | `work` | "Proof": project cards, the next-idea card and the filter |
 | 06 | `home/Journey.tsx` | `path` | "The person": the dark band, a translation card and a timeline |
 | 07 | `home/HowIWork.tsx` | `together` | "Working together": 4 cards from `workingStyle`, each with its own looping sketch |
@@ -91,6 +91,8 @@ Metadata: `layout.tsx` sets the title template (`"%s · Ali Farghaly"`, default 
   - "You are here" advances every 3.2 s while on screen. It stops once the visitor clicks a station or a "Where are you now?" chip. Reduced motion turns the auto-advance off.
   - The panel (`AnimatePresence`, keyed) shows the station, what happens there, what you get, and the next stop.
 - **Phones** (below `md`) get a vertical list version of the line.
+- **The panel** also shows each station's keyword tags (`terms`).
+- **"Tell Ali where you are"** (`SendStation`, `#tell-ali`): name, company and a one-line note. The two links (WhatsApp at `contact.whatsapp`, email at `contact.email`) carry a message built by `stationMessage()` in `site.ts`. Nothing is stored. Focusing the form pins the current station. Picking a station also fires `roadmap:pick`, which the floating pill listens to.
 - **Data:** `roadmap` in `site.ts`. To move stations or branches, edit `LINE`, `AT` and `BRANCH`. Stations must sit on the line.
 
 **Work** (`home/Work.tsx`):
@@ -112,7 +114,7 @@ Metadata: `layout.tsx` sets the title template (`"%s · Ali Farghaly"`, default 
 
 | File | Role |
 |---|---|
-| `Nav.tsx` | Fixed glass pill: Process, Roadmap, Work, Journal, theme toggle, "Let's talk", animated mobile menu. The active-section pill moves between items (`layoutId`) and follows whichever section is at the middle of the viewport. **It never hides on scroll.** Hidden on `/mind`. |
+| `Nav.tsx` | Fixed glass pill: Philosophy (`#how`), Protocol (`#roadmap`), Work, Journal, theme toggle, "Let's talk", animated mobile menu. The active-section pill moves between items (`layoutId`) and follows whichever section is at the middle of the viewport. **It never hides on scroll.** Hidden on `/mind`. |
 | `Footer.tsx` | Page and contact links, "Built with care · No idea left unsorted". Hidden on `/mind`. |
 | `SmoothScroll.tsx` | Lenis (`lerp 0.12`), exposed as `window.__lenis`. Catches `#hash` and `/#hash` links in the capture phase and smooth-scrolls to them. Resets scroll on route change. Off on `/mind` and for reduced motion. |
 | `ScrollRail.tsx` | Home only, `xl` screens and up. A section index on the right (labels appear on hover) and a back-to-top button with a progress ring after 700 px. |

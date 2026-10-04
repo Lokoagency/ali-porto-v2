@@ -1,6 +1,6 @@
 # `/mind`: "A deep dive into Ali's mind"
 
-> **Status: on hold until Phase 5** (the user's decision, 4 Oct 2026). Don't work on it unless asked. It's left in a clean, working state.
+> **Status: on hold until Phase 8** (the user's decision, 4 Oct 2026). Don't work on it unless asked. It's left in a clean, working state.
 
 ## What it is
 
@@ -159,7 +159,7 @@ await __bench()
   - Hall mirror: inspect it (`(-0.95, 1.2)`, yaw π/2, then E).
   - Study mirror: sit at the desk, then set yaw to about 1.25.
 
-## Groundwork for Phase 5
+## Groundwork for Phase 8
 
 | Piece | Where | Status |
 |---|---|---|

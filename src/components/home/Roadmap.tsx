@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, animate, motion, useInView, useMotionValue, useReducedMotion, useTransform } from "motion/react";
-import { roadmap, story, type StationId } from "@/content/site";
+import { contact, roadmap, stationMessage, story, type StationId } from "@/content/site";
 import { Arrow, Reveal, SectionLabel, SplitHeading, easeOut } from "../primitives";
 import { ROADMAP_PICK } from "./FloatingCta";
 
@@ -74,6 +74,69 @@ const distOf = (p: P) => {
 };
 const PATH = `M${LINE.map((p) => p.join(" ")).join(" L")}`;
 const ids = roadmap.stations.map((s) => s.id);
+
+/** "Tell Ali where you are": the picked station plus a line, sent as a WhatsApp or email message. */
+function SendStation({ station, n, joining, onEngage }: { station: string; n: number; joining?: string; onEngage: () => void }) {
+  const [name, setName] = useState("");
+  const [company, setCompany] = useState("");
+  const [note, setNote] = useState("");
+  const t = story.roadmap.send;
+  const text = stationMessage({ name, company, station, n, total: roadmap.stations.length, joining, note });
+  const wa = `${contact.whatsapp}?text=${encodeURIComponent(text)}`;
+  const mail = `mailto:${contact.email}?subject=${encodeURIComponent(`My project is at ${station}`)}&body=${encodeURIComponent(text)}`;
+  const field =
+    "h-11 w-full rounded-full border border-line bg-card px-4 text-[0.9rem] text-ink outline-none transition-[border-color,box-shadow] duration-300 placeholder:text-muted focus:border-teal focus:shadow-[0_0_0_4px_var(--teal-tint)]";
+  return (
+    <Reveal id="tell-ali" className="mt-4 grid gap-6 rounded-[28px] border border-line bg-card p-6 md:p-8 lg:grid-cols-[1fr_1.4fr] lg:items-center">
+      <div>
+        <p className="eyebrow">{t.eyebrow}</p>
+        <p className="mt-3 font-display text-[clamp(1.6rem,3vw,2.2rem)] leading-tight">
+          {t.heading}{" "}
+          <span className="relative inline-grid overflow-hidden align-bottom">
+            <AnimatePresence mode="popLayout" initial={false}>
+              <motion.span
+                key={station}
+                className="col-start-1 row-start-1 font-display-italic text-teal"
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: "0%", opacity: 1 }}
+                exit={{ y: "-100%", opacity: 0 }}
+                transition={{ duration: 0.4, ease: easeOut }}
+              >
+                {station}.
+              </motion.span>
+            </AnimatePresence>
+          </span>
+        </p>
+        <p className="mt-3 text-[0.85rem] leading-relaxed text-muted">{t.fine}</p>
+      </div>
+      <form className="grid gap-3 sm:grid-cols-2" onFocus={onEngage} onSubmit={(e) => e.preventDefault()}>
+        <input className={field} value={name} onChange={(e) => setName(e.target.value)} placeholder={t.name} aria-label={t.name} autoComplete="name" />
+        <input className={field} value={company} onChange={(e) => setCompany(e.target.value)} placeholder={t.company} aria-label={t.company} autoComplete="organization" />
+        <input className={`${field} sm:col-span-2`} value={note} onChange={(e) => setNote(e.target.value)} placeholder={t.note} aria-label={t.note} />
+        <a
+          href={wa}
+          target="_blank"
+          rel="noreferrer"
+          className="press group flex h-12 items-center justify-center gap-2 rounded-full bg-ink px-5 text-[0.9rem] font-medium text-paper shadow-[var(--shadow-md)] hover:bg-teal"
+        >
+          {t.whatsapp}
+          <span className="transition-transform duration-300 group-hover:translate-x-0.5">
+            <Arrow />
+          </span>
+        </a>
+        <a
+          href={mail}
+          className="press group flex h-12 items-center justify-center gap-2 rounded-full border border-line-strong px-5 text-[0.9rem] text-ink hover:border-teal hover:text-teal"
+        >
+          {t.email}
+          <span className="transition-transform duration-300 group-hover:translate-x-0.5">
+            <Arrow />
+          </span>
+        </a>
+      </form>
+    </Reveal>
+  );
+}
 
 export function Roadmap() {
   const ref = useRef<HTMLElement>(null);
@@ -318,6 +381,13 @@ export function Roadmap() {
               <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-soft">{station.what}</p>
               <p className="mt-4 font-mono text-[0.66rem] uppercase tracking-[0.14em] text-muted">You get</p>
               <p className="mt-1 text-[0.95rem] text-ink">{station.get}</p>
+              <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Also known as">
+                {station.terms.map((t) => (
+                  <li key={t} className="rounded-full border border-line bg-card px-2.5 py-0.5 font-mono text-[0.64rem] uppercase tracking-[0.08em] text-ink-soft">
+                    {t}
+                  </li>
+                ))}
+              </ul>
               <div className="mt-auto pt-6">
                 {next ? (
                   <button onClick={() => pick(active + 1)} className="press group flex items-center gap-2 text-[0.9rem] text-ink hover:text-teal">
@@ -337,6 +407,8 @@ export function Roadmap() {
           </AnimatePresence>
         </div>
       </div>
+
+      <SendStation station={station.name} n={active + 1} joining={joining?.label} onEngage={() => setPinned(true)} />
     </section>
   );
 }

@@ -7,8 +7,8 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/
 import { ThemeToggle } from "./ThemeToggle";
 
 const links = [
-  { href: "/#process", id: "process", label: "Process" },
-  { href: "/#roadmap", id: "roadmap", label: "Roadmap" },
+  { href: "/#how", id: "how", label: "Philosophy" },
+  { href: "/#roadmap", id: "roadmap", label: "Protocol" },
   { href: "/#work", id: "work", label: "Work" },
   { href: "/journal", id: "journal", label: "Journal" },
 ];
