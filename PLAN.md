@@ -45,7 +45,35 @@ Measured with Lighthouse on a production build of the home page:
 
 ---
 
-## Phase 1: Content (waiting on your content)
+## Phase order (set by the user, 4 Oct 2026)
+
+The client approves this version before anything replaces it. Ali's mind stays last.
+
+## Phase 1: GitHub backup (done)
+
+The approved-baseline backup is at https://github.com/Lokoagency/ali-porto (branch `main`, commit `6129be9`). Don't push new work over it until the client approves; commit locally, or on a branch, until then.
+
+## Phase 2: Narrative (storytelling)
+
+**Goal:** the site tells one story. **Ali tackles the problem first, then the solution, not "the idea".** "Your idea is brilliant, but Ali will kill it for you": he strips the idea back to the real problem, then builds what solves it.
+
+- Rewrite the story arc across the hero, the Sorting Room and the section headlines.
+- Waiting on the user's answers to the open questions.
+
+## Phase 3: The client roadmap (metro-map style)
+
+**Goal:** an illustrated, animated map of how a project moves with Ali. It has two jobs:
+1. Ali can join a project at any stage, adapt, and guide the client from there.
+2. The client sees where they are on the map and what comes next.
+
+- **Visual:** a metro map or world map.
+- Scope and details are waiting on the user's answers.
+
+## Phase 4: Journal only in the nav
+
+- Remove the journal section from the home page. The journal stays reachable from the nav (`/journal`).
+
+## Phase 5: Content (waiting on your content)
 
 **Goal:** every word, number, project and image on the site is Ali's real, approved content.
 
@@ -57,7 +85,7 @@ Measured with Lighthouse on a production build of the home page:
 
 **Done when** Ali has read every page and approved it.
 
-## Phase 2: Performance and code health
+## Phase 6: Performance and code health
 
 **Goal:** a mobile performance score of at least 90 under real throttling, with the motion and feel kept.
 
@@ -70,7 +98,7 @@ Measured with Lighthouse on a production build of the home page:
 
 **Done when** the targets hold on two consecutive runs and nothing looks or moves differently.
 
-## Phase 3: Polish and UX
+## Phase 7: Polish and UX
 
 **Goal:** every section feels deliberate on phone, tablet and desktop, in light and dark themes.
 
@@ -83,7 +111,7 @@ Measured with Lighthouse on a production build of the home page:
 
 **Done when** there are no layout bugs at those widths and keyboard and screen-reader paths work.
 
-## Phase 4: Launch
+## Phase 8: Launch
 
 **Goal:** live on Ali's domain, findable and shareable.
 
@@ -102,7 +130,7 @@ Measured with Lighthouse on a production build of the home page:
 
 **Done when** the site is live, sharing previews look right, and Ali can publish a journal post himself.
 
-## Phase 5: Ali's mind (`/mind`), at the end
+## Phase 9: Ali's mind (`/mind`), at the end
 
 **Goal:** a cozy, explorable home with character, running smoothly on ordinary laptops.
 

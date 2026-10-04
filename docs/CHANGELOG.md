@@ -4,6 +4,27 @@ Newest first. **Add an entry with every change**, using the template in `DEVELOP
 
 ---
 
+## 2026-10-04: GitHub backup and the new phase order
+
+**What:**
+- Initialised git and pushed the baseline to https://github.com/Lokoagency/ali-porto (`main`, commit `6129be9`). That's 79 files; `.env*`, `node_modules` and `.next` were excluded by `.gitignore`. The commit identity is "Lokoagency".
+- `PLAN.md` re-ordered to the user's phases:
+  1. Backup
+  2. Narrative ("problem first; Ali kills the idea")
+  3. Client roadmap (metro or world map)
+  4. Journal only in the nav
+  5. Content
+  6. Performance
+  7. Polish
+  8. Launch
+  9. `/mind`
+
+**Why:** the user's instructions. The GitHub copy is a backup until the client approves.
+
+**Verified:** the push succeeded and `main` tracks `origin/main`.
+
+**Follow-ups:** don't push over the baseline without the user's say-so.
+
 ## 2026-10-04: Handoff documentation
 
 **What:**

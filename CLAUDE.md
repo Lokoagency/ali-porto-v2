@@ -25,8 +25,9 @@ Then read whatever the task needs:
 ## Status (keep this current)
 
 - **Phase 0** (review and optimisation): done, 4 Oct 2026.
-- **Phase 1** (content): waiting for the user to send Ali's content.
-- **`/mind` is on hold until Phase 5.** Don't work on it unless the user asks.
+- **Phase 1** (GitHub backup): done, 4 Oct 2026.
+- **Phase 2** (narrative): next, waiting on the user's answers. After it: roadmap (3), journal only in the nav (4), content (5), performance (6), polish (7), launch (8).
+- **`/mind` is on hold until Phase 9.** Don't work on it unless the user asks.
 
 ## Rules
 
@@ -62,7 +63,7 @@ Then read whatever the task needs:
   - install a third-party skill (vet its files first);
   - publish or deploy anything;
   - do anything irreversible.
-- **This folder is not a git repository**, so there is no undo. Back up a file before rewriting it. Recommend `git init` to the user if it still hasn't been done.
+- **Git:** the client-approval baseline is on GitHub at `Lokoagency/ali-porto` (`main`, commit `6129be9`). **Don't push over it until the client approves.** Commit locally, or on a branch, and push only when the user says so.
 
 ## Commands
 

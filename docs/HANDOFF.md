@@ -32,7 +32,7 @@ If you've just been handed this project, read this first. It covers what the pro
 | Content | Waiting on the user | They will send Ali's real content: Phase 1 |
 | SEO and social | Not started | No share images, sitemap, robots file or 404 page: Phase 4 |
 | Deployment | Not started | Vercel is planned: Phase 4 |
-| Version control | None | The folder isn't a git repo. Recommend `git init` |
+| Version control | Git | Baseline backup on GitHub at `Lokoagency/ali-porto` (`main`, commit `6129be9`). Don't push over it until the client approves |
 
 Quality after Phase 0 (Lighthouse, production build, home page):
 
@@ -101,7 +101,7 @@ The user asked to go phase by phase, with `/mind` last. Don't drift into later p
 
 ## Known issues and open questions
 
-- **No git.** Nothing is version-controlled. Backups of older `/mind` files sit in `%TEMP%\mind-backup\`, a temporary folder that can be wiped.
+- **Git** has been set up since 4 Oct. Older /mind file versions are in %TEMP%/mind-backup/ (temporary).
 - **Leftover starter files:** the favicon is still the default Next.js one, and `public/` holds unused starter SVGs (`file.svg`, `globe.svg`, `next.svg`, `vercel.svg`, `window.svg`).
 - **Stale teaser copy:** the home page Mind teaser still says "Soon" and "on its way", although `/mind` exists but is paused. Decide in Phase 1 or Phase 5.
 - **Placeholder content:**
