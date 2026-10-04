@@ -12,7 +12,9 @@ All of Ali's words and data live in data files, so changing copy never means tou
 | Images | Ali's Supabase bucket | Referenced through `asset("file-name.ext")` |
 | `/mind` text (plaques, inspect cards, toasts) | `src/components/mind/world.ts` (`PLAQUES`) and `MindExperience.tsx` (`inspectCard`) | Mostly reuses `site.ts` and `projects.ts` |
 
-Section labels, numbers, headlines and the hero copy now live in `story` in `site.ts` (moved 4 Oct). Some short UI phrases are still inside components:
+**Rule (the user, 4 Oct): never use the word "idea" in site copy.** Say "product" for the client's thing. (`/mind` still has its "scattered ideas" until Phase 8.)
+
+Section labels, numbers, headlines and the hero copy now live in `story` in `site.ts` (moved 4 Oct). Labels read "Chapter · Part" (for example "How · The protocol"). Some short UI phrases are still inside components:
 - `SplitHeading` texts in each section.
 - The `MindTeaser` copy.
 - Contact: "Got a messy idea? Bring it over."
@@ -30,7 +32,7 @@ Moving these into `site.ts` is part of Phase 5.
 | `paths` | The two halves of the one path (keys Builds, Systems): `title` ("Build it", "Run it"), `sub`, `body`, `bullets[]`. Titles also name the stack tabs | The methodology |
 | `philosophy` | `edition`, `updated`, `lede`, `researching[]` (rotating topics), `changes[]` (`{ tag: Added\|Changed\|Kept, text }`). **Placeholders: Ali's real topics needed.** Later edited from the dashboard (Phase 6) | The philosophy |
 | `onePath` | `lede` (the philosophy becomes a method; no handover; keywords), `quote` | The methodology |
-| `stack` | `note` (today's toolbox, not the limit), `learning[]`: `{ knows, next }` pairs cycled on the last chip | The stack |
+| `stack` | `note` (today's toolbox, not the limit), `learning[]`: `{ knows, next }` pairs cycled on the last chip | Knowledge · The stack (`Stack.tsx`) |
 | `principles` | 4 items: `title`, `body`, `glyph` (`heart`\|`nodes`\|`spark`\|`doc`) | How I build |
 | `competencies` | 4 items | **Not used anywhere.** Use it or delete it in Phase 5 |
 | `journey` | 3 chapters: `years`, `role`, `lede`, `body` | The path, `/mind` diploma |
@@ -38,7 +40,7 @@ Moving these into `site.ts` is part of Phase 5.
 | `workingStyle` | 4 items: `title`, `body`, `glyph` (`sun`\|`scope`\|`time`\|`doc`) | Working together, `/mind` fridge |
 | `lanes`, `ideaFragments`, `sorterStages` | The Sorting Room's lanes, raw→clean chips (`{ raw, clean, lane }`), and the 5 stage captions | IdeaSorter |
 | `stats` | `{ value, suffix, label }[]`: 30+, 120+, 2, 4 yrs | Numbers. **Needs Ali's confirmation** |
-| `story` | The home page's narrative: `hero` (lines, scattered word, tagline, sorted phrase, the six notes), then `problem`, `solution`, `how`, `roadmap`, `proof`, `person`, `together`, `cta` (the floating pill: `idle`, `picked`, `action`), `roadmap.send` (the form's copy), `contact`, each with an `index`, a `label` and usually a `heading` plus `italic` word positions | Every home section. **Written for the site; needs Ali's approval** |
+| `story` | The home page's narrative: `hero` (`eyebrow`, `question`, `em`, `who`, `role`, `line`, `primary`, `secondary`, `badge`), then `stack`, `sameCraft` (the translator word), `footer`, `nextCard`, then `problem`, `solution`, `how`, `roadmap`, `proof`, `person`, `together`, `cta` (the floating pill: `idle`, `picked`, `action`), `roadmap.send` (the form's copy), `contact`, each with an `index`, a `label` and usually a `heading` plus `italic` word positions | Every home section. **Written for the site; needs Ali's approval** |
 | `stationMessage()` | Builds the WhatsApp/email text from the roadmap form | The protocol |
 | `roadmap` | `lede`; `stations[]` (`id`, `name`, `what`, `get`, `terms[]` = the keyword tags); `joins[]` (`id`, `label`, `at`, `color`, `note`), the branch lines where a project can join | The metro map. **Written for the site; needs Ali's approval** |
 

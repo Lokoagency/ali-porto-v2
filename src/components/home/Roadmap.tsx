@@ -35,7 +35,7 @@ const AT: Record<StationId, P> = {
 };
 // branch lines: from their own terminus to the station they join
 const BRANCH: Record<string, { from: P; label: P; anchor: "start" | "end" }> = {
-  idea: { from: [110, 385], label: [124, 389], anchor: "start" },
+  fresh: { from: [110, 385], label: [124, 389], anchor: "start" },
   designs: { from: [370, 330], label: [358, 334], anchor: "end" },
   messy: { from: [570, 60], label: [584, 64], anchor: "start" },
   undocumented: { from: [850, 300], label: [864, 304], anchor: "start" },
@@ -83,7 +83,7 @@ function SendStation({ station, n, joining, onEngage }: { station: string; n: nu
   const t = story.roadmap.send;
   const text = stationMessage({ name, company, station, n, total: roadmap.stations.length, joining, note });
   const wa = `${contact.whatsapp}?text=${encodeURIComponent(text)}`;
-  const mail = `mailto:${contact.email}?subject=${encodeURIComponent(`My project is at ${station}`)}&body=${encodeURIComponent(text)}`;
+  const mail = `mailto:${contact.email}?subject=${encodeURIComponent(`${t.heading} ${station}`)}&body=${encodeURIComponent(text)}`;
   const field =
     "h-11 w-full rounded-full border border-line bg-card px-4 text-[0.9rem] text-ink outline-none transition-[border-color,box-shadow] duration-300 placeholder:text-muted focus:border-teal focus:shadow-[0_0_0_4px_var(--teal-tint)]";
   return (

@@ -5,13 +5,14 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } fr
 
 const sections = [
   { id: "top", label: "Hello" },
-  { id: "process", label: "The problem" },
-  { id: "how", label: "The philosophy" },
-  { id: "paths", label: "The methodology" },
-  { id: "roadmap", label: "The protocol" },
-  { id: "work", label: "Proof" },
-  { id: "path", label: "The person" },
-  { id: "together", label: "Working together" },
+  { id: "how", label: "Why · The philosophy" },
+  { id: "process", label: "How · The method" },
+  { id: "paths", label: "How · One path" },
+  { id: "roadmap", label: "How · The protocol" },
+  { id: "together", label: "How · Working together" },
+  { id: "work", label: "Knowledge · Proof" },
+  { id: "path", label: "Knowledge · The path" },
+  { id: "stack", label: "Knowledge · The stack" },
   { id: "contact", label: "Let's talk" },
 ];
 

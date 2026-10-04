@@ -2,7 +2,10 @@
 
 ## The idea
 
-**The story (since 4 Oct): Ali tackles the problem first, then the solution, not "the idea".** The hero says it gently: "Your idea is brilliant. Let's start with the *problem.*" Ali is **one person on one path**: he builds the product and the system that runs it, so there's no handover. Don't present his work as two separate tracks. The page runs as chapters: problem → **philosophy → methodology → protocol** → proof → person → working together → let's talk. Ali is a living philosophy (researched, updated with trends). It becomes a methodology, which gives the client a protocol to follow and track. The messy → clear identity stays: the Sorting Room opens the story unchanged. Keep new sections inside that arc.
+**The story (since 4 Oct, simplified in round 4): hero → why → how → knowledge → let's talk.**
+- **The hero** says who Ali is and why the visitor is here, as a question: "Need a product built, *and run properly?*" It stays calm: one headline, one line, two buttons and the portrait.
+- **Never use the word "idea" in site copy.** The client's thing is their **product**. Ali solves the problem first, then builds the product.
+- Ali is **one person on one path**: he builds the product and the system that runs it, so there's no handover. Don't present his work as two separate tracks. The page runs in chapters: **01 Why** (the philosophy) → **02 How** (the method, one path, the protocol, working together) → **03 Knowledge** (numbers, proof, the path, the stack) → **04 Let's talk**. Ali is a living philosophy (researched, updated with trends). It becomes a methodology, which gives the client a protocol to follow and track. The messy → clear identity stays: the Sorting Room, unchanged, opens "How". Keep new sections inside that arc.
 
 **Keywords:** keep Ali's warm voice, but use the words corporates search for (product discovery, requirements, MVP, no-code development, agile delivery, QA, technical documentation, process automation) where they fit naturally, and as small mono tags on the protocol stations. No keyword stuffing.
 
@@ -48,7 +51,7 @@ Teal leads. **Sun (yellow) and leaf (green) are accents only**, never large area
 | Section spacing | `py-20 md:py-28` |
 | Cards | `bg-card`, `border-line`, large radius (24–32 px) |
 | Nested corners | Concentric: outer radius = inner radius + padding (for example, 28 = 16 + 12) |
-| Glass (`.glass`) | Floating UI only: the nav, tab groups, hero notes, chips |
+| Glass (`.glass`) | Floating UI only: the nav, tab groups, chips, the floating pill |
 | Hover glow (`.spotlight`) | On interactive cards |
 | Press (`.press`) | Scales to 0.97 on press. Use it on every clickable element |
 | Link underline (`.link-draw`) | Draws in on text links |
@@ -82,7 +85,7 @@ These come straight from the user's feedback; follow them.
 
 | Where | What |
 |---|---|
-| Hero | "*mess.*" letters scatter and settle. "*make sense.*" sorts its own letters (`SortText`). Six notes organize around the portrait. The role rotates |
+| Hero | Deliberately calm since round 4: a CSS entrance, the wave, and the portrait's parallax. No loops |
 | Sorting Room (`IdeaSorter`) | The scroll-driven particle funnel: gates → cut noise → lanes → board |
 | "Clear out." | `SortText` |
 | The solution (`Paths`) | One card: a wireframe assembles itself (Build it), a dot rides the line through Ali's portrait, a kanban card walks to Done (Run it). The toolbox sorts itself, and its last chip keeps cycling "Notion → Linear" to show the stack never stops growing |

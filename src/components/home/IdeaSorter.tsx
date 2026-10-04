@@ -396,7 +396,7 @@ export function IdeaSorter() {
   }, [scrollYProgress]);
 
   return (
-    <section id="process" ref={sectionRef} className="relative h-[320vh]" aria-label="How Ali turns a messy idea into a clear plan">
+    <section id="process" ref={sectionRef} className="relative h-[320vh]" aria-label="How Ali turns a messy product into a clear plan">
       <div ref={stageRef} className="sticky top-0 h-[100svh] overflow-hidden">
         {/* Header + stage narration */}
         <div ref={headRef} className="relative z-20 mx-auto flex max-w-[1200px] flex-col gap-5 px-5 pt-24 sm:px-8 md:flex-row md:items-end md:justify-between md:pt-28">

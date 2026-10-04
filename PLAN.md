@@ -6,7 +6,7 @@ Each phase ends with a review in the browser and a production build.
 > Docs: start with [`docs/HANDOFF.md`](docs/HANDOFF.md). Every change gets an entry in [`docs/CHANGELOG.md`](docs/CHANGELOG.md), an update to the relevant doc, and an update to this plan. The rules are in `CLAUDE.md`.
 
 **Where things stand (4 Oct 2026).** The site has four routes:
-- `/`: Hero, Numbers, then the story: 01 The problem (Sorting Room), 02 The philosophy, 03 The methodology, 04 The protocol (metro map), 05 Proof, 06 The person, 07 Working together, Mind teaser, 08 Let's talk
+- `/`: the hero (who Ali is, why you're here), then 01 Why (the philosophy), 02 How (the Sorting Room, one path, the protocol, working together), 03 Knowledge (numbers, proof, the path, the stack), the Mind teaser, 04 Let's talk
 - `/work/[slug]`: 7 case studies
 - `/journal` and `/journal/[slug]`: Notion-backed, with a Markdown fallback
 - `/mind`: on hold
@@ -60,6 +60,7 @@ The approved-baseline backup is at https://github.com/Lokoagency/ali-porto (bran
 - Done: a gentle tone. The hero reads "Your idea is brilliant. But first, the problem." The chapters run problem → solution → how → roadmap → proof → person → together → contact, and the copy lives in `story` in `site.ts`.
 - Review round 2 (4 Oct): the headline became "Your idea is brilliant. Let's start with the problem." The solution is "one person, one path" (one card, not two). The stack says it isn't the limit. Light mode is the default. A floating "Let's talk" pill rides along from the roadmap on.
 - Round 3 (4 Oct): **philosophy → methodology → protocol**. Ali is a living philosophy (an edition badge, what he's researching now, recent changes). It becomes a methodology (one person, one path), which gives the client a protocol to follow and track (the metro map). The Sorting Room and its messy → clear animation are unchanged. Corporate keywords are woven into the copy, the station tags and the page metadata.
+- Round 4 (4 Oct): **simplified**. The hero only says who Ali is and why you're here ("Need a product built, and run properly?"). The page reads why → how → knowledge → let's talk. The word "idea" is gone (it's "product"). The stack moved under Knowledge.
 - Next: Ali reviews the wording.
 
 ## Phase 3: The client roadmap (metro-map style) — built 4 Oct, waiting for the client's approval

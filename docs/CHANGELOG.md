@@ -4,6 +4,51 @@ Newest first. **Add an entry with every change**, using the template in `DEVELOP
 
 ---
 
+## 2026-10-04: Round 4: a simple hero, the site in four chapters, no "idea"
+
+**What:**
+- **The hero is simplified** to one job: who Ali is, and why you're here.
+  - Headline: "Need a product built, *and run properly?*"
+  - One line: "Ali Farghaly, product manager and no-code developer. I build products fast, bring messy ones back under control, and run the whole process, roadmap to docs, as one person."
+  - Buttons: "Tell me where you are" (→ the protocol form) and "See the work".
+  - Removed: the scattered word, the sorting tagline, the rotating role, the six notes and "Mess it up".
+- **The site in four chapters:** hero → **01 Why** (the philosophy) → **02 How** (the method, which is the Sorting Room, unchanged; one person one path; the protocol; working together) → **03 Knowledge** (numbers, proof, the path, the stack) → **04 Let's talk**. Labels read "Chapter · Part", and the scroll rail follows them.
+- **The philosophy** now opens with "Problem first, product second. I think like a product person, design like a UX thinker, and build with technical depth."
+- **The stack moved out of "One path"** into its own section (`home/Stack.tsx`, `#stack`), under Knowledge, with the heading "Today's toolbox. Never the whole of it." The one-path card now alternates its highlight between Build it and Run it on its own.
+- **No "idea" anywhere** in the site copy. The client's thing is their product:
+  - The Sorting Room's first stage is "Your product".
+  - The roadmap join is now "Nothing built yet".
+  - The form reads "My product is at…".
+  - The contact heading is "Tell me where your product is. Let's find the problem first."
+  - The work card reads "Your product could be next."
+  - The footer reads "No problem left unsorted".
+  - The translator card flips story / قصة.
+  - Also changed: the intro, the Mind teaser and the Systems body.
+  - `/mind` (on hold) still has its "scattered ideas" until Phase 8.
+
+**Why:** the user's round 4 feedback:
+- The hero was too much: it mixed the philosophy and the methodology, and what Ali *is* was hidden underneath.
+- It should show visitors why they're on the site. Then why Ali works this way, then how, then the knowledge, then the call to action.
+- "We don't want the term 'idea' at all."
+
+Their answers:
+- **Visitors:** corporate teams and founders, not hiring managers.
+- **Why they're here:** all four reasons:
+  - a product built fast;
+  - a product that's out of control;
+  - someone to run the process;
+  - one person for both.
+- **Hook:** a question to the visitor.
+- **Word:** "product".
+
+**Verified:**
+- `tsc`, `lint` and `build` are clean.
+- In the browser at 1440 and 375 px:
+  - The hero fits one screen on desktop (the buttons end at 726 of 900 px).
+  - The section order and the labels are right.
+  - The visible page text contains no "idea".
+  - There's no sideways scroll.
+
 ## 2026-10-04: Round 3: philosophy → methodology → protocol, corporate keywords, "tell Ali where you are", the admin-dashboard phase
 
 **What:**

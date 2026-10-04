@@ -98,7 +98,7 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
 }
 
 /** Closes the grid with an invitation; its dots keep sorting themselves into a line. */
-function NextIdeaCard() {
+function NextCard() {
   const dots = Array.from({ length: 12 }, (_, i) => i);
   return (
     <motion.li layout="position" className="md:col-span-2 lg:col-span-1" transition={{ layout: { type: "spring", stiffness: 260, damping: 32 } }}>
@@ -124,7 +124,7 @@ function NextIdeaCard() {
         <div>
           <p className="eyebrow mb-2 text-muted">Slot open</p>
           <p className="font-display text-[1.6rem] leading-tight">
-            Your idea could <span className="font-display-italic text-teal">be next.</span>
+            {story.nextCard.lead} <span className="font-display-italic text-teal">{story.nextCard.em}</span>
           </p>
           <span className="mt-4 inline-flex items-center gap-2 text-[0.9rem] text-ink">
             <span className="link-draw">Bring the mess</span>
@@ -186,7 +186,7 @@ export function Work() {
             <ProjectCard key={p.slug} p={p} index={i} />
           ))}
         </AnimatePresence>
-        <NextIdeaCard />
+        <NextCard />
       </ul>
     </section>
   );

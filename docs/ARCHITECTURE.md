@@ -49,32 +49,37 @@ Metadata: `layout.tsx` sets the title template (`"%s · Ali Farghaly"`, default 
 
 ## Home page sections (`src/app/page.tsx`, in order)
 
-`ScrollRail` (home only) sits on top of all of them. So does `home/FloatingCta.tsx`: a glass "Let's talk" pill fixed at the bottom centre, visible from the roadmap until the contact section, and hidden while the `#tell-ali` form is on screen. Once a station is picked it links to that form (it checks on scroll, throttled to one frame). It names the station the visitor picked on the roadmap, via the `roadmap:pick` window event (`ROADMAP_PICK`). Labels, numbers and headlines come from `story` in `src/content/site.ts`. IDs are what the nav, the scroll rail and anchor links use. The order tells a story: problem → philosophy → methodology → protocol → proof → person → working together → let's talk. The journal isn't on the home page; it's in the nav.
+`ScrollRail` (home only) sits on top of all of them. So does `home/FloatingCta.tsx`: a glass "Let's talk" pill fixed at the bottom centre, visible from the roadmap until the contact section, and hidden while the `#tell-ali` form is on screen. Once a station is picked it links to that form (it checks on scroll, throttled to one frame). It names the station the visitor picked on the roadmap, via the `roadmap:pick` window event (`ROADMAP_PICK`). Labels, numbers and headlines come from `story` in `src/content/site.ts`. IDs are what the nav, the scroll rail and anchor links use. The page is **four chapters**:
+1. The hero: who Ali is, and why you're here.
+2. **01 Why** (the philosophy).
+3. **02 How** (the method, one person one path, the protocol, working together).
+4. **03 Knowledge** (numbers, proof, the path, the stack).
+
+Then **04 Let's talk**. Each label is "Chapter · Part", and several sections share a chapter number. The journal isn't on the home page; it's in the nav.
 
 | # | Component | `id` | What it does |
 |---|---|---|---|
-| — | `home/Hero.tsx` | `top` | The hero. Details below |
-| — | `home/Numbers.tsx` | — (aria-label "Ali in numbers") | 4 stats from `stats` that count up when visible |
-| 01 | `home/IdeaSorter.tsx` | `process` | "The problem": the Sorting Room. Details below |
-| 02 | `home/Principles.tsx` | `how` | "The philosophy": the scroll-revealed quote, then the **living philosophy** (an edition badge, a rotating "currently researching" topic with a reading bar, recent changes; data in `philosophy`), then 4 principle cards with drawn glyphs |
-| 03 | `home/Paths.tsx` | `paths` | "The methodology": **one person, one path**. One card with two halves (Build it, Run it), each with a looping sketch, joined by a junction with Ali's portrait. Then the stack: tool chips, a cycling "knows → picks up" chip and a note that the list isn't the limit |
-| 04 | `home/Roadmap.tsx` | `roadmap` | "The protocol": the metro map, then the "tell Ali where you are" form (`#tell-ali`). Details below |
-| 05 | `home/Work.tsx` | `work` | "Proof": project cards, the next-idea card and the filter |
-| 06 | `home/Journey.tsx` | `path` | "The person": the dark band, a translation card and a timeline |
-| 07 | `home/HowIWork.tsx` | `together` | "Working together": 4 cards from `workingStyle`, each with its own looping sketch |
+| — | `home/Hero.tsx` | `top` | The hero: who Ali is, and why you're here. Details below |
+| 01 Why | `home/Principles.tsx` | `how` | "The philosophy". It opens with the scroll-revealed quote ("Problem first, product second…"). Then the **living philosophy**: an edition badge, a rotating "currently researching" topic with a reading bar, and recent changes (data in `philosophy`). Then 4 principle cards with drawn glyphs |
+| 02 How | `home/IdeaSorter.tsx` | `process` | "The method": the Sorting Room, **unchanged** (Messy in. Clear out.). Details below |
+| 02 How | `home/Paths.tsx` | `paths` | "One person, one path". One card with two halves (Build it, Run it), each with a looping sketch, joined by a junction with Ali's portrait. The highlight alternates between the halves on its own, and hovering takes over |
+| 02 How | `home/Roadmap.tsx` | `roadmap` | "The protocol": the metro map, then the "tell Ali where you are" form (`#tell-ali`). Details below |
+| 02 How | `home/HowIWork.tsx` | `together` | "Working together": 4 cards from `workingStyle`, each with its own looping sketch |
+| 03 Knowledge | `home/Numbers.tsx` | — (aria-label "Ali in numbers") | 4 stats from `stats` that count up when visible |
+| 03 Knowledge | `home/Work.tsx` | `work` | "Proof": project cards, the "your product could be next" card and the filter |
+| 03 Knowledge | `home/Journey.tsx` | `path` | "The path": the dark band, a translation card (story / قصة) and a timeline |
+| 03 Knowledge | `home/Stack.tsx` | `stack` | "The stack": tool chips that sort themselves by path (Everything / Build it / Run it), a cycling "knows → picks up" chip, and a note that the list isn't the limit |
 | — | `home/MindTeaser.tsx` | — | Link card to `/mind` |
-| 08 | `home/Contact.tsx` | `contact` | "Let's talk": contact options |
+| 04 | `home/Contact.tsx` | `contact` | "Let's talk": contact options |
 
-**Hero** (`home/Hero.tsx`):
-- **Text:**
-  - The `MessyWord` "mess." scatters and settles every 5.2 s.
-  - The tagline plays `SortText` "make sense.".
-  - `RotatingRole` cycles `person.roles` every 2.6 s.
-- **Buttons:** "Watch an idea get sorted" (→ #process) and "See the work" (→ #work).
-- **Portrait:** Ali's portrait with a pointer-parallax tilt.
-- **Notes:** six glass notes that organize themselves every 9 s. The "Mess it up / Tidy up" button takes over.
-- **Entrance:** pure CSS (`.anim-*` classes), so it paints before JavaScript loads.
-- **Loops:** they pause when the hero is off-screen (`useInView`).
+**Hero** (`home/Hero.tsx`), simplified 4 Oct (round 4). It has one job: who Ali is, and why you're here.
+- **Eyebrow:** "👋 Have you met Ali?"
+- **Headline:** a question to the visitor, "Need a product built, *and run properly?*"
+- **One line about Ali:** "Ali Farghaly, product manager and no-code developer. I build products fast, bring messy ones back under control, and run the whole process, roadmap to docs, as one person."
+- **Buttons:** "Tell me where you are" (→ `#tell-ali`, the protocol form) and "See the work".
+- **Portrait:** pointer-parallax tilt, with an "Open to projects" badge.
+- **Entrance:** pure CSS (`.anim-*`), so it paints before JavaScript. No loops; the only motion is the wave and the scroll hint.
+- **Removed:** the scattered word, the sorting tagline, the rotating role, the six notes and the "Mess it up" button. The messy → clear identity now lives in the Sorting Room.
 
 **IdeaSorter** (`home/IdeaSorter.tsx`), the signature animation:
 - **Scroll-driven:** a sticky, 320vh-tall section with a canvas of 260 particles. Particles pass three gates (Listen, Scope, Structure); noise is cut at Scope; the rest sort into four lanes (Roadmap, Sprints, QA, Docs).

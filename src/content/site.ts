@@ -10,7 +10,7 @@ export const person = {
   photo: asset("1771468357918-1733826677030.jpeg"),
   roles: ["No-code developer", "Product manager", "UX thinker", "Systems builder", "Documentation writer"],
   intro:
-    "Building platforms from scratch. Transforming ideas from concept to launch. Designing with the user in mind and documenting everything along the way.",
+    "Building platforms from scratch. Taking products from concept to launch. Designing with the user in mind and documenting everything along the way.",
 };
 
 export const contact = {
@@ -59,7 +59,7 @@ export const paths = [
     index: "02",
     title: "Run it",
     sub: "The system around it",
-    body: "Product roadmaps. Sprint planning. QA coordination. User research. The Agile frameworks, user stories, and operational systems that turn ideas into working software.",
+    body: "Product roadmaps. Sprint planning. QA coordination. User research. The Agile frameworks, user stories, and operational systems that turn plans into working software.",
     bullets: ["Roadmaps", "Sprints", "QA cycles", "User research"],
   },
 ];
@@ -86,7 +86,7 @@ export const philosophy = {
 
 // "One person, one path": the build and the system are two stops on the same line
 export const onePath = {
-  lede: "The philosophy becomes a method. Most companies split product management and development between people, and the idea gets lost in the handover. My methodology keeps it in one pair of hands: product discovery, no-code development, QA and technical documentation, on one path from the problem to a product your team can run.",
+  lede: "The philosophy becomes a method. Most companies split product management and development between people, and the product gets lost in the handover. My methodology keeps it in one pair of hands: product discovery, no-code development, QA and technical documentation, on one path from the problem to a product your team can run.",
   quote: "Every product needs its own system, and I build the one that fits.",
 };
 
@@ -170,7 +170,7 @@ export const workingStyle = [
   { title: "Documentation", body: "Feature specs, user guides, operational wikis. The next person picks up right where I left off.", glyph: "doc" },
 ] as const;
 
-// The idea sorter — raw client thoughts and what they become once they've been through Ali.
+// The Sorting Room: raw client thoughts about their product, and what they become once they've been through Ali.
 export const lanes = ["Roadmap", "Sprints", "QA", "Docs"] as const;
 export type Lane = (typeof lanes)[number];
 
@@ -188,7 +188,7 @@ export const ideaFragments: { raw: string; clean: string; lane: Lane }[] = [
 ];
 
 export const sorterStages = [
-  { label: "Your idea", body: "Brilliant. Also scattered across voice notes, screenshots and 2am messages." },
+  { label: "Your product", body: "Promising. Also scattered across voice notes, screenshots and 2am messages." },
   { label: "Listen", body: "What actually hurts? Every fragment gets heard, because the problem is hiding in there." },
   { label: "Scope", body: "The problem, named. What's in, what's out, and the noise cut, agreed up front." },
   { label: "Structure", body: "Now the solution: data, flows, edge cases. Each piece finds where it belongs." },
@@ -203,31 +203,40 @@ export const stats = [
 ];
 
 /* ------------------------------------------------------------------
-   The story the home page tells, in order:
-   the problem → the solution → how → the roadmap → proof → the person → let's talk.
-   Ali starts with the problem behind an idea, then builds the solution.
+   The story the home page tells, in four chapters:
+   the hero (who Ali is, why you're here) → 01 why (the philosophy) →
+   02 how (the method, one path, the protocol, working together) →
+   03 knowledge (numbers, proof, the path, the stack) → 04 let's talk.
+   Ali solves the problem first, then builds the product. Never say "idea".
 ------------------------------------------------------------------- */
 export const story = {
   hero: {
-    lines: ["Your idea is brilliant.", "Let's start with the"],
-    word: "problem.",
-    tagline: "I find what is really broken, then build what makes it",
-    sort: "make sense.",
-    // the notes around the portrait, in the order they line up
-    notes: ["The problem", "Who has it", "What it costs", "The fix", "The build", "The docs"],
+    eyebrow: "Have you met Ali?",
+    question: "Need a product built,",
+    em: "and run properly?",
+    who: "Ali Farghaly",
+    role: "product manager and no-code developer.",
+    line: "I build products fast, bring messy ones back under control, and run the whole process, roadmap to docs, as one person.",
+    primary: "Tell me where you are",
+    secondary: "See the work",
+    badge: "Open to projects",
   },
-  problem: { index: "01", label: "The problem", lead: "Messy in.", sort: "Clear out." },
-  solution: { index: "03", label: "The methodology", heading: "One person, one path: build it right, then make it run.", italic: [2, 3] },
-  how: { index: "02", label: "The philosophy", quote: "I think like a product person, design like a UX thinker, and build with technical depth." },
+  how: {
+    index: "01",
+    label: "Why · The philosophy",
+    quote: "Problem first, product second. I think like a product person, design like a UX thinker, and build with technical depth.",
+  },
+  problem: { index: "02", label: "How · The method", lead: "Messy in.", sort: "Clear out." },
+  solution: { index: "02", label: "How · One person, one path", heading: "One person, one path: build it right, then make it run.", italic: [2, 3] },
   roadmap: {
-    index: "04",
-    label: "The protocol",
+    index: "02",
+    label: "How · The protocol",
     heading: "A protocol you can follow. A line you can track.",
     italic: [4, 9],
     // "tell Ali where you are": composes a WhatsApp or email message, nothing is stored on the site
     send: {
       eyebrow: "Tell Ali where you are",
-      heading: "My project is at",
+      heading: "My product is at",
       name: "Your name",
       company: "Company (optional)",
       note: "What's going on, in one line",
@@ -236,12 +245,17 @@ export const story = {
       fine: "Opens WhatsApp or your email with the message already written. Nothing is stored on this site.",
     },
   },
-  proof: { index: "05", label: "Proof", heading: "Problems found, solved and shipped.", italic: [2, 3, 4] },
-  person: { index: "06", label: "The person", heading: "From translator to builder to product manager.", italic: [2, 4, 6, 7] },
-  together: { index: "07", label: "Working together", heading: "Calm, clear, and no surprises.", italic: [3, 4] },
+  together: { index: "02", label: "How · Working together", heading: "Calm, clear, and no surprises.", italic: [3, 4] },
+  proof: { index: "03", label: "Knowledge · Proof", heading: "Problems found, solved and shipped.", italic: [2, 3, 4] },
+  person: { index: "03", label: "Knowledge · The path", heading: "From translator to builder to product manager.", italic: [2, 4, 6, 7] },
+  stack: { index: "03", label: "Knowledge · The stack", heading: "Today's toolbox. Never the whole of it.", italic: [4, 5, 6] },
   // the pill that appears once the visitor reaches the roadmap (until the contact section)
   cta: { idle: "Wherever you are on the line", picked: "Start at", action: "Let's talk" },
-  contact: { index: "08", label: "Let's talk", heading: "Got an idea? Let's find the problem first.", italic: [6, 7] },
+  contact: { index: "04", label: "Let's talk", heading: "Tell me where your product is. Let's find the problem first.", italic: [9, 10] },
+  // the translator card in "The path": one word flipping between the two languages
+  sameCraft: { label: "Same craft, new medium", en: "story", ar: "قصة" },
+  footer: "Built with care · No problem left unsorted",
+  nextCard: { lead: "Your product could", em: "be next." },
 };
 
 /** The message a visitor sends from the roadmap ("tell Ali where you are"). */
@@ -249,7 +263,7 @@ export function stationMessage(m: { name: string; company: string; station: stri
   const who = [m.name.trim() && `I'm ${m.name.trim()}`, m.company.trim() && `from ${m.company.trim()}`].filter(Boolean).join(" ");
   return [
     `Hi Ali${who ? `, ${who}` : ""}.`,
-    `My project is at ${m.station} (station ${m.n} of ${m.total} on your protocol)${m.joining ? `: ${m.joining.toLowerCase()}` : ""}.`,
+    `My product is at ${m.station} (station ${m.n} of ${m.total} on your protocol)${m.joining ? `: ${m.joining.toLowerCase()}` : ""}.`,
     m.note.trim(),
   ]
     .filter(Boolean)
@@ -265,7 +279,7 @@ export type StationId = "discovery" | "definition" | "design" | "build" | "qa" |
 export const roadmap = {
   lede: "Every project follows the same protocol: eight stations, each with clear deliverables, so you always know where you are and what comes next. Pick your station and send it to me.",
   stations: [
-    { id: "discovery", name: "Discovery", what: "We find the real problem behind the idea: who has it, how often, and what it costs them.", get: "A one-page problem statement", terms: ["Product discovery", "Stakeholder interviews", "Problem statement"] },
+    { id: "discovery", name: "Discovery", what: "We find the real problem behind the product: who has it, how often, and what it costs them.", get: "A one-page problem statement", terms: ["Product discovery", "Stakeholder interviews", "Problem statement"] },
     { id: "definition", name: "Definition", what: "Users, scope and what success looks like. What's in and what's out, agreed up front.", get: "Scope doc and user stories", terms: ["Requirements gathering", "User stories", "MVP scope"] },
     { id: "design", name: "Design", what: "User flows, screens and the data model, worked out before anything gets built.", get: "Flows, wireframes, database schema", terms: ["UX design", "User flows", "Data modeling"] },
     { id: "build", name: "Build", what: "Sprints in Bubble, with a working version at the end of every one.", get: "A product you can click every sprint", terms: ["No-code development", "Bubble.io", "Agile sprints"] },
@@ -276,7 +290,7 @@ export const roadmap = {
   ] as { id: StationId; name: string; what: string; get: string; terms: string[] }[],
   // where a project can join the line, and what Ali does first when it does
   joins: [
-    { id: "idea", label: "Just an idea", at: "discovery", color: "var(--sun)", note: "Perfect. We start at the beginning: the problem." },
+    { id: "fresh", label: "Nothing built yet", at: "discovery", color: "var(--sun)", note: "Perfect. We start at the beginning: the problem." },
     { id: "designs", label: "Designs ready", at: "build", color: "var(--leaf)", note: "I check the designs against the problem, then we build." },
     { id: "messy", label: "Built, but messy", at: "qa", color: "var(--teal-bright)", note: "I map what exists and make it stable before adding anything new." },
     { id: "undocumented", label: "Live, undocumented", at: "handover", color: "var(--muted)", note: "I document the system so it stops depending on one person." },

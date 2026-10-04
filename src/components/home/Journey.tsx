@@ -20,7 +20,7 @@ function TranslationCard() {
   return (
     <div ref={ref} className="glass mt-10 rounded-[24px] p-6">
       <div className="flex items-center justify-between">
-        <span className="eyebrow text-muted">Same craft, new medium</span>
+        <span className="eyebrow text-muted">{story.sameCraft.label}</span>
         <div className="relative h-9 w-24 overflow-hidden text-right">
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.span
@@ -33,7 +33,7 @@ function TranslationCard() {
               lang={word ? "ar" : "en"}
               dir={word ? "rtl" : "ltr"}
             >
-              {word ? "فكرة" : "idea"}
+              {word ? story.sameCraft.ar : story.sameCraft.en}
             </motion.span>
           </AnimatePresence>
         </div>

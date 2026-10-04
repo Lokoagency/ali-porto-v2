@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { contact, person } from "@/content/site";
+import { contact, person, story } from "@/content/site";
 
 export function Footer() {
   const pathname = usePathname();
@@ -54,7 +54,7 @@ export function Footer() {
       </div>
       <div className="mt-12 flex flex-wrap items-center justify-between gap-3 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-muted">
         <span className="tabular">© {year} {person.name}</span>
-        <span>Built with care · No idea left unsorted</span>
+        <span>{story.footer}</span>
       </div>
     </footer>
   );
