@@ -9,7 +9,7 @@ import { Arrow, Magnetic } from "../primitives";
 /**
  * The hero answers two things at a glance: who Ali is, and why you're here.
  * Ali speaks first: one bold line, one line about him, two ways forward, the portrait.
- * (The messy → clear story starts right after, in the philosophy and the Sorting Room.)
+ * (The messy → clear story lives in the Sorting Room, further down.)
  */
 export function Hero() {
   const h = story.hero;

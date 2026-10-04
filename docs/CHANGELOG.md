@@ -4,6 +4,22 @@ Newest first. **Add an entry with every change**, using the template in `DEVELOP
 
 ---
 
+## 2026-10-05: Round 7: cleaner, the filler is gone
+
+**What:**
+- **01 is now only Ali's quote.** The living philosophy is removed: the edition badge, the "Garbage in, garbage out" card, "Currently researching" and "Recent changes". So is its `philosophy` data.
+- **The numbers strip is removed** (650+, 120+, 2, 4 yrs): `home/Numbers.tsx` and the `stats` data are deleted.
+- The page now reads: the hero → 01 the quote → 02 the work → 03 How → 04 Knowledge → 05 Let's talk.
+
+- **The path moved to a new About page** (`/about`), at the user's request ("this can be moved into a new page or a tab called about"). `Journey` takes a `page` prop that adds room for the nav. The nav now reads Philosophy, Work, Protocol, **About**, Journal. The footer's "Path" link became "About", and the scroll rail lost its "path" entry. The home page's 04 Knowledge is now just the stack.
+
+**Why:** the user selected these blocks and asked to "remove all of this slop. make the site cleaner this way."
+
+**Verified:**
+- `tsc`, `lint` and `build` are clean.
+- In the browser at 1440 and 375 px, the section order is right, 01 holds only the quote, and there's no sideways scroll.
+- `/about` renders at 1440, 1024 and 375 px, with the dark band under the nav, the title "About · Ali Farghaly", the nav fitting, and no sideways scroll.
+
 ## 2026-10-05: Round 6: Ali speaks first, the work moves up, 01 trimmed
 
 **What:**

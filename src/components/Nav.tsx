@@ -10,6 +10,7 @@ const links = [
   { href: "/#how", id: "how", label: "Philosophy" },
   { href: "/#work", id: "work", label: "Work" },
   { href: "/#roadmap", id: "roadmap", label: "Protocol" },
+  { href: "/about", id: "about", label: "About" },
   { href: "/journal", id: "journal", label: "Journal" },
 ];
 
@@ -26,7 +27,7 @@ export function Nav() {
   }
   // the 3D reception is full-screen and has its own way back
   const immersive = pathname.startsWith("/mind");
-  const active = pathname.startsWith("/journal") ? "journal" : pathname === "/" ? section : null;
+  const active = pathname.startsWith("/journal") ? "journal" : pathname.startsWith("/about") ? "about" : pathname === "/" ? section : null;
   const { scrollY } = useScroll();
 
   // The pill only highlights while the viewport centre is inside a linked section,

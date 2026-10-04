@@ -67,25 +67,6 @@ export const paths = [
   },
 ];
 
-// The philosophy is alive: Ali keeps improving his process, AI included, "even on my own free time".
-// From the Content Bank (sections 5, 6, 13). AI appears here only (the user's call).
-export const philosophy = {
-  edition: "Edition 2026.10",
-  updated: "Updated Oct 2026",
-  lede: "Garbage in, garbage out. I spend my time on the input, so the output stays mine. My process is tool-agnostic, AI-assisted, and never finished: I keep improving it, even on my own free time. Anti-hype, pro-utilization.",
-  researching: [
-    "Feeding AI the true context, not the quick one",
-    "A seven-step feature lifecycle, from scope to milestone",
-    "Building with Claude Code and Lovable",
-    "Why AI agrees with you, and how to make it push back",
-    "Keeping the process the same on any platform",
-  ],
-  changes: [
-    { tag: "Added", text: "A build diary for every project, so no decision is made twice" },
-    { tag: "Changed", text: "AI drafts the docs; I review every line before it ships" },
-    { tag: "Kept", text: "Measure twice, cut once" },
-  ],
-};
 
 // "One person, one path": the build and the system are two stops on the same line (Content Bank 4, 18)
 export const onePath = {
@@ -201,17 +182,11 @@ export const sorterStages = [
   { label: "Clarity", body: "A plan that holds: backlog, sprints, QA and the docs." },
 ];
 
-export const stats = [
-  { value: 650, suffix: "+", label: "companies on mena.tv at launch" },
-  { value: 120, suffix: "+", label: "pages of documentation the team runs on" },
-  { value: 2, suffix: "", label: "app stores shipped to: iOS and Android" },
-  { value: 4, suffix: " yrs", label: "building products in Bubble.io" },
-];
 
 /* ------------------------------------------------------------------
    The story the home page tells:
-   the hero (Ali speaking: "I build what you meant.") → 01 why (the quote, the living philosophy) →
-   02 proof (the work, the numbers) → 03 how (the method, one path, the protocol, working together) →
+   the hero (Ali speaking: "I build what you meant.") → 01 why (Ali's quote) →
+   02 proof (the work) → 03 how (the method, one path, the protocol, working together) →
    04 knowledge (the path, the stack) → 05 let's talk.
    Ali solves the problem first, then builds the product. Never say "idea".
 ------------------------------------------------------------------- */
@@ -254,7 +229,8 @@ export const story = {
   },
   together: { index: "03", label: "How · Working together", heading: "I give honest timelines, and I deliver on them.", italic: [2, 3] },
   proof: { index: "02", label: "Proof · The work", heading: "What I built, and every hat I wore building it.", italic: [4, 5] },
-  person: { index: "04", label: "Knowledge · The path", heading: "From translator to builder to product manager.", italic: [2, 4, 6, 7] },
+  // on /about (moved off the home page in round 7)
+  person: { index: "About", label: "The path", heading: "From translator to builder to product manager.", italic: [2, 4, 6, 7] },
   stack: { index: "04", label: "Knowledge · The stack", heading: "Today's toolbox. Never the whole of it.", italic: [4, 5, 6] },
   // the pill that appears once the visitor reaches the roadmap (until the contact section)
   cta: { idle: "Wherever you are on the line", picked: "Start at", action: "Let's talk" },

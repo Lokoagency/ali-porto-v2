@@ -11,7 +11,6 @@ const sections = [
   { id: "paths", label: "How · One path" },
   { id: "roadmap", label: "How · The protocol" },
   { id: "together", label: "How · Working together" },
-  { id: "path", label: "Knowledge · The path" },
   { id: "stack", label: "Knowledge · The stack" },
   { id: "contact", label: "Let's talk" },
 ];

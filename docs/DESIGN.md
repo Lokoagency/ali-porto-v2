@@ -6,7 +6,7 @@
 - **The hero** is Ali speaking: bold, punchy and first person, "I build what you *meant.*" It stays calm: one headline, one line, two buttons and the portrait.
 - **The work comes second**, right after the philosophy's quote, so visitors see proof early.
 - **Never use the word "idea" in site copy.** The client's thing is their **product**. Ali solves the problem first, then builds the product.
-- Ali is **one person on one path**: he builds the product and the system that runs it, so there's no handover. Don't present his work as two separate tracks. The page runs in chapters: **01 Why** (the quote, the living philosophy) → **02 Proof** (the work, the numbers) → **03 How** (the method, one path, the protocol, working together) → **04 Knowledge** (the path, the stack) → **05 Let's talk**. Ali is a living philosophy (researched, updated with trends). It becomes a methodology, which gives the client a protocol to follow and track. The messy → clear identity stays: the Sorting Room, unchanged, opens "How". Keep new sections inside that arc.
+- Ali is **one person on one path**: he builds the product and the system that runs it, so there's no handover. Don't present his work as two separate tracks. The page runs in chapters: **01 Why** (Ali's quote) → **02 Proof** (the work) → **03 How** (the method, one path, the protocol, working together) → **04 Knowledge** (the stack) → **05 Let's talk**. Ali's path is on its own page, `/about`. Ali is a living philosophy (researched, updated with trends). It becomes a methodology, which gives the client a protocol to follow and track. The messy → clear identity stays: the Sorting Room, unchanged, opens "How". Keep new sections inside that arc.
 
 **Keywords:** keep Ali's warm voice, but use the words corporates search for (product discovery, requirements, MVP, no-code development, agile delivery, QA, technical documentation, process automation) where they fit naturally, and as small mono tags on the protocol stations. No keyword stuffing.
 
@@ -90,7 +90,6 @@ These come straight from the user's feedback; follow them.
 | Sorting Room (`IdeaSorter`) | The scroll-driven particle funnel: gates → cut noise → lanes → board |
 | "Clear out." | `SortText` |
 | The solution (`Paths`) | One card: a wireframe assembles itself (Build it), a dot rides the line through Ali's portrait, a kanban card walks to Done (Run it). The toolbox sorts itself, and its last chip keeps cycling "Notion → Linear" to show the stack never stops growing |
-| The philosophy | The edition badge pulses. The "currently researching" topic rolls over, with a reading bar filling for each one |
 | Tell Ali where you are | The heading's station rolls to whatever you pick on the map |
 | Floating CTA | A glass pill rises in from the roadmap on and names the station you picked; it steps aside at the contact section |
 | How I build (`Principles`) | The quote reads itself as you scroll. Each glyph draws in, then keeps an idle motion that matches its meaning |
@@ -99,7 +98,6 @@ These come straight from the user's feedback; follow them.
 | Working together (`HowIWork`) | The sun rises, a scope rejects an extra request, a timeline flags early, a doc writes itself |
 | Mind teaser | The door opens and a little visitor walks up |
 | Roadmap | A metro map: the line draws in, a train rides to "you are here" on its own, stations fill as they're passed, branch lines show where a project can join |
-| Numbers | Count up |
 
 ## Voice and copy
 
@@ -110,6 +108,8 @@ These come straight from the user's feedback; follow them.
 - All copy lives in `src/content/`. See [CONTENT.md](CONTENT.md).
 
 ## Don'ts
+
+- **Filler panels and stat strips.** The user removed the living philosophy, the numbers strip and the principle cards as "slop" (round 7). Keep each section to one clear thing. Don't add decorative data blocks.
 
 - A nav that hides on scroll. It was reported as a bug.
 - Hover-only animation.

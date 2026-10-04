@@ -68,13 +68,14 @@ function TranslationCard() {
   );
 }
 
-export function Journey() {
+/** The path: translator → builder → developer & PM. Lives on /about; `page` adds room for the nav. */
+export function Journey({ page = false }: { page?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 70%", "end 60%"] });
   const line = useSpring(useTransform(scrollYProgress, [0, 1], [0, 1]), { stiffness: 120, damping: 30 });
 
   return (
-    <section id="path" className="section-deep relative overflow-hidden py-20 md:py-28">
+    <section id="path" className={`section-deep relative overflow-hidden pb-20 md:pb-28 ${page ? "min-h-[100svh] pt-36 md:pt-44" : "pt-20 md:pt-28"}`}>
       <div aria-hidden className="pointer-events-none absolute -left-40 top-20 size-[520px] rounded-full bg-teal opacity-20 blur-[140px]" />
       <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 gap-16 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="lg:sticky lg:top-28 lg:self-start">

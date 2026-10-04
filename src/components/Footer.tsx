@@ -24,7 +24,7 @@ export function Footer() {
               ["Philosophy", "/#how"],
               ["Work", "/#work"],
               ["Protocol", "/#roadmap"],
-              ["Path", "/#path"],
+              ["About", "/about"],
               ["Journal", "/journal"],
               ["Ali's mind", "/mind"],
             ].map(([l, h]) => (

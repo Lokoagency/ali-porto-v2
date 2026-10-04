@@ -55,7 +55,6 @@ Moving these into `site.ts` is part of Phase 5.
 | `contact` | `email`, `call` (Google Calendar template link), `linkedin`, `upwork`, `whatsapp`, `whatsappLabel` | Contact, Footer, `/mind` phone |
 | `tools` | `{ name, icon, categories: ("Builds"\|"Systems")[], featured? }[]` | The "What I do" toolbox. **`featured` isn't used** |
 | `paths` | The two halves of the one path (keys Builds, Systems): `title` ("Build it", "Run it"), `sub`, `body`, `bullets[]`. Titles also name the stack tabs | The methodology |
-| `philosophy` | `edition`, `updated`, `lede`, `researching[]` (rotating topics), `changes[]` (`{ tag: Added\|Changed\|Kept, text }`). **Placeholders: Ali's real topics needed.** Later edited from the dashboard (Phase 6) | The philosophy |
 | `onePath` | `lede` (the philosophy becomes a method; no handover; keywords), `quote` | The methodology |
 | `stack` | `note` (today's toolbox, not the limit), `learning[]`: `{ knows, next }` pairs cycled on the last chip | Knowledge · The stack (`Stack.tsx`) |
 | `principles` | 4 items: `title`, `body`, `glyph` (`heart`\|`nodes`\|`spark`\|`doc`) | How I build |
@@ -167,10 +166,8 @@ Post HTML is injected as-is, so only Ali or the agency should write posts.
 | Person, roles, intro, contact | Content Bank v2 + Ali's Bubble site | Real (rewritten from the bank, 5 Oct) |
 | Projects (text and images) | Ali's Bubble site and Supabase bucket | Real |
 | Paths, principles, journey, working style, the hero line, the method lede, the contact lede | Content Bank v2 (Ali's words, lightly fitted) | Real; needs Ali's sign-off on the fitting |
-| Living philosophy (`philosophy`): research topics and recent changes | Drawn from the bank (his AI discipline, the feature lifecycle, build diary, Claude Code/Lovable) | Real themes; the edition date and the exact wording need Ali's OK |
 | Station keyword tags, protocol copy | Written for this site; the branch lines are Ali's four entry points | Needs Ali's sign-off |
 | Sorting Room fragments and stage captions | Written for this site; the captions now use Ali's method (intent vs spec, database first) | Fragments are invented examples. Check with Ali |
-| Stats | 650+ companies (bank), 120+ pages (his old site), 2 app stores, 4 yrs in Bubble (bank) | 120+ pages comes from his old site, not the bank: confirm |
 | Journal posts | Drafted by us | **Placeholder** |
 | Mind teaser copy | Written for this site | **Stale.** It says "Soon / on its way" |
 | TextWing case study | In the bank (AI dating assistant, GPT-4o Vision, Stripe, two 5-star reviews) | **Missing.** Needs screenshots and the client's OK to show it |
