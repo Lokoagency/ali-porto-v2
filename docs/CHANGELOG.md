@@ -4,6 +4,48 @@ Newest first. **Add an entry with every change**, using the template in `DEVELOP
 
 ---
 
+## 2026-10-05: Round 5: Ali in his own words (Content Bank v2)
+
+**What:** the site's copy is rewritten from Ali's Content Bank v2. The design, animations and structure are unchanged.
+- **Hero line:** "Ali Farghaly, developer and product manager. Whatever your product looks like right now, I can probably step into it: from the database to the docs." "Fast" is dropped; it clashed with how Ali works.
+- **01 Why:**
+  - **The quote** is now Ali's: "The input matters as much as the output…"
+  - **The living philosophy** now holds his real AI discipline: garbage in, garbage out; anti-hype, pro-utilization; a tool-agnostic process he keeps improving.
+    - The research topics come from his work: context, the seven-step feature lifecycle, Claude Code and Lovable, AI sycophancy, platform-agnostic process.
+    - The changes: a build diary per project, AI-drafted docs he reviews line by line, and "measure twice, cut once".
+  - **The four principles** are now Read the intention, Four versions one DNA (his framework, said with "product"), The calculator rule, and Document with purpose.
+- **02 How:**
+  - **The Sorting Room** has its animation untouched. The captions follow his method (intent vs spec, database first).
+  - **One path:** the lede is his "building cleanly" and "I was all of those" lines, and the quote is "The mechanism changes. The discipline doesn't." Build it / Run it describe his real capabilities (Stripe, OpenAI, role-based dashboards) and his rule about wearing the PM hat only when it's missing.
+  - **The protocol:** the lede is "The entry point doesn't matter; the process adapts." The four branch lines are now **Ali's four entry points**: Nothing built yet → Discovery, Specs ready → Build, A previous developer left a mess → QA, 80% done and stuck → Launch. The branch geometry moved accordingly.
+  - **Working together** reflects his real hours and habits: 9 AM to 6 PM GST, Monday to Friday; suggestions, not demands; honest milestone timelines; work you can maintain without him in the room.
+- **03 Knowledge:**
+  - **Numbers:** 650+ companies on mena.tv at launch, 120+ pages of docs, 2 app stores, 4 years building in Bubble.io.
+  - **The path:** rewritten from his real timeline (translator, then ChannelSculptor and the solo mena.tv rebuild, then developer and PM). Nothing from the private part of the bank.
+  - **The stack:** the note says the method is tool-agnostic. The "knows → picks up" pairs now start with his real next tools (Bubble.io → Lovable, Claude.ai → Claude Code).
+- **04 Let's talk:** the intro is Ali's own closing line about a quick intro call, now in `site.ts`. The old hard-coded line spoke to hiring managers.
+- **Clean-ups:** em dashes are gone from the copy, and "ideation" in a case study now reads "first scope".
+
+**Why:** the user shared Ali's Content Bank v2 "for you to learn who is Ali, and to reflect that upon the website", and asked to keep the design and animations.
+
+Their answers:
+- Keep the no-"idea" rule.
+- No "better X than most Y".
+- AI in the philosophy only, with no testimonials.
+- Leave the music out.
+
+**Verified:**
+- `tsc`, `lint` and `build` are clean.
+- In the browser at 1440 and 375 px:
+  - The visible text contains no "idea" and no "better than most".
+  - The new principles and entry points render, and the map labels stay inside the map.
+  - There's no sideways scroll.
+
+**Open:**
+- The HYMA Hi-Fi mockups (a claude.ai/design link) need a login, so I couldn't read them.
+- The Editorial Rules document mentioned in the bank wasn't shared.
+- A TextWing case study needs screenshots.
+
 ## 2026-10-04: Round 4: a simple hero, the site in four chapters, no "idea"
 
 **What:**

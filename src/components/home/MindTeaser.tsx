@@ -51,7 +51,7 @@ export function MindTeaser() {
               A deep dive into <span className="font-display-italic text-teal">Ali&apos;s mind.</span>
             </h2>
             <p className="mt-4 max-w-[460px] leading-relaxed text-ink-soft">
-              Step inside a small, well-organized home and wander through the rooms where problems get sorted. A walkable 3D space — on its way.
+              Step inside a small, well-organized home and wander through the rooms where problems get sorted. A walkable 3D space, on its way.
             </p>
             <span className="mt-8 inline-flex items-center gap-2 text-[0.9rem] text-ink">
               <span className="link-draw">Peek through the door</span>

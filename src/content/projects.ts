@@ -107,11 +107,11 @@ export const projects: Project[] = [
     status: "Private",
     summary: "Interconnected Airtable bases for product operations. Roadmap, sprint planning, bug tracking, QA coordination, CRM.",
     header:
-      "A system of interconnected Airtable bases that tracked an entire product lifecycle — designed for a platform rebuild with web and mobile apps shipping simultaneously.",
+      "A system of interconnected Airtable bases that tracked an entire product lifecycle, designed for a platform rebuild with web and mobile apps shipping simultaneously.",
     story: [
       "Product roadmap with epics broken into user stories. Each story mapped to specific features, pages, and components. Progress tracked across the whole product.",
-      "Sprint planning with Kanban-style task management. Features moving from ideation through development to completion, with clear ownership at every stage.",
-      "Bug tracking with screenshots, reproduction steps, platform tags (iOS, Android, Website), and severity levels — linked to the features they affected.",
+      "Sprint planning with Kanban-style task management. Features moving from first scope through development to completion, with clear ownership at every stage.",
+      "Bug tracking with screenshots, reproduction steps, platform tags (iOS, Android, Website), and severity levels, linked to the features they affected.",
       "QA coordination with testing episodes organized by platform area. Results tracked across cycles. Gamified feedback collection to keep testers engaged.",
       "Multiple views for different needs: Kanban boards for daily work, timelines for planning, grids for bulk operations.",
     ],
@@ -134,7 +134,7 @@ export const projects: Project[] = [
     header:
       "A QA system for launching a platform with web and native mobile apps. Recruited and managed remote testers. Ran structured testing cycles. Resolved every critical bug before launch.",
     story: [
-      "Testing episodes focused on specific platform areas — profile flows, content submission, company pages, news interactions — with clear scenarios telling testers exactly what to look for.",
+      "Testing episodes focused on specific platform areas (profile flows, content submission, company pages, news interactions), with clear scenarios telling testers exactly what to look for.",
       "Feedback channels built directly into the platform. Bug reports with screenshots and reproduction steps, plus functionality-specific feedback tied to scenarios.",
       "Gamified engagement with point systems, progress indicators, and recognition for thorough testing. Testers stayed engaged across multiple cycles.",
       "Bug resolution in Airtable. Every issue documented with severity tags, affected platforms, and status. Nothing lost in scattered messages.",
@@ -186,7 +186,7 @@ export const projects: Project[] = [
       "A subscription service delivering seasonal TV viewership reports to broadcasters and advertisers. Clients subscribe to analytics packages, download reports, and manage their accounts.",
     story: [
       "Subscription management with multiple access tiers and payment flows. Client dashboard for downloading reports and viewing historical data. Marketing pages with product explainers and signup flows.",
-      "My first Bubble.io project. I learned the platform from scratch by building it — database design, workflow logic, authentication, responsive layouts. The fundamentals I'd use on every project after.",
+      "My first Bubble.io project. I learned the platform from scratch by building it: database design, workflow logic, authentication, responsive layouts. The fundamentals I'd use on every project after.",
     ],
     tools: ["Bubble.io", "Zapier"],
     thumbnail: asset("1771468290181-ia-1.png"),

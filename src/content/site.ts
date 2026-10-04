@@ -1,4 +1,7 @@
 // Everything Ali says about himself lives here, so copy changes never touch components.
+// Source of truth: Ali's Content Bank v2 (May 2026). His own words take priority; Part B of
+// the bank is internal and never goes on the site. House rules: never say "idea" (say
+// "product"), no "better X than most Y" lines, no em dashes, AI only inside the philosophy.
 
 const ASSET = "https://bwnfyhcmekdzumndknhp.supabase.co/storage/v1/object/public/images";
 export const asset = (file: string) => `${ASSET}/${file}`;
@@ -6,11 +9,11 @@ export const asset = (file: string) => `${ASSET}/${file}`;
 export const person = {
   name: "Ali Farghaly",
   short: "Ali",
-  tagline: "No-code developer and product manager.",
+  tagline: "Developer and product manager.",
   photo: asset("1771468357918-1733826677030.jpeg"),
-  roles: ["No-code developer", "Product manager", "UX thinker", "Systems builder", "Documentation writer"],
+  roles: ["Developer", "Product manager", "Technical writer", "Systems builder"],
   intro:
-    "Building platforms from scratch. Taking products from concept to launch. Designing with the user in mind and documenting everything along the way.",
+    "I take what's in someone's head and make it real in a different medium: databases, apps, and the docs that keep them running.",
 };
 
 export const contact = {
@@ -51,52 +54,52 @@ export const paths = [
     index: "01",
     title: "Build it",
     sub: "The product",
-    body: "Full-stack web apps. Native mobile apps. Admin dashboards. Complex database architectures. Bubble.io is my primary tool, but I learn fast and adapt to new platforms.",
-    bullets: ["Web apps", "Native mobile", "Admin dashboards", "Database architecture"],
+    body: "Full-stack web apps and native iOS and Android apps in Bubble.io. Admin dashboards with role-based access, Stripe payments, OpenAI integrations and complex relational databases. Database first, then the logic, then the interface.",
+    bullets: ["Web apps", "Native mobile", "Admin dashboards", "Stripe & AI integrations"],
   },
   {
     key: "Systems" as StackCategory,
     index: "02",
     title: "Run it",
     sub: "The system around it",
-    body: "Product roadmaps. Sprint planning. QA coordination. User research. The Agile frameworks, user stories, and operational systems that turn plans into working software.",
-    bullets: ["Roadmaps", "Sprints", "QA cycles", "User research"],
+    body: "Scoping, backlogs, QA and documentation. I wear this hat when it's missing. If your specs are already solid, I don't waste your time re-scoping: I build, and flag anything that doesn't add up.",
+    bullets: ["Scoping", "Backlogs", "QA cycles", "Documentation"],
   },
 ];
 
-// The philosophy is alive: Ali keeps researching and rewrites it when something works better.
-// PLACEHOLDERS: the edition, the research topics and the recent changes need Ali's real ones.
+// The philosophy is alive: Ali keeps improving his process, AI included, "even on my own free time".
+// From the Content Bank (sections 5, 6, 13). AI appears here only (the user's call).
 export const philosophy = {
   edition: "Edition 2026.10",
   updated: "Updated Oct 2026",
-  lede: "A philosophy, not a fixed rulebook. I keep researching, test what's new, and rewrite it when something works better. The method and the protocol below update with it.",
+  lede: "Garbage in, garbage out. I spend my time on the input, so the output stays mine. My process is tool-agnostic, AI-assisted, and never finished: I keep improving it, even on my own free time. Anti-hype, pro-utilization.",
   researching: [
-    "AI agents inside no-code products",
-    "AI-assisted QA and test cases",
-    "Design systems for Bubble.io",
-    "Accessibility and RTL by default",
-    "Process automation with n8n and Make",
+    "Feeding AI the true context, not the quick one",
+    "A seven-step feature lifecycle, from scope to milestone",
+    "Building with Claude Code and Lovable",
+    "Why AI agrees with you, and how to make it push back",
+    "Keeping the process the same on any platform",
   ],
   changes: [
-    { tag: "Added", text: "AI-drafted docs, human-reviewed" },
-    { tag: "Changed", text: "QA starts in sprint one, not at the end" },
-    { tag: "Kept", text: "The problem before the solution" },
+    { tag: "Added", text: "A build diary for every project, so no decision is made twice" },
+    { tag: "Changed", text: "AI drafts the docs; I review every line before it ships" },
+    { tag: "Kept", text: "Measure twice, cut once" },
   ],
 };
 
-// "One person, one path": the build and the system are two stops on the same line
+// "One person, one path": the build and the system are two stops on the same line (Content Bank 4, 18)
 export const onePath = {
-  lede: "The philosophy becomes a method. Most companies split product management and development between people, and the product gets lost in the handover. My methodology keeps it in one pair of hands: product discovery, no-code development, QA and technical documentation, on one path from the problem to a product your team can run.",
-  quote: "Every product needs its own system, and I build the one that fits.",
+  lede: "Neither of my products had a product manager, a QA lead or a documentation team. I was all of those, because that's what building properly looks like when you care about the outcome. I call it building cleanly: brainstorm, plan, prioritize, build, and document as I go. When I'm done, the system works and someone else can maintain it.",
+  quote: "The mechanism changes. The discipline doesn't.",
 };
 
 // The stack: today's toolbox, not the limit. Each pair = a tool Ali knows → one it carries over to.
 export const stack = {
-  note: "This is today's toolbox, not the whole of it. I learn new tools every week, and the skills carry over: if I know Notion, I'm at home in Linear by the afternoon.",
+  note: "Bubble.io is where I build most today, but I don't want to live inside one tool. Proper input, proper output: the method works on any platform, and the skills carry over. If I know Notion, I'm at home in Linear by the afternoon.",
   learning: [
+    { knows: "Bubble.io", next: "Lovable" },
+    { knows: "Claude.ai", next: "Claude Code" },
     { knows: "Notion", next: "Linear" },
-    { knows: "Bubble.io", next: "FlutterFlow" },
-    { knows: "Airtable", next: "Baserow" },
     { knows: "Zapier", next: "n8n" },
     { knows: "Jira", next: "Asana" },
     { knows: "Canva", next: "Figma" },
@@ -105,25 +108,26 @@ export const stack = {
   ],
 };
 
+// The four principles behind the philosophy (Content Bank 2, 3, 4, 6), in Ali's words.
 export const principles = [
   {
-    title: "Emotional Reasoning",
-    body: "Building flows and interfaces through the same lens I use in everyday life: feeling out how others might react. Anticipating friction before it becomes a bug.",
+    title: "Read the intention",
+    body: "What you mean and what ends up in the spec are never quite the same. I work from both, and ask clarifying questions when they don't match.",
     glyph: "heart",
   },
   {
-    title: "Systems Thinking",
-    body: "Clean structures. Complex relational schemas. Messy metadata organized until it makes sense. Databases designed for how the product will grow, not just how it works today.",
+    title: "Four versions, one DNA",
+    body: "Every product exists four times: in your head, in what you manage to say, in what gets built, and in how each user lives it. My job is to keep all four sharing the same DNA.",
     glyph: "nodes",
   },
   {
-    title: "Expansion Instinct",
-    body: "Self-taught across disciplines. I chase new tools with genuine excitement, learn fast, and fold them into my work. Bubble is my primary, but I adapt.",
+    title: "The calculator rule",
+    body: "Calculators didn't stop us doing math; they freed us for the actual problem. That's how I use AI: it handles the tedious part, and I still do the thinking.",
     glyph: "spark",
   },
   {
-    title: "Documentation",
-    body: "Everything I build gets documented. Feature specs, user guides, technical notes. The next person should understand the system without calling me.",
+    title: "Document with purpose",
+    body: "I scope when it's necessary and document when it serves a real purpose. Never for the sake of it, and never more time on the docs than on the build.",
     glyph: "doc",
   },
 ] as const;
@@ -135,24 +139,25 @@ export const competencies = [
   { title: "Documentation", body: "Writing that people actually read. Specs, user guides, internal wikis. Knowledge that survives team changes." },
 ];
 
+// The path (Content Bank 2, 4, 14, 15). Client-facing only: nothing from Part B.
 export const journey = [
   {
     years: "2017 – 2021",
     role: "Translator",
-    lede: "Before I ever managed a product, I learned how to manage myself.",
-    body: "Academically trained as a translator and simultaneous interpreter — B.A. from Al-Alsun Faculty, 3.7 GPA. Four years translating Arabic ↔ English: legal documents, serialized adventure stories, marketing copy. Translation taught me to understand what one side needs and make sure the other side gets it.",
+    lede: "Before I learned to manage any product, I learned to manage myself.",
+    body: "B.A. in Translation and Simultaneous Interpretation, Arabic and English, from Al-Alsun, Ain Shams University (3.7 GPA). Freelancing while I studied taught me to break big projects into small chunks, prioritize, and deliver on deadlines. Translation taught me to care about the input as much as the output.",
   },
   {
-    years: "2021 – 2023",
+    years: "2021 – 2024",
     role: "Builder",
-    lede: "Building products felt the same as translating — just through different mediums.",
-    body: "I met Bubble.io while translating for a media company in Dubai, and something clicked. A bootcamp gave me the basics; building taught me the rest. A subscription portal became dashboards, which became a full platform rebuild. By 2023 I was leading solo development on a B2B marketplace: web, iOS, Android, admin, and a complete wiki.",
+    lede: "Building is translation into a different language: designs, databases and apps.",
+    body: "I joined ChannelSculptor in Dubai as a translator for mena.tv, and the work kept growing: admin, product, then Product Technical Lead. My first Bubble project taught me the tool. Then I rebuilt mena.tv on my own: web, iOS, Android and an admin dashboard, with 650+ companies at launch.",
   },
   {
-    years: "2023 – Now",
-    role: "Product Manager",
-    lede: "Building is one job. Getting a product to launch and keeping it running is another.",
-    body: "Now I can do either. Define the roadmap, write the specs, coordinate the sprints, run the QA, document the system. Or open Bubble and build the thing myself. Most of this work comes from three years in the mena.tv ecosystem — multiple hats, one mega product I'm proud of.",
+    years: "2024 – Now",
+    role: "Developer & PM",
+    lede: "Somebody had to organize the work. With no one else there, that someone was me.",
+    body: "I was the product manager and the engineering team at once, writing backlogs for myself long before anyone gave me the title. I closed my time at mena.tv with a full wiki, so the team runs it without me. Now I build for clients as a freelance developer who also does the PM work.",
   },
 ];
 
@@ -163,11 +168,12 @@ export const translations = [
   { from: "sentence rhythm", to: "user flows" },
 ];
 
+// Working together (Content Bank 9, 10)
 export const workingStyle = [
-  { title: "Morning Hours", body: "Mornings, Monday through Friday. Deep focus during those hours, offline at night. Work-life balance matters.", glyph: "sun" },
-  { title: "Clear Scope", body: "What's in and what's out is defined before work starts. Changes happen — we talk about them.", glyph: "scope" },
-  { title: "Honest Timelines", body: "I tell you how long things will take. If something shifts, I flag it early. No surprises.", glyph: "time" },
-  { title: "Documentation", body: "Feature specs, user guides, operational wikis. The next person picks up right where I left off.", glyph: "doc" },
+  { title: "Structured Hours", body: "9 AM to 6 PM GST, Monday to Friday. Focused work blocks. I don't perform busyness, and I don't do midnight Slack messages.", glyph: "sun" },
+  { title: "Suggestions, Not Demands", body: "If something in the spec doesn't add up, I research it, make it visual, and show you both options. Your call, always.", glyph: "scope" },
+  { title: "Honest Timelines", body: "Milestone-based delivery. I give honest timelines and I deliver on them. If something shifts, you hear it early.", glyph: "time" },
+  { title: "Documentation", body: "Organized, documented, tested work that you can understand and maintain without me in the room.", glyph: "doc" },
 ] as const;
 
 // The Sorting Room: raw client thoughts about their product, and what they become once they've been through Ali.
@@ -175,7 +181,7 @@ export const lanes = ["Roadmap", "Sprints", "QA", "Docs"] as const;
 export type Lane = (typeof lanes)[number];
 
 export const ideaFragments: { raw: string; clean: string; lane: Lane }[] = [
-  { raw: "uber but for TV people??", clean: "B2B media marketplace", lane: "Roadmap" },
+  { raw: "linkedin but for media people??", clean: "B2B media marketplace", lane: "Roadmap" },
   { raw: "it has to work on phones too", clean: "Native iOS + Android", lane: "Roadmap" },
   { raw: "payments… later??", clean: "Stripe · phase 2", lane: "Roadmap" },
   { raw: "users sign up somehow", clean: "Auth + onboarding flow", lane: "Sprints" },
@@ -189,17 +195,17 @@ export const ideaFragments: { raw: string; clean: string; lane: Lane }[] = [
 
 export const sorterStages = [
   { label: "Your product", body: "Promising. Also scattered across voice notes, screenshots and 2am messages." },
-  { label: "Listen", body: "What actually hurts? Every fragment gets heard, because the problem is hiding in there." },
-  { label: "Scope", body: "The problem, named. What's in, what's out, and the noise cut, agreed up front." },
-  { label: "Structure", body: "Now the solution: data, flows, edge cases. Each piece finds where it belongs." },
-  { label: "Clarity", body: "A plan that solves the real problem: roadmap, sprints, QA and docs." },
+  { label: "Listen", body: "What you mean and what you wrote are two different things. I listen for both." },
+  { label: "Scope", body: "The problem, named. What's in, what's out, the noise cut. If you've already scoped it, I don't redo it." },
+  { label: "Structure", body: "Database first, then the logic, then the interface. Each piece finds where it belongs." },
+  { label: "Clarity", body: "A plan that holds: backlog, sprints, QA and the docs." },
 ];
 
 export const stats = [
-  { value: 30, suffix: "+", label: "interconnected data types in one marketplace" },
+  { value: 650, suffix: "+", label: "companies on mena.tv at launch" },
   { value: 120, suffix: "+", label: "pages of documentation the team runs on" },
-  { value: 2, suffix: "", label: "app stores shipped to — iOS and Android" },
-  { value: 4, suffix: " yrs", label: "translating meaning between Arabic and English" },
+  { value: 2, suffix: "", label: "app stores shipped to: iOS and Android" },
+  { value: 4, suffix: " yrs", label: "building products in Bubble.io" },
 ];
 
 /* ------------------------------------------------------------------
@@ -215,8 +221,8 @@ export const story = {
     question: "Need a product built,",
     em: "and run properly?",
     who: "Ali Farghaly",
-    role: "product manager and no-code developer.",
-    line: "I build products fast, bring messy ones back under control, and run the whole process, roadmap to docs, as one person.",
+    role: "developer and product manager.",
+    line: "Whatever your product looks like right now, I can probably step into it: from the database to the docs.",
     primary: "Tell me where you are",
     secondary: "See the work",
     badge: "Open to projects",
@@ -224,7 +230,7 @@ export const story = {
   how: {
     index: "01",
     label: "Why · The philosophy",
-    quote: "Problem first, product second. I think like a product person, design like a UX thinker, and build with technical depth.",
+    quote: "The input matters as much as the output. If you don't fully understand what you're working from, you'll build something that looks right but feels wrong.",
   },
   problem: { index: "02", label: "How · The method", lead: "Messy in.", sort: "Clear out." },
   solution: { index: "02", label: "How · One person, one path", heading: "One person, one path: build it right, then make it run.", italic: [2, 3] },
@@ -251,7 +257,14 @@ export const story = {
   stack: { index: "03", label: "Knowledge · The stack", heading: "Today's toolbox. Never the whole of it.", italic: [4, 5, 6] },
   // the pill that appears once the visitor reaches the roadmap (until the contact section)
   cta: { idle: "Wherever you are on the line", picked: "Start at", action: "Let's talk" },
-  contact: { index: "04", label: "Let's talk", heading: "Tell me where your product is. Let's find the problem first.", italic: [9, 10] },
+  contact: {
+    index: "04",
+    label: "Let's talk",
+    heading: "Tell me where your product is. Let's find the problem first.",
+    italic: [9, 10],
+    // Ali's own closing line (Content Bank 11)
+    lede: "Tell me what you're building and where it stands. The best way to get to know me, and see if I can stand behind all those words above, is a quick intro call.",
+  },
   // the translator card in "The path": one word flipping between the two languages
   sameCraft: { label: "Same craft, new medium", en: "story", ar: "قصة" },
   footer: "Built with care · No problem left unsorted",
@@ -277,22 +290,22 @@ export function stationMessage(m: { name: string; company: string; station: stri
 export type StationId = "discovery" | "definition" | "design" | "build" | "qa" | "launch" | "handover" | "grow";
 
 export const roadmap = {
-  lede: "Every project follows the same protocol: eight stations, each with clear deliverables, so you always know where you are and what comes next. Pick your station and send it to me.",
+  lede: "Whatever your product looks like right now, there's a station for it. The entry point doesn't matter; the process adapts. Pick where you are and send it to me.",
   stations: [
     { id: "discovery", name: "Discovery", what: "We find the real problem behind the product: who has it, how often, and what it costs them.", get: "A one-page problem statement", terms: ["Product discovery", "Stakeholder interviews", "Problem statement"] },
     { id: "definition", name: "Definition", what: "Users, scope and what success looks like. What's in and what's out, agreed up front.", get: "Scope doc and user stories", terms: ["Requirements gathering", "User stories", "MVP scope"] },
     { id: "design", name: "Design", what: "User flows, screens and the data model, worked out before anything gets built.", get: "Flows, wireframes, database schema", terms: ["UX design", "User flows", "Data modeling"] },
-    { id: "build", name: "Build", what: "Sprints in Bubble, with a working version at the end of every one.", get: "A product you can click every sprint", terms: ["No-code development", "Bubble.io", "Agile sprints"] },
+    { id: "build", name: "Build", what: "Milestones, database first, then the logic, then the interface, with a working version at the end of each.", get: "A product you can click every sprint", terms: ["No-code development", "Bubble.io", "Agile sprints"] },
     { id: "qa", name: "QA", what: "Structured testing episodes, so your users never meet the bugs.", get: "Test plan and a severity-tagged tracker", terms: ["QA testing", "UAT", "Bug triage"] },
     { id: "launch", name: "Launch", what: "Ship to the web and the app stores, then watch the first real users.", get: "Live on web, iOS and Android", terms: ["Go-live", "App Store release", "Monitoring"] },
-    { id: "handover", name: "Handover", what: "Specs, guides and a wiki, so your team runs it without calling me.", get: "Docs your team actually reads", terms: ["Technical documentation", "SOPs", "Knowledge transfer"] },
+    { id: "handover", name: "Handover", what: "Specs, guides and a wiki, so someone else can maintain it without me in the room.", get: "Docs your team actually reads", terms: ["Technical documentation", "SOPs", "Knowledge transfer"] },
     { id: "grow", name: "Grow", what: "Measure, learn, improve. The next problem starts the next loop.", get: "A roadmap for what's next", terms: ["Product roadmap", "Analytics", "Continuous improvement"] },
   ] as { id: StationId; name: string; what: string; get: string; terms: string[] }[],
   // where a project can join the line, and what Ali does first when it does
   joins: [
-    { id: "fresh", label: "Nothing built yet", at: "discovery", color: "var(--sun)", note: "Perfect. We start at the beginning: the problem." },
-    { id: "designs", label: "Designs ready", at: "build", color: "var(--leaf)", note: "I check the designs against the problem, then we build." },
-    { id: "messy", label: "Built, but messy", at: "qa", color: "var(--teal-bright)", note: "I map what exists and make it stable before adding anything new." },
-    { id: "undocumented", label: "Live, undocumented", at: "handover", color: "var(--muted)", note: "I document the system so it stops depending on one person." },
+    { id: "fresh", label: "Nothing built yet", at: "discovery", color: "var(--sun)", note: "I'll scope it, structure it, and build it from scratch." },
+    { id: "specs", label: "Specs ready", at: "build", color: "var(--leaf)", note: "I'll implement them faithfully, and flag anything that doesn't add up." },
+    { id: "messy", label: "A previous developer left a mess", at: "qa", color: "var(--teal-bright)", note: "I've untangled that before. I map what exists and make it stable first." },
+    { id: "stuck", label: "80% done, stuck", at: "launch", color: "var(--muted)", note: "I'll audit what's there and take it across the finish line." },
   ] as { id: string; label: string; at: StationId; color: string; note: string }[],
 };

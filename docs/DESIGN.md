@@ -102,9 +102,9 @@ These come straight from the user's feedback; follow them.
 
 ## Voice and copy
 
-- **Ali in the first person.** Short, declarative, warm and calm. Concrete: real numbers, real tools, real outcomes.
+- **Ali in the first person, in his own words.** Take lines from the Content Bank wherever possible (see `CONTENT.md`). Short, declarative, warm and calm. Concrete: real numbers, real tools, real outcomes. It should never sound like AI wrote it: no em dashes, no "not just X, it's Y" flourishes, no "better X than most Y". And no hurry words like "fast" or "effortless": Ali's work takes the time it needs.
 - **No hype or buzzwords.** Let the specifics impress.
-- **Small jokes** that serve the theme are welcome: "Bring the mess", "Clear out.", "No idea left unsorted".
+- **Small jokes** that serve the theme are welcome: "Bring the mess", "Clear out.", "No problem left unsorted".
 - **US spelling** in site copy (organized, color).
 - All copy lives in `src/content/`. See [CONTENT.md](CONTENT.md).
 

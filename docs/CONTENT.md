@@ -2,6 +2,31 @@
 
 All of Ali's words and data live in data files, so changing copy never means touching components. Phase 5 is the user sending Ali's real content and us putting it here. From Phase 6, Ali edits projects, featured work and the journal from his admin dashboard (Supabase) instead.
 
+## Who Ali is: the source of truth
+
+Since 5 Oct 2026 the copy comes from **Ali's Content Bank v2** (May 2026), which the user pasted into the session. It isn't stored in the repo, because its Part B is private. Ask the user for it when you need more of Ali's words. What matters:
+
+- **Identity:** a developer who is also a PM by nature, and both sides can't be separated. The running thread is taking what's in someone's head and making it real in another medium: translation, then apps, then docs, then process.
+- **Philosophy:** input matters as much as output. "Garbage in, garbage out." Ali stays anti-hype but uses AI for real (the calculator analogy), and his process is tool-agnostic and always being improved.
+- **The four versions:** every product exists four times: in your head, in what you manage to say, in what gets built, and in how each user lives it. They should share the same DNA.
+- **Method:** building cleanly. Database first, then logic, then interface, documented as he goes. He does PM work only where it's missing. He scopes and documents only when it serves a purpose.
+- **Entry points:** nothing built yet / specs ready / a previous developer left a mess / 80% done and stuck. These are the roadmap's branch lines.
+- **Working style:** 9 AM to 6 PM GST, Monday to Friday. Honest timelines and milestone-based delivery. Suggestions, not demands.
+
+**House rules (the user's decisions):**
+- **Never "idea":** say "product".
+- **No "better X than most Y" lines.**
+- **No em dashes in copy.**
+- **AI appears only in the philosophy.** No AI-testimonials section.
+- **Leave out the music side** (drummer, composer).
+- **Nothing from the bank's Part B goes on the site:**
+  - the persona split;
+  - the jobless months and the customer-service job;
+  - MovieDNA;
+  - his LinkedIn writing as a claim (show the posts instead, if ever);
+  - rates.
+- **Don't claim** traditional coding, UI/UX as a primary skill, formal PM training, DevOps or large-scale architecture.
+
 ## Where each kind of content lives
 
 | Content | File | Notes |
@@ -139,15 +164,16 @@ Post HTML is injected as-is, so only Ali or the agency should write posts.
 
 | Content | Source | Status |
 |---|---|---|
-| Person, roles, intro, contact | Ali's Bubble site | Real. Confirm with Ali in Phase 5 |
+| Person, roles, intro, contact | Content Bank v2 + Ali's Bubble site | Real (rewritten from the bank, 5 Oct) |
 | Projects (text and images) | Ali's Bubble site and Supabase bucket | Real |
-| Paths, principles, journey, working style | Ali's Bubble site, lightly edited | Real; needs Ali's sign-off |
-| Living philosophy (`philosophy`): research topics and recent changes | Written for this site | **Placeholder.** Ali's real ones needed |
-| Station keyword tags, protocol and methodology copy | Written for this site | Needs Ali's sign-off |
-| Sorting Room fragments and stage captions | Written for this site | Invented examples. Check that Ali is happy with them |
-| Stats | Derived from his projects | **Confirm** |
+| Paths, principles, journey, working style, the hero line, the method lede, the contact lede | Content Bank v2 (Ali's words, lightly fitted) | Real; needs Ali's sign-off on the fitting |
+| Living philosophy (`philosophy`): research topics and recent changes | Drawn from the bank (his AI discipline, the feature lifecycle, build diary, Claude Code/Lovable) | Real themes; the edition date and the exact wording need Ali's OK |
+| Station keyword tags, protocol copy | Written for this site; the branch lines are Ali's four entry points | Needs Ali's sign-off |
+| Sorting Room fragments and stage captions | Written for this site; the captions now use Ali's method (intent vs spec, database first) | Fragments are invented examples. Check with Ali |
+| Stats | 650+ companies (bank), 120+ pages (his old site), 2 app stores, 4 yrs in Bubble (bank) | 120+ pages comes from his old site, not the bank: confirm |
 | Journal posts | Drafted by us | **Placeholder** |
 | Mind teaser copy | Written for this site | **Stale.** It says "Soon / on its way" |
+| TextWing case study | In the bank (AI dating assistant, GPT-4o Vision, Stripe, two 5-star reviews) | **Missing.** Needs screenshots and the client's OK to show it |
 | `/mind` scattered ideas (`IDEAS` in `world.ts`) | Written for this site; each maps to a real plaque | Not wired up yet (Phase 8) |
 
 ## Phase 5 intake checklist

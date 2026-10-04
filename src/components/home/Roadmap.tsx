@@ -36,9 +36,9 @@ const AT: Record<StationId, P> = {
 // branch lines: from their own terminus to the station they join
 const BRANCH: Record<string, { from: P; label: P; anchor: "start" | "end" }> = {
   fresh: { from: [110, 385], label: [124, 389], anchor: "start" },
-  designs: { from: [370, 330], label: [358, 334], anchor: "end" },
+  specs: { from: [370, 330], label: [358, 334], anchor: "end" },
   messy: { from: [570, 60], label: [584, 64], anchor: "start" },
-  undocumented: { from: [850, 300], label: [864, 304], anchor: "start" },
+  stuck: { from: [760, 300], label: [774, 304], anchor: "start" },
 };
 const LABEL_ABOVE = new Set<StationId>(["discovery", "definition", "launch", "handover", "grow"]);
 

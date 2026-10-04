@@ -70,7 +70,7 @@ export function Contact() {
           />
           <Reveal delay={0.2}>
             <p className="mt-6 max-w-[460px] text-[1.02rem] leading-relaxed text-ink-soft">
-              Looking for a no-code developer or a product manager? Project, question, or just a conversation — I&apos;d like to hear from you.
+              {story.contact.lede}
             </p>
             <div className="mt-9">
               <Magnetic strength={0.3}>
