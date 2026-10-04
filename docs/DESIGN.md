@@ -2,6 +2,8 @@
 
 ## The idea
 
+**The story (since 4 Oct): Ali tackles the problem first, then the solution, not "the idea".** The hero says it gently: "Your idea is brilliant. But first, the *problem.*" The page runs as chapters: problem → solution → how → roadmap → proof → person → working together → let's talk. Keep new sections inside that arc.
+
 **Messy in → clear out.** Ali takes a client's tangled idea and organizes it into a roadmap, a build and the docs. The design shows that over and over: scattered things settle into order. When you add something, ask: *does this show disorder becoming order, or support someone who wants that?* If it does neither, it probably doesn't belong.
 
 The mood is minimal and premium, but cozy and human, never cold: warm paper, deep teal ink, soft rounded type, a little play.
@@ -87,6 +89,7 @@ These come straight from the user's feedback; follow them.
 | The path (`Journey`) | Translation words flip. The timeline draws as you scroll |
 | Working together (`HowIWork`) | The sun rises, a scope rejects an extra request, a timeline flags early, a doc writes itself |
 | Mind teaser | The door opens and a little visitor walks up |
+| Roadmap | A metro map: the line draws in, a train rides to "you are here" on its own, stations fill as they're passed, branch lines show where a project can join |
 | Numbers | Count up |
 
 ## Voice and copy

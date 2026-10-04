@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { workingStyle } from "@/content/site";
+import { story, workingStyle } from "@/content/site";
 import { Reveal, SectionLabel, SplitHeading } from "../primitives";
 
 /** Every sketch loops on its own while it's on screen — no hover needed. */
@@ -170,10 +170,10 @@ function Card({ w, i }: { w: (typeof workingStyle)[number]; i: number }) {
 export function HowIWork() {
   return (
     <section id="together" className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
-      <SectionLabel index="06">Working together</SectionLabel>
+      <SectionLabel index={story.together.index}>{story.together.label}</SectionLabel>
       <SplitHeading
-        text="Calm, clear, and no surprises."
-        italic={[3, 4]}
+        text={story.together.heading}
+        italic={story.together.italic}
         className="max-w-[760px] font-display text-[clamp(2.1rem,4.6vw,3.6rem)] leading-[1.04]"
       />
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

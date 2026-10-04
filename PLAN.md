@@ -53,23 +53,23 @@ The client approves this version before anything replaces it. Ali's mind stays l
 
 The approved-baseline backup is at https://github.com/Lokoagency/ali-porto (branch `main`, commit `6129be9`). Don't push new work over it until the client approves; commit locally, or on a branch, until then.
 
-## Phase 2: Narrative (storytelling)
+## Phase 2: Narrative (storytelling) — built 4 Oct, waiting for the client's approval
 
 **Goal:** the site tells one story. **Ali tackles the problem first, then the solution, not "the idea".** "Your idea is brilliant, but Ali will kill it for you": he strips the idea back to the real problem, then builds what solves it.
 
-- Rewrite the story arc across the hero, the Sorting Room and the section headlines.
-- Waiting on the user's answers to the open questions.
+- Done: a gentle tone. The hero reads "Your idea is brilliant. But first, the problem." The chapters run problem → solution → how → roadmap → proof → person → together → contact, and the copy lives in `story` in `site.ts`.
+- Next: Ali reviews the wording.
 
-## Phase 3: The client roadmap (metro-map style)
+## Phase 3: The client roadmap (metro-map style) — built 4 Oct, waiting for the client's approval
 
 **Goal:** an illustrated, animated map of how a project moves with Ali. It has two jobs:
 1. Ali can join a project at any stage, adapt, and guide the client from there.
 2. The client sees where they are on the map and what comes next.
 
-- **Visual:** a metro map or world map.
-- Scope and details are waiting on the user's answers.
+- Done: an illustrated metro map on the home page (`home/Roadmap.tsx`), in the journal's old spot. It has 8 stations, 4 branch lines (where Ali can join), an auto-riding train, a "you are here" panel, and a vertical version for phones.
+- Later, if wanted: a private, per-client tracker on top of it.
 
-## Phase 4: Journal only in the nav
+## Phase 4: Journal only in the nav — done 4 Oct
 
 - Remove the journal section from the home page. The journal stays reachable from the nav (`/journal`).
 

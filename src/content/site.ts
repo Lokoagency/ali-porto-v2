@@ -148,10 +148,10 @@ export const ideaFragments: { raw: string; clean: string; lane: Lane }[] = [
 
 export const sorterStages = [
   { label: "Your idea", body: "Brilliant. Also scattered across voice notes, screenshots and 2am messages." },
-  { label: "Listen", body: "Pain points first. Every fragment gets heard before anything gets built." },
-  { label: "Scope", body: "What's in, what's out. Noise filtered out, agreed up front." },
-  { label: "Structure", body: "Data, flows, edge cases. Each piece finds where it belongs." },
-  { label: "Clarity", body: "A roadmap, sprints, QA and docs. An idea you can actually ship." },
+  { label: "Listen", body: "What actually hurts? Every fragment gets heard, because the problem is hiding in there." },
+  { label: "Scope", body: "The problem, named. What's in, what's out, and the noise cut, agreed up front." },
+  { label: "Structure", body: "Now the solution: data, flows, edge cases. Each piece finds where it belongs." },
+  { label: "Clarity", body: "A plan that solves the real problem: roadmap, sprints, QA and docs." },
 ];
 
 export const stats = [
@@ -160,3 +160,54 @@ export const stats = [
   { value: 2, suffix: "", label: "app stores shipped to — iOS and Android" },
   { value: 4, suffix: " yrs", label: "translating meaning between Arabic and English" },
 ];
+
+/* ------------------------------------------------------------------
+   The story the home page tells, in order:
+   the problem → the solution → how → the roadmap → proof → the person → let's talk.
+   Ali starts with the problem behind an idea, then builds the solution.
+------------------------------------------------------------------- */
+export const story = {
+  hero: {
+    lines: ["Your idea is brilliant.", "But first, the"],
+    word: "problem.",
+    tagline: "I find what is really broken, then build what makes it",
+    sort: "make sense.",
+    // the notes around the portrait, in the order they line up
+    notes: ["The problem", "Who has it", "What it costs", "The fix", "The build", "The docs"],
+  },
+  problem: { index: "01", label: "The problem", lead: "Messy in.", sort: "Clear out." },
+  solution: { index: "02", label: "The solution", heading: "Two paths, one standard: build it right, document it well.", italic: [6, 7, 8, 9, 10] },
+  how: { index: "03", label: "How I build", quote: "I think like a product person, design like a UX thinker, and build with technical depth." },
+  roadmap: { index: "04", label: "The roadmap", heading: "Every project is a line. Here's where you are.", italic: [6, 7, 8] },
+  proof: { index: "05", label: "Proof", heading: "Problems found, solved and shipped.", italic: [2, 3, 4] },
+  person: { index: "06", label: "The person", heading: "From translator to builder to product manager.", italic: [2, 4, 6, 7] },
+  together: { index: "07", label: "Working together", heading: "Calm, clear, and no surprises.", italic: [3, 4] },
+  contact: { index: "08", label: "Let's talk", heading: "Got an idea? Let's find the problem first.", italic: [6, 7] },
+};
+
+/* ------------------------------------------------------------------
+   The roadmap: a metro line from problem to growth. Clients see where they
+   are and what's next; the branch lines show Ali can join at any station.
+------------------------------------------------------------------- */
+export type StationId = "discovery" | "definition" | "design" | "build" | "qa" | "launch" | "handover" | "grow";
+
+export const roadmap = {
+  lede: "Wherever your project is today, there's a station for it. Pick where you are and see what happens next.",
+  stations: [
+    { id: "discovery", name: "Discovery", what: "We find the real problem behind the idea: who has it, how often, and what it costs them.", get: "A one-page problem statement" },
+    { id: "definition", name: "Definition", what: "Users, scope and what success looks like. What's in and what's out, agreed up front.", get: "Scope doc and user stories" },
+    { id: "design", name: "Design", what: "User flows, screens and the data model, worked out before anything gets built.", get: "Flows, wireframes, database schema" },
+    { id: "build", name: "Build", what: "Sprints in Bubble, with a working version at the end of every one.", get: "A product you can click every sprint" },
+    { id: "qa", name: "QA", what: "Structured testing episodes, so your users never meet the bugs.", get: "Test plan and a severity-tagged tracker" },
+    { id: "launch", name: "Launch", what: "Ship to the web and the app stores, then watch the first real users.", get: "Live on web, iOS and Android" },
+    { id: "handover", name: "Handover", what: "Specs, guides and a wiki, so your team runs it without calling me.", get: "Docs your team actually reads" },
+    { id: "grow", name: "Grow", what: "Measure, learn, improve. The next problem starts the next loop.", get: "A roadmap for what's next" },
+  ] as { id: StationId; name: string; what: string; get: string }[],
+  // where a project can join the line, and what Ali does first when it does
+  joins: [
+    { id: "idea", label: "Just an idea", at: "discovery", color: "var(--sun)", note: "Perfect. We start at the beginning: the problem." },
+    { id: "designs", label: "Designs ready", at: "build", color: "var(--leaf)", note: "I check the designs against the problem, then we build." },
+    { id: "messy", label: "Built, but messy", at: "qa", color: "var(--teal-bright)", note: "I map what exists and make it stable before adding anything new." },
+    { id: "undocumented", label: "Live, undocumented", at: "handover", color: "var(--muted)", note: "I document the system so it stops depending on one person." },
+  ] as { id: string; label: string; at: StationId; color: string; note: string }[],
+};

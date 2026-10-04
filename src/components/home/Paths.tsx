@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
-import { paths, tools, type StackCategory } from "@/content/site";
+import { paths, story, tools, type StackCategory } from "@/content/site";
 import { Reveal, SectionLabel, SplitHeading, easeOut } from "../primitives";
 
 const loop = (duration: number, delay = 0) => ({ duration, delay, repeat: Infinity, ease: "easeInOut" as const });
@@ -129,11 +129,11 @@ export function Paths() {
 
   return (
     <section id="paths" ref={ref} className="relative mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
-      <SectionLabel index="02">What I do</SectionLabel>
+      <SectionLabel index={story.solution.index}>{story.solution.label}</SectionLabel>
       <SplitHeading
-        text="Two paths, one standard: build it right, document it well."
+        text={story.solution.heading}
         className="max-w-[880px] font-display text-[clamp(2rem,4.4vw,3.6rem)] leading-[1.05]"
-        italic={[6, 7, 8, 9, 10]}
+        italic={story.solution.italic}
       />
 
       <div className="mt-12 grid gap-5 md:grid-cols-2">

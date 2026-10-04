@@ -26,7 +26,7 @@ Then read whatever the task needs:
 
 - **Phase 0** (review and optimisation): done, 4 Oct 2026.
 - **Phase 1** (GitHub backup): done, 4 Oct 2026.
-- **Phase 2** (narrative): next, waiting on the user's answers. After it: roadmap (3), journal only in the nav (4), content (5), performance (6), polish (7), launch (8).
+- **Phases 2–4** (narrative, roadmap metro map, journal only in the nav): built 4 Oct, waiting for the client's approval. Next: content (5), performance (6), polish (7), launch (8).
 - **`/mind` is on hold until Phase 9.** Don't work on it unless the user asks.
 
 ## Rules

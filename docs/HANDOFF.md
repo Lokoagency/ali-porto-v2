@@ -25,7 +25,7 @@ If you've just been handed this project, read this first. It covers what the pro
 
 | Area | Status | Notes |
 |---|---|---|
-| Home page (`/`) | Built and reviewed | 12 sections. See `ARCHITECTURE.md` |
+| Home page (`/`) | Built; the narrative was rewritten 4 Oct | It tells one story: problem → solution → how → roadmap → proof → person → together → contact. Includes the metro-map roadmap. See `ARCHITECTURE.md` |
 | Case studies (`/work/[slug]`) | Built | 7 projects, statically generated |
 | Journal (`/journal`, `/journal/[slug]`) | Built | Notion isn't connected yet; the 3 Markdown posts are placeholders |
 | Ali's mind (`/mind`) | Paused until Phase 5 | Working 3D house. See `MIND.md` |

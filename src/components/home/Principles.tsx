@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform, type MotionValue, type TargetAndTransition } from "motion/react";
-import { principles } from "@/content/site";
+import { principles, story } from "@/content/site";
 import { Reveal, SectionLabel } from "../primitives";
 
 const draw = {
@@ -78,8 +78,8 @@ export function Principles() {
   return (
     <section id="how" className="relative bg-paper-2/70 py-20 md:py-28">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
-        <SectionLabel index="03">How I build</SectionLabel>
-        <ScrollQuote text="I think like a product person, design like a UX thinker, and build with technical depth." />
+        <SectionLabel index={story.how.index}>{story.how.label}</SectionLabel>
+        <ScrollQuote text={story.how.quote} />
 
         <div className="mt-14 grid gap-px overflow-hidden rounded-[28px] border border-line bg-line sm:grid-cols-2">
           {principles.map((p, i) => (

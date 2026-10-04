@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useInView, useScroll, useSpring, useTransform } from "motion/react";
-import { journey, translations } from "@/content/site";
+import { journey, story, translations } from "@/content/site";
 import { Reveal, SectionLabel, SplitHeading, easeOut } from "../primitives";
 
 /** Old medium → new medium, flipping like a translation being made. */
@@ -78,10 +78,10 @@ export function Journey() {
       <div aria-hidden className="pointer-events-none absolute -left-40 top-20 size-[520px] rounded-full bg-teal opacity-20 blur-[140px]" />
       <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 gap-16 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="lg:sticky lg:top-28 lg:self-start">
-          <SectionLabel index="05">The path</SectionLabel>
+          <SectionLabel index={story.person.index}>{story.person.label}</SectionLabel>
           <SplitHeading
-            text="From translator to builder to product manager."
-            italic={[2, 4, 6, 7]}
+            text={story.person.heading}
+            italic={story.person.italic}
             className="font-display text-[clamp(2.1rem,4.4vw,3.6rem)] leading-[1.04]"
           />
           <Reveal>

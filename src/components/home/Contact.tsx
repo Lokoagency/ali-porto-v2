@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { contact } from "@/content/site";
+import { contact, story } from "@/content/site";
 import { Arrow, Magnetic, Reveal, SplitHeading } from "../primitives";
 
 const channels = [
@@ -62,10 +62,10 @@ export function Contact() {
     <section id="contact" className="relative mx-auto max-w-[1200px] px-5 pb-20 pt-20 sm:px-8 md:pt-28">
       <div className="grid gap-14 lg:grid-cols-[1.2fr_1fr] lg:items-end">
         <div>
-          <p className="eyebrow mb-6">08 — Let&apos;s talk</p>
+          <p className="eyebrow mb-6">{story.contact.index} — {story.contact.label}</p>
           <SplitHeading
-            text="Got a messy idea? Bring it over."
-            italic={[4, 5]}
+            text={story.contact.heading}
+            italic={story.contact.italic}
             className="font-display text-[clamp(2.6rem,6.4vw,5.4rem)] leading-[0.98]"
           />
           <Reveal delay={0.2}>

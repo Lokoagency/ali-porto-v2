@@ -4,18 +4,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { AnimatePresence, motion, useInView, useMotionValue, useSpring, useTransform } from "motion/react";
-import { person } from "@/content/site";
+import { person, story } from "@/content/site";
 import { Arrow, Magnetic, easeOut } from "../primitives";
 import { SortText } from "../SortText";
 
-const notes = [
-  { label: "The idea", messy: { left: "-14%", top: "6%", rotate: -14 } },
-  { label: "Who uses it", messy: { left: "70%", top: "-4%", rotate: 11 } },
-  { label: "User flows", messy: { left: "78%", top: "38%", rotate: -8 } },
-  { label: "The data", messy: { left: "-18%", top: "52%", rotate: 9 } },
-  { label: "QA", messy: { left: "64%", top: "80%", rotate: 16 } },
-  { label: "The docs", messy: { left: "4%", top: "88%", rotate: -6 } },
+// scattered spots for the six notes (labels: story.hero.notes, problem first)
+const scatter = [
+  { left: "-14%", top: "6%", rotate: -14 },
+  { left: "70%", top: "-4%", rotate: 11 },
+  { left: "78%", top: "38%", rotate: -8 },
+  { left: "-18%", top: "52%", rotate: 9 },
+  { left: "64%", top: "80%", rotate: 16 },
+  { left: "4%", top: "88%", rotate: -6 },
 ];
+const notes = story.hero.notes.map((label, i) => ({ label, messy: scatter[i % scatter.length] }));
 
 // tidied notes line up just off the portrait's left edge; on narrow screens they tuck inside it
 const tidy = (i: number, narrow: boolean) => ({ left: narrow ? "3%" : "-10%", top: `${14 + i * 12}%`, rotate: 0 });
@@ -52,7 +54,7 @@ function RotatingRole({ live }: { live: boolean }) {
   );
 }
 
-/** "mess" — letters start scattered and straighten out. Hover to scatter again. */
+/** The key word (story.hero.word): letters start scattered and straighten out. Hover to scatter again. */
 function MessyWord({ live }: { live: boolean }) {
   const [settled, setSettled] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
@@ -80,19 +82,13 @@ function MessyWord({ live }: { live: boolean }) {
     setSettled(false);
     settleIn(420);
   };
-  const chaos = [
-    { y: -10, rotate: -18 },
-    { y: 8, rotate: 14 },
-    { y: -4, rotate: -9 },
-    { y: 12, rotate: 22 },
-    { y: -6, rotate: 0 },
-  ];
+  const chaos = Array.from(story.hero.word, (_, i) => ({ y: [-10, 8, -4, 12, -6, 6, -9, 3][i % 8], rotate: [-18, 14, -9, 22, 0, -12, 10, -5][i % 8] }));
   return (
     <span
       className="font-display-italic inline-flex text-teal"
       onPointerEnter={shake}
     >
-      {"mess.".split("").map((ch, i) => (
+      {Array.from(story.hero.word).map((ch, i) => (
         <motion.span
           key={i}
           className="inline-block"
@@ -164,7 +160,7 @@ export function Hero() {
         </p>
 
         <h1 className="font-display text-[clamp(2.7rem,6.6vw,5.4rem)] leading-[1.02] text-ink">
-          {["Your idea is brilliant.", "It’s also a"].map((line, i) => (
+          {story.hero.lines.map((line, i) => (
             // fully visible from the first frame (it just comes into focus), so the headline
             // is readable at once and is never held back waiting for the rest of the page
             <span key={i} className="anim-focus block pb-[0.06em]" style={{ animationDelay: `${0.1 + i * 0.12}s` }}>
@@ -177,8 +173,8 @@ export function Hero() {
           className="anim-blur-in mt-6 font-display text-[clamp(1.4rem,2.6vw,2rem)] leading-snug text-ink-soft"
           style={{ animationDelay: "1.9s" }}
         >
-          I&apos;m the one who makes it{" "}
-          <SortText text="make sense." className="font-display-italic text-teal" delay={2100} loop={7000} />
+          {story.hero.tagline}{" "}
+          <SortText text={story.hero.sort} className="font-display-italic text-teal" delay={2100} loop={7000} />
         </p>
 
         <div className="anim-fade-up mt-9 max-w-[520px] space-y-6" style={{ animationDelay: "0.7s", animationDuration: "0.9s" }}>

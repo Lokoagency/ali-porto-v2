@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion, useMotionValue, useSpring } from "motion/react";
 import { projects, type Project } from "@/content/projects";
+import { story } from "@/content/site";
 import { Arrow, Reveal, SectionLabel, SplitHeading, easeOut } from "../primitives";
 
 const filters = [
@@ -143,11 +144,11 @@ export function Work() {
 
   return (
     <section id="work" className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
-      <SectionLabel index="04">Selected work</SectionLabel>
+      <SectionLabel index={story.proof.index}>{story.proof.label}</SectionLabel>
       <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
         <SplitHeading
-          text="Ideas, sorted and shipped."
-          italic={[2, 3]}
+          text={story.proof.heading}
+          italic={story.proof.italic}
           className="font-display text-[clamp(2.2rem,5vw,4rem)] leading-[1.02]"
         />
         <Reveal>

@@ -20,7 +20,7 @@ No database, no API routes, no auth. Data is static TypeScript plus Notion (opti
 ## Rendering model
 
 - **Pages are server components.** They read content and pass plain data to client sections; most home sections are client components because they animate.
-- **ISR:** the home page, both journal pages and `/mind` set `revalidate = 300`, so new Notion posts appear within 5 minutes without a deploy.
+- **ISR:** both journal pages and `/mind` set `revalidate = 300`, so new Notion posts appear within 5 minutes without a deploy. The home page is fully static (it no longer shows posts).
 - **Static pages:**
   - `/work/[slug]` builds from `projects` (`generateStaticParams`).
   - `/journal/[slug]` builds from posts at build time and revalidates.
@@ -30,7 +30,7 @@ No database, no API routes, no auth. Data is static TypeScript plus Notion (opti
 
 | Route | File | What it shows | Data |
 |---|---|---|---|
-| `/` | `src/app/page.tsx` | The home page: 12 sections, plus the scroll rail | `getAllPosts()` for the journal preview |
+| `/` | `src/app/page.tsx` | The home page: one story in 11 sections, plus the scroll rail. Fully static | none (copy from `site.ts`) |
 | `/work/[slug]` | `src/app/work/[slug]/page.tsx` | A case study: header, `Gallery`, numbered story, tools aside, live link, next case | `projects` |
 | `/journal` | `src/app/journal/page.tsx` | The journal index with tag filter (`JournalList`) | `getAllPosts()` |
 | `/journal/[slug]` | `src/app/journal/[slug]/page.tsx` | A post (`.prose-ali`), `ReadingProgress`, "Keep reading" | `getAllPosts()` |
@@ -49,19 +49,19 @@ Metadata: `layout.tsx` sets the title template (`"%s · Ali Farghaly"`, default 
 
 ## Home page sections (`src/app/page.tsx`, in order)
 
-`ScrollRail` (home only) sits on top of all of them. Section numbers come from each section's eyebrow label. IDs are what the nav, the scroll rail and anchor links use.
+`ScrollRail` (home only) sits on top of all of them. Labels, numbers and headlines come from `story` in `src/content/site.ts`. IDs are what the nav, the scroll rail and anchor links use. The order tells a story: problem → solution → how → roadmap → proof → person → working together → let's talk. The journal isn't on the home page; it's in the nav.
 
 | # | Component | `id` | What it does |
 |---|---|---|---|
 | — | `home/Hero.tsx` | `top` | The hero. Details below |
 | — | `home/Numbers.tsx` | — (aria-label "Ali in numbers") | 4 stats from `stats` that count up when visible |
-| 01 | `home/IdeaSorter.tsx` | `process` | The Sorting Room. Details below |
-| 02 | `home/Paths.tsx` | `paths` | "What I do": two path cards (Builds and Systems) with looping sketches, and the tool chips |
+| 01 | `home/IdeaSorter.tsx` | `process` | "The problem": the Sorting Room. Details below |
+| 02 | `home/Paths.tsx` | `paths` | "The solution": two path cards (Builds and Systems) with looping sketches, and the tool chips |
 | 03 | `home/Principles.tsx` | `how` | "How I build": a scroll-revealed quote and 4 principle cards with drawn glyphs |
-| 04 | `home/Work.tsx` | `work` | "Selected work": project cards, the next-idea card and the filter |
-| 05 | `home/Journey.tsx` | `path` | "The path": the dark band, a translation card and a timeline |
-| 06 | `home/HowIWork.tsx` | `together` | "Working together": 4 cards from `workingStyle`, each with its own looping sketch |
-| 07 | `home/JournalPreview.tsx` | `notes` | "The journal": the 3 latest posts (server component) |
+| 04 | `home/Roadmap.tsx` | `roadmap` | "The roadmap": the metro map. Details below |
+| 05 | `home/Work.tsx` | `work` | "Proof": project cards, the next-idea card and the filter |
+| 06 | `home/Journey.tsx` | `path` | "The person": the dark band, a translation card and a timeline |
+| 07 | `home/HowIWork.tsx` | `together` | "Working together": 4 cards from `workingStyle`, each with its own looping sketch |
 | — | `home/MindTeaser.tsx` | — | Link card to `/mind` |
 | 08 | `home/Contact.tsx` | `contact` | "Let's talk": contact options |
 
@@ -84,6 +84,15 @@ Metadata: `layout.tsx` sets the title template (`"%s · Ali Farghaly"`, default 
 - **Geometry:** a pure function of scroll progress, so scrolling back un-sorts. It flows left→right on desktop and top→bottom on mobile. The stage starts below the measured heading block.
 - **Cost:** it only draws while on screen, and it reads its colours from CSS variables, so it follows the theme.
 
+**Roadmap** (`home/Roadmap.tsx`), the client metro map:
+- **The map:** an SVG with a viewBox of 1000×400. The main line (`LINE` points, with 45° bends) carries 8 stations (`AT`). Branch lines (`BRANCH`) join at stations to show where Ali can jump on.
+- **The train:** a motion value `d` (distance along the line) moves the train with `animate()`. The travelled part of the line is drawn with `pathLength` = `d` / total length.
+- **Behaviour:**
+  - "You are here" advances every 3.2 s while on screen. It stops once the visitor clicks a station or a "Where are you now?" chip. Reduced motion turns the auto-advance off.
+  - The panel (`AnimatePresence`, keyed) shows the station, what happens there, what you get, and the next stop.
+- **Phones** (below `md`) get a vertical list version of the line.
+- **Data:** `roadmap` in `site.ts`. To move stations or branches, edit `LINE`, `AT` and `BRANCH`. Stations must sit on the line.
+
 **Work** (`home/Work.tsx`):
 - **Filter:** Everything / The Builds / The Systems, matching the categories All / No-Code / Product, with counts.
 - **Project cards:** a cursor-following "Open case" bubble and a status tag (Live pulses, Private, Obsolete).
@@ -103,7 +112,7 @@ Metadata: `layout.tsx` sets the title template (`"%s · Ali Farghaly"`, default 
 
 | File | Role |
 |---|---|
-| `Nav.tsx` | Fixed glass pill: Process, Work, Path, Journal, theme toggle, "Let's talk", animated mobile menu. The active-section pill moves between items (`layoutId`) and follows whichever section is at the middle of the viewport. **It never hides on scroll.** Hidden on `/mind`. |
+| `Nav.tsx` | Fixed glass pill: Process, Roadmap, Work, Journal, theme toggle, "Let's talk", animated mobile menu. The active-section pill moves between items (`layoutId`) and follows whichever section is at the middle of the viewport. **It never hides on scroll.** Hidden on `/mind`. |
 | `Footer.tsx` | Page and contact links, "Built with care · No idea left unsorted". Hidden on `/mind`. |
 | `SmoothScroll.tsx` | Lenis (`lerp 0.12`), exposed as `window.__lenis`. Catches `#hash` and `/#hash` links in the capture phase and smooth-scrolls to them. Resets scroll on route change. Off on `/mind` and for reduced motion. |
 | `ScrollRail.tsx` | Home only, `xl` screens and up. A section index on the right (labels appear on hover) and a back-to-top button with a progress ring after 700 px. |
@@ -122,7 +131,7 @@ Metadata: `layout.tsx` sets the title template (`"%s · Ali Farghaly"`, default 
 
 | File | Holds |
 |---|---|
-| `src/content/site.ts` | All of Ali's copy: person, contact, tools, paths, principles, journey, translations, workingStyle, the sorter data and stats. Also the `asset()` helper for Supabase image URLs. Details in [CONTENT.md](CONTENT.md) |
+| `src/content/site.ts` | All of Ali's copy: person, contact, tools, paths, principles, journey, translations, workingStyle, the sorter data, stats, `story` (the home page's narrative, labels and headlines) and `roadmap` (the metro map). Also the `asset()` helper for Supabase image URLs. Details in [CONTENT.md](CONTENT.md) |
 | `src/content/projects.ts` | The 7 case studies (`Project` type) and `getProject(slug)` |
 | `src/lib/journal.ts` | The journal engine (`server-only`): `getAllPosts()`, `getPost()`, `toMeta()`. Reads Notion when `NOTION_TOKEN` and `NOTION_JOURNAL_DB` are set, and Markdown from `content/journal/*.md` otherwise or on a Notion error. Posts are sorted newest first. `toMeta` strips the post body so it doesn't reach client bundles |
 | `content/journal/*.md` | Markdown posts with front matter. Currently 3 placeholders |

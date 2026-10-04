@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll, useTransform, type MotionValue } from "motion/react";
-import { ideaFragments, lanes, sorterStages } from "@/content/site";
+import { ideaFragments, lanes, sorterStages, story } from "@/content/site";
 import { easeOut } from "../primitives";
 import { SortText } from "../SortText";
 
@@ -401,10 +401,10 @@ export function IdeaSorter() {
         {/* Header + stage narration */}
         <div ref={headRef} className="relative z-20 mx-auto flex max-w-[1200px] flex-col gap-5 px-5 pt-24 sm:px-8 md:flex-row md:items-end md:justify-between md:pt-28">
           <div>
-            <p className="eyebrow mb-3">01 — The Sorting Room</p>
+            <p className="eyebrow mb-3">{story.problem.index} — {story.problem.label}</p>
             <h2 className="font-display text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.02]">
-              Messy in.{" "}
-              <SortText text="Clear out." className="font-display-italic text-teal" delay={450} loop={7500} />
+              {story.problem.lead}{" "}
+              <SortText text={story.problem.sort} className="font-display-italic text-teal" delay={450} loop={7500} />
             </h2>
           </div>
 

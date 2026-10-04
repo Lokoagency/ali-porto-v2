@@ -4,6 +4,41 @@ Newest first. **Add an entry with every change**, using the template in `DEVELOP
 
 ---
 
+## 2026-10-04: Phases 2–4: the narrative, the roadmap, and the journal off the home page
+
+**What:**
+- **Narrative (Phase 2):** the home page now tells one story, "problem first, then the solution".
+  - The hero reads "Your idea is brilliant. But first, the *problem.*" ("problem." is the scattered word). The tagline is "I find what is really broken, then build what makes it *make sense.*"
+  - The notes are now: The problem, Who has it, What it costs, The fix, The build, The docs.
+  - The Sorting Room is chapter "01 The problem", and its stage captions are rewritten problem first.
+  - Sections are renamed and renumbered: 01 The problem, 02 The solution, 03 How I build, 04 The roadmap, 05 Proof, 06 The person, 07 Working together, 08 Let's talk.
+  - The contact heading is "Got an idea? Let's find the problem first."
+  - All of this copy moved into `story` in `src/content/site.ts`.
+- **Roadmap (Phase 3):** new `src/components/home/Roadmap.tsx`, an illustrated **metro map**.
+  - Eight stations: Discovery → Definition → Design → Build → QA → Launch → Handover → Grow.
+  - Four branch lines show where a project can join, and so where Ali can jump on: Just an idea → Discovery, Designs ready → Build, Built but messy → QA, Live but undocumented → Handover.
+  - A train rides to "you are here" on its own until the visitor picks a station or a "Where are you now?" chip.
+  - A side panel shows what happens there, what you get, and the next stop.
+  - Phones get a vertical version of the line.
+  - Data lives in `roadmap` in `site.ts`.
+- **Journal off the home page (Phase 4):** removed `JournalPreview` (file deleted). The journal is reached from the nav only. The roadmap takes its place in the story, and the home page no longer fetches posts, so it's fully static.
+- **Nav, footer and scroll rail:** Process, **Roadmap**, Work, Journal. The rail labels follow the chapter names.
+
+**Why:** the user's Phases 2–4. Their answers: a gentle tone, an illustrated metro map on the site, placed instead of the journal, and the page re-ordered so it tells a coherent story.
+
+**Verified:**
+- `tsc`, `lint` and `build` are clean.
+- In the browser:
+  - The hero renders, and the roadmap auto-advances (01 → 02).
+  - On phones, the vertical line shows with no sideways scroll at 375 px.
+  - The section order is right.
+- Fixed one bug: the stations scaled in around the wrong point, so they now fade in.
+
+**Follow-ups:**
+- The roadmap and story copy are written for the site and need Ali's approval.
+- The preview pane often fails to paint (blank screenshots), so the user should review it in a normal browser.
+- Not pushed to GitHub; the baseline stays until the client approves.
+
 ## 2026-10-04: GitHub backup and the new phase order
 
 **What:**
