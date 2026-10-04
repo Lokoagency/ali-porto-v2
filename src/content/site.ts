@@ -49,20 +49,41 @@ export const paths = [
   {
     key: "Builds" as StackCategory,
     index: "01",
-    title: "The Builds",
+    title: "Build it",
+    sub: "The product",
     body: "Full-stack web apps. Native mobile apps. Admin dashboards. Complex database architectures. Bubble.io is my primary tool, but I learn fast and adapt to new platforms.",
     bullets: ["Web apps", "Native mobile", "Admin dashboards", "Database architecture"],
-    quote: "All products are ideas. All ideas deserve to be told properly.",
   },
   {
     key: "Systems" as StackCategory,
     index: "02",
-    title: "The Systems",
+    title: "Run it",
+    sub: "The system around it",
     body: "Product roadmaps. Sprint planning. QA coordination. User research. The Agile frameworks, user stories, and operational systems that turn ideas into working software.",
     bullets: ["Roadmaps", "Sprints", "QA cycles", "User research"],
-    quote: "Every product needs its own system, and I build the one that fits.",
   },
 ];
+
+// "One person, one path": the build and the system are two stops on the same line
+export const onePath = {
+  lede: "Most projects hire a builder and a product manager, and the idea gets lost in the handover between them. With me there's no handover: one person, one path, from the problem to a product your team can run.",
+  quote: "Every product needs its own system, and I build the one that fits.",
+};
+
+// The stack: today's toolbox, not the limit. Each pair = a tool Ali knows → one it carries over to.
+export const stack = {
+  note: "This is today's toolbox, not the whole of it. I learn new tools every week, and the skills carry over: if I know Notion, I'm at home in Linear by the afternoon.",
+  learning: [
+    { knows: "Notion", next: "Linear" },
+    { knows: "Bubble.io", next: "FlutterFlow" },
+    { knows: "Airtable", next: "Baserow" },
+    { knows: "Zapier", next: "n8n" },
+    { knows: "Jira", next: "Asana" },
+    { knows: "Canva", next: "Figma" },
+    { knows: "Softr.io", next: "Webflow" },
+    { knows: "ClickUp", next: "Monday" },
+  ],
+};
 
 export const principles = [
   {
@@ -168,7 +189,7 @@ export const stats = [
 ------------------------------------------------------------------- */
 export const story = {
   hero: {
-    lines: ["Your idea is brilliant.", "But first, the"],
+    lines: ["Your idea is brilliant.", "Let's start with the"],
     word: "problem.",
     tagline: "I find what is really broken, then build what makes it",
     sort: "make sense.",
@@ -176,12 +197,14 @@ export const story = {
     notes: ["The problem", "Who has it", "What it costs", "The fix", "The build", "The docs"],
   },
   problem: { index: "01", label: "The problem", lead: "Messy in.", sort: "Clear out." },
-  solution: { index: "02", label: "The solution", heading: "Two paths, one standard: build it right, document it well.", italic: [6, 7, 8, 9, 10] },
+  solution: { index: "02", label: "The solution", heading: "One person, one path: build it right, then make it run.", italic: [2, 3] },
   how: { index: "03", label: "How I build", quote: "I think like a product person, design like a UX thinker, and build with technical depth." },
   roadmap: { index: "04", label: "The roadmap", heading: "Every project is a line. Here's where you are.", italic: [6, 7, 8] },
   proof: { index: "05", label: "Proof", heading: "Problems found, solved and shipped.", italic: [2, 3, 4] },
   person: { index: "06", label: "The person", heading: "From translator to builder to product manager.", italic: [2, 4, 6, 7] },
   together: { index: "07", label: "Working together", heading: "Calm, clear, and no surprises.", italic: [3, 4] },
+  // the pill that appears once the visitor reaches the roadmap (until the contact section)
+  cta: { idle: "Wherever you are on the line", picked: "Start at", action: "Let's talk" },
   contact: { index: "08", label: "Let's talk", heading: "Got an idea? Let's find the problem first.", italic: [6, 7] },
 };
 

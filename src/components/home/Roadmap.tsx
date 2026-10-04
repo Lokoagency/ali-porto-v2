@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, animate, motion, useInView, useMotionValue, useReducedMotion, useTransform } from "motion/react";
 import { roadmap, story, type StationId } from "@/content/site";
 import { Arrow, Reveal, SectionLabel, SplitHeading, easeOut } from "../primitives";
+import { ROADMAP_PICK } from "./FloatingCta";
 
 /* ----------------------------------------------------------------------------
    A metro map of a project with Ali. The main line runs problem → growth; branch
@@ -105,6 +106,7 @@ export function Roadmap() {
   }, [active, reduce, d]);
 
   const pick = (i: number, j: string | null = null) => {
+    dispatchEvent(new CustomEvent(ROADMAP_PICK, { detail: roadmap.stations[i].name }));
     setPinned(true);
     setJoin(j);
     setActive(i);

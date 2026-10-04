@@ -13,7 +13,6 @@ All of Ali's words and data live in data files, so changing copy never means tou
 | `/mind` text (plaques, inspect cards, toasts) | `src/components/mind/world.ts` (`PLAQUES`) and `MindExperience.tsx` (`inspectCard`) | Mostly reuses `site.ts` and `projects.ts` |
 
 Section labels, numbers, headlines and the hero copy now live in `story` in `site.ts` (moved 4 Oct). Some short UI phrases are still inside components:
-- Hero: "Your idea is brilliant. It's also a mess." and "I'm the one who makes it make sense."
 - `SplitHeading` texts in each section.
 - The `MindTeaser` copy.
 - Contact: "Got a messy idea? Bring it over."
@@ -28,7 +27,9 @@ Moving these into `site.ts` is part of Phase 1.
 | `person` | `name`, `short`, `tagline`, `photo` (hero portrait), `roles[]` (rotating in the hero), `intro` | Hero, Footer, `/mind` mirror card |
 | `contact` | `email`, `call` (Google Calendar template link), `linkedin`, `upwork`, `whatsapp`, `whatsappLabel` | Contact, Footer, `/mind` phone |
 | `tools` | `{ name, icon, categories: ("Builds"\|"Systems")[], featured? }[]` | The "What I do" toolbox. **`featured` isn't used** |
-| `paths` | Two cards (Builds, Systems): `title`, `body`, `bullets[]`, `quote` | What I do |
+| `paths` | The two halves of the one path (keys Builds, Systems): `title` ("Build it", "Run it"), `sub`, `body`, `bullets[]`. Titles also name the stack tabs | The solution |
+| `onePath` | `lede` (no handover between builder and PM), `quote` (the card's closing line) | The solution |
+| `stack` | `note` (today's toolbox, not the limit), `learning[]`: `{ knows, next }` pairs cycled on the last chip | The stack |
 | `principles` | 4 items: `title`, `body`, `glyph` (`heart`\|`nodes`\|`spark`\|`doc`) | How I build |
 | `competencies` | 4 items | **Not used anywhere.** Use it or delete it in Phase 1 |
 | `journey` | 3 chapters: `years`, `role`, `lede`, `body` | The path, `/mind` diploma |
@@ -36,7 +37,7 @@ Moving these into `site.ts` is part of Phase 1.
 | `workingStyle` | 4 items: `title`, `body`, `glyph` (`sun`\|`scope`\|`time`\|`doc`) | Working together, `/mind` fridge |
 | `lanes`, `ideaFragments`, `sorterStages` | The Sorting Room's lanes, raw→clean chips (`{ raw, clean, lane }`), and the 5 stage captions | IdeaSorter |
 | `stats` | `{ value, suffix, label }[]`: 30+, 120+, 2, 4 yrs | Numbers. **Needs Ali's confirmation** |
-| `story` | The home page's narrative: `hero` (lines, scattered word, tagline, sorted phrase, the six notes), then `problem`, `solution`, `how`, `roadmap`, `proof`, `person`, `together`, `contact`, each with an `index`, a `label` and usually a `heading` plus `italic` word positions | Every home section. **Written for the site; needs Ali's approval** |
+| `story` | The home page's narrative: `hero` (lines, scattered word, tagline, sorted phrase, the six notes), then `problem`, `solution`, `how`, `roadmap`, `proof`, `person`, `together`, `cta` (the floating pill: `idle`, `picked`, `action`), `contact`, each with an `index`, a `label` and usually a `heading` plus `italic` word positions | Every home section. **Written for the site; needs Ali's approval** |
 | `roadmap` | `lede`; `stations[]` (`id`, `name`, `what`, `get`); `joins[]` (`id`, `label`, `at`, `color`, `note`), the branch lines where a project can join | The metro map. **Written for the site; needs Ali's approval** |
 
 Ali's contact details are public on purpose: they appear on the live site.

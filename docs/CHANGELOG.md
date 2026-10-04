@@ -4,6 +4,34 @@ Newest first. **Add an entry with every change**, using the template in `DEVELOP
 
 ---
 
+## 2026-10-04: Review round 2: one path, an open-ended stack, light by default, the hero line, a floating call to action
+
+**What:**
+- **"One person, one path"** (`home/Paths.tsx`): the two "paths" cards are now **one card**. The build ("Build it · The product") and the system ("Run it · The system around it") are two stops on one line, joined by a small portrait of Ali with a dot riding between them (vertical on phones). The heading is now "One person, *one path:* build it right, then make it run." A lede below says there's no handover between a builder and a product manager. One shared quote closes the card. The stack tabs read Everything / Build it / Run it.
+- **The stack is open-ended:** the counter reads "16/16+". The last chip is dashed and cycles through tools Ali knows → tools that carry over (Notion → Linear, Bubble.io → FlutterFlow, Zapier → n8n and so on). A note under the chips says this is today's toolbox, not the limit.
+- **Light mode is the default.** The theme script no longer follows the system setting; dark only applies if the visitor picked it with the toggle.
+- **The hero headline** now reads "Your idea is brilliant. Let's start with the *problem.*" (it was "But first, the problem.").
+- **A floating call to action** (`home/FloatingCta.tsx`): a glass pill appears at the bottom once the visitor reaches the roadmap and steps aside at the contact section. It reads "Wherever you are on the line · Let's talk". When the visitor picks a station on the roadmap, it changes to "Start at *Design*" (the roadmap fires a `roadmap:pick` event).
+- **The phase order changed:** Content → Optimization → Deep dive (`/mind`) → Polish → Launch.
+- **Data:** `paths` gained `sub` and lost the per-card `quote`. Added `onePath` (lede, quote), `stack` (note, learning pairs) and `story.cta`.
+
+**Why:** the user's review:
+- "It's not two paths, it's one person one path."
+- The tools shown aren't the only ones Ali uses; he learns new ones every day.
+- Light mode should be the default.
+- The hero was close but not there; they picked the headline wording as the problem.
+- They wanted a call to action mid-page, a button rather than a page, from the roadmap on.
+
+**Verified:**
+- `tsc`, `lint` and `build` are clean.
+- In the browser:
+  - The theme starts light with nothing stored.
+  - The CTA shows after the roadmap, names the picked station, and hides at contact.
+  - At 375 px the pill is 327 px wide, and there's no sideways scroll.
+  - At desktop width the card's three columns line up (527 / 56 / 527 px).
+
+**Follow-ups:** all the new copy is ours and needs Ali's approval. The pane still doesn't paint reliably, so the user should review it in a normal browser.
+
 ## 2026-10-04: Phases 2–4: the narrative, the roadmap, and the journal off the home page
 
 **What:**

@@ -47,7 +47,7 @@ Measured with Lighthouse on a production build of the home page:
 
 ## Phase order (set by the user, 4 Oct 2026)
 
-The client approves this version before anything replaces it. Ali's mind stays last.
+The client approves this version before anything replaces it. Updated 4 Oct (review round 2): after approval the order is **Content (5) → Optimization (6) → Deep dive, `/mind` (7) → Polish (8) → Launch (9)**. Polish comes after the deep dive so it covers `/mind` too.
 
 ## Phase 1: GitHub backup (done)
 
@@ -58,6 +58,7 @@ The approved-baseline backup is at https://github.com/Lokoagency/ali-porto (bran
 **Goal:** the site tells one story. **Ali tackles the problem first, then the solution, not "the idea".** "Your idea is brilliant, but Ali will kill it for you": he strips the idea back to the real problem, then builds what solves it.
 
 - Done: a gentle tone. The hero reads "Your idea is brilliant. But first, the problem." The chapters run problem → solution → how → roadmap → proof → person → together → contact, and the copy lives in `story` in `site.ts`.
+- Review round 2 (4 Oct): the headline became "Your idea is brilliant. Let's start with the problem." The solution is "one person, one path" (one card, not two). The stack says it isn't the limit. Light mode is the default. A floating "Let's talk" pill rides along from the roadmap on.
 - Next: Ali reviews the wording.
 
 ## Phase 3: The client roadmap (metro-map style) — built 4 Oct, waiting for the client's approval
@@ -85,7 +86,7 @@ The approved-baseline backup is at https://github.com/Lokoagency/ali-porto (bran
 
 **Done when** Ali has read every page and approved it.
 
-## Phase 6: Performance and code health
+## Phase 6: Optimization (performance and code health)
 
 **Goal:** a mobile performance score of at least 90 under real throttling, with the motion and feel kept.
 
@@ -98,39 +99,7 @@ The approved-baseline backup is at https://github.com/Lokoagency/ali-porto (bran
 
 **Done when** the targets hold on two consecutive runs and nothing looks or moves differently.
 
-## Phase 7: Polish and UX
-
-**Goal:** every section feels deliberate on phone, tablet and desktop, in light and dark themes.
-
-- Go section by section, at 375, 768, 1024 and 1440 px, in both themes.
-- Add a custom 404 page in the site's style. Today it's Next.js's default.
-- Polish the case-study pages: gallery, next and previous project, and the call to action.
-- Improve the journal reading experience: typography, reading time and sharing.
-- Accessibility: focus states, keyboard paths and a reduced-motion check of every animation. Also decide on the dim scroll-reveal text, which is still below contrast guidelines at 30% by design.
-- Run make-interfaces-feel-better and motion-patterns over each section.
-
-**Done when** there are no layout bugs at those widths and keyboard and screen-reader paths work.
-
-## Phase 8: Launch
-
-**Goal:** live on Ali's domain, findable and shareable.
-
-- **SEO:**
-  - `metadataBase`, plus a title and description per page.
-  - Open Graph and Twitter images, generated per page with `next/og`.
-  - `sitemap.xml` and `robots.txt`.
-  - JSON-LD Person schema.
-- Choose a privacy-friendly analytics tool, and decide whether to add error monitoring.
-- Deploy to Vercel:
-  - Environment variables (Notion).
-  - The domain and HTTPS.
-  - Preview deployments for review.
-- **Notion images:** Notion image links expire after an hour. Mirror them (for example to Supabase) so journal images never break on cached pages.
-- Final checks across devices and browsers: iPhone Safari, Android Chrome, desktop Safari, Firefox and Chrome.
-
-**Done when** the site is live, sharing previews look right, and Ali can publish a journal post himself.
-
-## Phase 9: Ali's mind (`/mind`), at the end
+## Phase 7: The deep dive, Ali's mind (`/mind`)
 
 **Goal:** a cozy, explorable home with character, running smoothly on ordinary laptops.
 
@@ -159,3 +128,35 @@ What's left:
 - **Phase 1:** the content (copy, project details, images and journal posts).
 - **Phase 1:** whether Ali will use Notion for the journal, and access to it.
 - **Phase 4:** the domain, an analytics preference, and approval of the share-image design.
+
+## Phase 8: Polish and UX
+
+**Goal:** every section feels deliberate on phone, tablet and desktop, in light and dark themes.
+
+- Go section by section, at 375, 768, 1024 and 1440 px, in both themes.
+- Add a custom 404 page in the site's style. Today it's Next.js's default.
+- Polish the case-study pages: gallery, next and previous project, and the call to action.
+- Improve the journal reading experience: typography, reading time and sharing.
+- Accessibility: focus states, keyboard paths and a reduced-motion check of every animation. Also decide on the dim scroll-reveal text, which is still below contrast guidelines at 30% by design.
+- Run make-interfaces-feel-better and motion-patterns over each section, `/mind` included.
+
+**Done when** there are no layout bugs at those widths and keyboard and screen-reader paths work.
+
+## Phase 9: Launch
+
+**Goal:** live on Ali's domain, findable and shareable.
+
+- **SEO:**
+  - `metadataBase`, plus a title and description per page.
+  - Open Graph and Twitter images, generated per page with `next/og`.
+  - `sitemap.xml` and `robots.txt`.
+  - JSON-LD Person schema.
+- Choose a privacy-friendly analytics tool, and decide whether to add error monitoring.
+- Deploy to Vercel:
+  - Environment variables (Notion).
+  - The domain and HTTPS.
+  - Preview deployments for review.
+- **Notion images:** Notion image links expire after an hour. Mirror them (for example to Supabase) so journal images never break on cached pages.
+- Final checks across devices and browsers: iPhone Safari, Android Chrome, desktop Safari, Firefox and Chrome.
+
+**Done when** the site is live, sharing previews look right, and Ali can publish a journal post himself.

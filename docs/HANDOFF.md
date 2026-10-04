@@ -28,10 +28,10 @@ If you've just been handed this project, read this first. It covers what the pro
 | Home page (`/`) | Built; the narrative was rewritten 4 Oct | It tells one story: problem → solution → how → roadmap → proof → person → together → contact. Includes the metro-map roadmap. See `ARCHITECTURE.md` |
 | Case studies (`/work/[slug]`) | Built | 7 projects, statically generated |
 | Journal (`/journal`, `/journal/[slug]`) | Built | Notion isn't connected yet; the 3 Markdown posts are placeholders |
-| Ali's mind (`/mind`) | Paused until Phase 5 | Working 3D house. See `MIND.md` |
-| Content | Waiting on the user | They will send Ali's real content: Phase 1 |
-| SEO and social | Not started | No share images, sitemap, robots file or 404 page: Phase 4 |
-| Deployment | Not started | Vercel is planned: Phase 4 |
+| Ali's mind (`/mind`) | Paused until Phase 7 | Working 3D house. See `MIND.md` |
+| Content | Waiting on the user | They will send Ali's real content: Phase 5 |
+| SEO and social | Not started | No share images, sitemap, robots file or 404 page: Phases 8–9 |
+| Deployment | Not started | Vercel is planned: Phase 9 |
 | Version control | Git | Baseline backup on GitHub at `Lokoagency/ali-porto` (`main`, commit `6129be9`). Don't push over it until the client approves |
 
 Quality after Phase 0 (Lighthouse, production build, home page):
@@ -45,13 +45,15 @@ Quality after Phase 0 (Lighthouse, production build, home page):
 ## The phases (full detail in `PLAN.md`)
 
 0. **Review and quick wins.** Done 4 Oct 2026.
-1. **Content.** Bring in the user's content and replace placeholders. Waiting on the user.
-2. **Performance and code health.** Lighter animation setup (LazyMotion), more server components, aim for 90+ on mobile.
-3. **Polish and UX.** Every width, both themes, a 404 page, accessibility.
-4. **Launch.** SEO and share images, analytics, Vercel, domain, Notion images.
-5. **Ali's mind (`/mind`).** Lighting, character, the scattered-ideas hunt.
+1. **GitHub backup.** Done 4 Oct.
+2. **Narrative**, 3. **Roadmap**, 4. **Journal only in the nav.** Built 4 Oct, plus review round 2. Waiting for the client's approval.
+5. **Content.** Bring in the user's content and replace placeholders.
+6. **Optimization.** Lighter animation setup (LazyMotion), more server components, aim for 90+ on mobile.
+7. **The deep dive, Ali's mind (`/mind`).** Lighting, character, the scattered-ideas hunt.
+8. **Polish and UX.** Every width, both themes, a 404 page, accessibility, `/mind` included.
+9. **Launch.** SEO and share images, analytics, Vercel, domain, Notion images.
 
-The user asked to go phase by phase, with `/mind` last. Don't drift into later phases unless asked.
+The user asked to go phase by phase. Don't drift into later phases unless asked.
 
 ## How this user works, and what they want
 

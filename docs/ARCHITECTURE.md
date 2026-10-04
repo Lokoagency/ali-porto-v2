@@ -43,20 +43,20 @@ Metadata: `layout.tsx` sets the title template (`"%s · Ali Farghaly"`, default 
 - **Fonts:**
   - **Fraunces** is self-hosted through `next/font/local`, from `src/fonts/fraunces-opsz72-latin-{normal,italic}.woff2`. These are the variable weight, SOFT and WONK axes, with optical size pinned at 72. The licence is `src/fonts/Fraunces-OFL.txt`. The CSS variable is `--font-fraunces`.
   - **Geist** and **Geist Mono** come from `next/font/google` (`--font-geist-sans`, `--font-geist-mono`).
-- **Theme:** an inline script runs before paint. It reads `localStorage.theme`, or `prefers-color-scheme`, and sets `<html data-theme="light|dark">`. `<html>` has `suppressHydrationWarning` because of this.
+- **Theme:** an inline script runs before paint. **Light is the default** (since 4 Oct): it reads `localStorage.theme` and uses dark only if that is `"dark"` (the system setting is ignored), then sets `<html data-theme="light|dark">`. `<html>` has `suppressHydrationWarning` because of this.
 - **Body:** has the `grain` class (a fixed paper-noise overlay) and renders, in order: `<SmoothScroll/>`, `<Spotlight/>`, `<Nav/>`, `<main>{children}</main>`, `<Footer/>`.
 - **On `/mind`:** Nav, Footer and SmoothScroll all switch themselves off, because the 3D page is full-screen.
 
 ## Home page sections (`src/app/page.tsx`, in order)
 
-`ScrollRail` (home only) sits on top of all of them. Labels, numbers and headlines come from `story` in `src/content/site.ts`. IDs are what the nav, the scroll rail and anchor links use. The order tells a story: problem → solution → how → roadmap → proof → person → working together → let's talk. The journal isn't on the home page; it's in the nav.
+`ScrollRail` (home only) sits on top of all of them. So does `home/FloatingCta.tsx`: a glass "Let's talk" pill fixed at the bottom centre, visible from the roadmap until the contact section (it checks on scroll, throttled to one frame). It names the station the visitor picked on the roadmap, via the `roadmap:pick` window event (`ROADMAP_PICK`). Labels, numbers and headlines come from `story` in `src/content/site.ts`. IDs are what the nav, the scroll rail and anchor links use. The order tells a story: problem → solution → how → roadmap → proof → person → working together → let's talk. The journal isn't on the home page; it's in the nav.
 
 | # | Component | `id` | What it does |
 |---|---|---|---|
 | — | `home/Hero.tsx` | `top` | The hero. Details below |
 | — | `home/Numbers.tsx` | — (aria-label "Ali in numbers") | 4 stats from `stats` that count up when visible |
 | 01 | `home/IdeaSorter.tsx` | `process` | "The problem": the Sorting Room. Details below |
-| 02 | `home/Paths.tsx` | `paths` | "The solution": two path cards (Builds and Systems) with looping sketches, and the tool chips |
+| 02 | `home/Paths.tsx` | `paths` | "The solution": **one person, one path**. One card with two halves (Build it, Run it), each with a looping sketch, joined by a junction with Ali's portrait. Then the stack: tool chips, a cycling "knows → picks up" chip and a note that the list isn't the limit |
 | 03 | `home/Principles.tsx` | `how` | "How I build": a scroll-revealed quote and 4 principle cards with drawn glyphs |
 | 04 | `home/Roadmap.tsx` | `roadmap` | "The roadmap": the metro map. Details below |
 | 05 | `home/Work.tsx` | `work` | "Proof": project cards, the next-idea card and the filter |

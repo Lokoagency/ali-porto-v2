@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "motion/react";
-import { paths, story, tools, type StackCategory } from "@/content/site";
+import { AnimatePresence, motion, useInView, useReducedMotion } from "motion/react";
+import { onePath, paths, person, stack, story, tools, type StackCategory } from "@/content/site";
 import { Reveal, SectionLabel, SplitHeading, easeOut } from "../primitives";
 
 const loop = (duration: number, delay = 0) => ({ duration, delay, repeat: Infinity, ease: "easeInOut" as const });
@@ -109,11 +110,66 @@ function SystemSketch({ playing }: { playing: boolean }) {
   );
 }
 
+
+/** The join between the two halves: one line, one person riding it. */
+function Junction({ playing }: { playing: boolean }) {
+  return (
+    <div aria-hidden className="relative flex h-16 items-center justify-center md:h-48 md:self-start">
+      {/* the line: vertical on phones, horizontal from md */}
+      <span className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-teal/40 md:inset-x-0 md:inset-y-auto md:left-0 md:top-1/2 md:h-px md:w-auto md:translate-x-0" />
+      <motion.span
+        className="absolute left-1/2 top-0 size-1.5 -translate-x-1/2 rounded-full bg-teal md:hidden"
+        animate={playing ? { y: [0, 58], opacity: [0, 1, 1, 0] } : { opacity: 0 }}
+        transition={playing ? { duration: 1.8, repeat: Infinity, ease: "easeInOut" } : undefined}
+      />
+      <motion.span
+        className="absolute left-0 top-1/2 hidden size-1.5 -translate-y-1/2 rounded-full bg-teal md:block"
+        animate={playing ? { x: [0, 50], opacity: [0, 1, 1, 0] } : { opacity: 0 }}
+        transition={playing ? { duration: 1.8, repeat: Infinity, ease: "easeInOut" } : undefined}
+      />
+      <span className="relative size-11 overflow-hidden rounded-full border-2 border-card shadow-[var(--shadow-md)] ring-1 ring-teal/40">
+        <Image src={person.photo} alt="" fill sizes="44px" className="object-cover object-[60%_25%]" />
+      </span>
+    </div>
+  );
+}
+
 const cycle: (StackCategory | null)[] = ["Builds", "Systems", null];
+
+/** The last chip: a tool Ali knows, carrying over to the next one. The toolbox keeps growing. */
+function LearningChip({ playing }: { playing: boolean }) {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    if (!playing) return;
+    const id = setInterval(() => setI((n) => (n + 1) % stack.learning.length), 2400);
+    return () => clearInterval(id);
+  }, [playing]);
+  const pair = stack.learning[i];
+  return (
+    <span className="flex h-9 items-center gap-2 rounded-full border border-dashed border-teal/60 bg-teal-tint/50 py-1.5 pl-2 pr-3.5 text-[0.84rem] text-ink-soft">
+      <span className="flex size-6 items-center justify-center rounded-full bg-teal text-[0.8rem] leading-none text-paper">+</span>
+      <span className="relative inline-grid overflow-hidden">
+        <AnimatePresence mode="popLayout" initial={false}>
+          <motion.span
+            key={i}
+            className="col-start-1 row-start-1 whitespace-nowrap"
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: "0%", opacity: 1 }}
+            exit={{ y: "-100%", opacity: 0 }}
+            transition={{ duration: 0.45, ease: easeOut }}
+          >
+            {pair.knows} <span className="text-teal">→</span> <span className="font-medium text-ink">{pair.next}</span>
+          </motion.span>
+        </AnimatePresence>
+      </span>
+    </span>
+  );
+}
 
 export function Paths() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { margin: "-10% 0px" });
+  const reduce = useReducedMotion();
   const [auto, setAuto] = useState<StackCategory | null>("Builds");
   const [hover, setHover] = useState<StackCategory | null>(null);
   const [pinned, setPinned] = useState<StackCategory | "All" | null>(null);
@@ -126,6 +182,7 @@ export function Paths() {
   }, [inView, hover, pinned]);
 
   const focus: StackCategory | null = hover ?? (pinned ? (pinned === "All" ? null : pinned) : auto);
+  const tabName = (k: StackCategory) => paths.find((p) => p.key === k)?.title ?? k;
 
   return (
     <section id="paths" ref={ref} className="relative mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
@@ -135,59 +192,68 @@ export function Paths() {
         className="max-w-[880px] font-display text-[clamp(2rem,4.4vw,3.6rem)] leading-[1.05]"
         italic={story.solution.italic}
       />
+      <Reveal delay={0.15}>
+        <p className="mt-6 max-w-[640px] text-[1.05rem] leading-relaxed text-ink-soft">{onePath.lede}</p>
+      </Reveal>
 
-      <div className="mt-12 grid gap-5 md:grid-cols-2">
-        {paths.map((p, i) => {
-          const lit = focus === p.key;
-          return (
-            <Reveal key={p.key} delay={i * 0.1}>
-              <article
-                onPointerEnter={() => setHover(p.key)}
-                onPointerLeave={() => setHover(null)}
-                data-lit={lit}
-                className="spotlight group relative flex h-full flex-col overflow-hidden rounded-[28px] border border-line bg-card p-3 shadow-[var(--shadow-sm)] transition-[box-shadow,border-color,transform] duration-500 ease-[cubic-bezier(.22,1,.36,1)] data-[lit=true]:-translate-y-1 data-[lit=true]:border-teal/40 data-[lit=true]:shadow-[var(--shadow-lg)]"
-              >
-                {/* concentric: outer 28 = inner 16 + padding 12 */}
-                <div className="relative h-48 overflow-hidden rounded-[16px] bg-paper-2 p-5">
-                  <div className="relative h-full">
-                    {p.key === "Builds" ? <BuildSketch playing={inView} /> : <SystemSketch playing={inView} />}
+      {/* One card, one path: the build and the system are two stops on the same line */}
+      <Reveal className="mt-12">
+        <article className="spotlight relative overflow-hidden rounded-[28px] border border-line bg-card p-3 shadow-[var(--shadow-sm)]">
+          <div className="grid md:grid-cols-[1fr_56px_1fr]">
+            {paths.map((p, i) => {
+              const lit = focus === p.key;
+              const half = (
+                <div
+                  key={p.key}
+                  onPointerEnter={() => setHover(p.key)}
+                  onPointerLeave={() => setHover(null)}
+                  data-lit={lit}
+                  className="group flex flex-col rounded-[20px] transition-[background-color] duration-500 data-[lit=true]:bg-paper/50"
+                >
+                  {/* concentric: card 28 = panel 16 + padding 12 */}
+                  <div className="relative h-48 overflow-hidden rounded-[16px] bg-paper-2 p-5 ring-1 ring-transparent transition-[box-shadow] duration-500 group-data-[lit=true]:ring-teal/40">
+                    <div className="relative h-full">
+                      {p.key === "Builds" ? <BuildSketch playing={inView} /> : <SystemSketch playing={inView} />}
+                    </div>
+                  </div>
+                  <div className="flex flex-1 flex-col p-4 pt-6">
+                    <span className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">
+                      {p.index} · {p.sub}
+                    </span>
+                    <h3 className="mt-1.5 font-display text-[1.9rem]">{p.title}</h3>
+                    <p className="mt-3 text-[0.98rem] leading-relaxed text-ink-soft">{p.body}</p>
+                    <ul className="mt-5 flex flex-wrap gap-2">
+                      {p.bullets.map((b, j) => (
+                        <li
+                          key={b}
+                          data-lit={lit}
+                          style={{ transitionDelay: lit ? `${j * 60}ms` : "0ms" }}
+                          className="rounded-full border border-line px-3 py-1 text-[0.78rem] text-ink-soft transition-[color,border-color,background-color] duration-300 data-[lit=true]:border-teal/50 data-[lit=true]:bg-teal-tint data-[lit=true]:text-teal"
+                        >
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-                <div className="flex flex-1 flex-col p-4 pt-6">
-                  <div className="flex items-baseline justify-between">
-                    <h3 className="font-display text-[1.9rem]">{p.title}</h3>
-                    <span className="font-mono text-xs text-muted">{p.index}</span>
-                  </div>
-                  <p className="mt-3 text-[0.98rem] leading-relaxed text-ink-soft">{p.body}</p>
-                  <ul className="mt-5 flex flex-wrap gap-2">
-                    {p.bullets.map((b, j) => (
-                      <li
-                        key={b}
-                        data-lit={lit}
-                        style={{ transitionDelay: lit ? `${j * 60}ms` : "0ms" }}
-                        className="rounded-full border border-line px-3 py-1 text-[0.78rem] text-ink-soft transition-[color,border-color,background-color] duration-300 data-[lit=true]:border-teal/50 data-[lit=true]:bg-teal-tint data-[lit=true]:text-teal"
-                      >
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                  <blockquote className="mt-auto border-t border-line pt-5 font-display-italic text-[1.05rem] leading-snug text-teal">
-                    &ldquo;{p.quote}&rdquo;
-                  </blockquote>
-                </div>
-              </article>
-            </Reveal>
-          );
-        })}
-      </div>
+              );
+              return i === 0 ? [half, <Junction key="join" playing={inView && !reduce} />] : half;
+            })}
+          </div>
+          <blockquote className="mx-4 mb-2 mt-2 flex flex-wrap items-baseline justify-between gap-3 border-t border-line pt-5 font-display-italic text-[1.1rem] leading-snug text-teal">
+            <span>&ldquo;{onePath.quote}&rdquo;</span>
+            <span className="font-mono text-[0.7rem] not-italic uppercase tracking-[0.14em] text-muted">One person · one path</span>
+          </blockquote>
+        </article>
+      </Reveal>
 
-      {/* The toolbox sorts itself by path */}
+      {/* The toolbox sorts itself by path, and it's never finished */}
       <Reveal className="mt-12">
         <div className="mb-5 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <span className="eyebrow">The stack</span>
             <span className="font-mono text-[0.7rem] text-muted tabular">
-              {String(tools.filter((t) => !focus || t.categories.includes(focus)).length).padStart(2, "0")}/{tools.length}
+              {String(tools.filter((t) => !focus || t.categories.includes(focus)).length).padStart(2, "0")}/{tools.length}+
             </span>
           </div>
           <div className="glass flex gap-1 rounded-full p-1" role="tablist" aria-label="Filter the stack">
@@ -208,7 +274,7 @@ export function Paths() {
                       transition={{ type: "spring", stiffness: 420, damping: 34 }}
                     />
                   )}
-                  <span className="relative">{k === "All" ? "Everything" : `The ${k.toLowerCase()}`}</span>
+                  <span className="relative">{k === "All" ? "Everything" : tabName(k)}</span>
                 </button>
               );
             })}
@@ -236,7 +302,17 @@ export function Paths() {
               </motion.li>
             );
           })}
+          <motion.li
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: tools.length * 0.025, ease: easeOut }}
+            aria-label="Always learning new tools"
+          >
+            <LearningChip playing={inView && !reduce} />
+          </motion.li>
         </ul>
+        <p className="mt-5 max-w-[640px] text-[0.95rem] leading-relaxed text-ink-soft">{stack.note}</p>
       </Reveal>
     </section>
   );

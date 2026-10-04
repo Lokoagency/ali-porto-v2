@@ -2,7 +2,7 @@
 
 ## The idea
 
-**The story (since 4 Oct): Ali tackles the problem first, then the solution, not "the idea".** The hero says it gently: "Your idea is brilliant. But first, the *problem.*" The page runs as chapters: problem → solution → how → roadmap → proof → person → working together → let's talk. Keep new sections inside that arc.
+**The story (since 4 Oct): Ali tackles the problem first, then the solution, not "the idea".** The hero says it gently: "Your idea is brilliant. Let's start with the *problem.*" Ali is **one person on one path**: he builds the product and the system that runs it, so there's no handover. Don't present his work as two separate tracks. The page runs as chapters: problem → solution → how → roadmap → proof → person → working together → let's talk. Keep new sections inside that arc.
 
 **Messy in → clear out.** Ali takes a client's tangled idea and organizes it into a roadmap, a build and the docs. The design shows that over and over: scattered things settle into order. When you add something, ask: *does this show disorder becoming order, or support someone who wants that?* If it does neither, it probably doesn't belong.
 
@@ -23,7 +23,7 @@ Teal leads. **Sun (yellow) and leaf (green) are accents only**, never large area
 | `leaf` | #6e9f68 | #8cc184 | Small accents |
 
 - `.section-deep` is an always-dark teal band that looks the same in both themes. "The path" uses it.
-- The theme is set on `<html data-theme>`. Switching it cross-fades colours (`.theme-fade`).
+- **Light is the default** (the user's call); dark is opt-in through the toggle. The theme is set on `<html data-theme>`. Switching it cross-fades colours (`.theme-fade`).
 - `/mind` has its own warm palette, with **gold `#c9a661`** for its UI, because it's a cozy night-time house rather than the site.
 
 ## Type
@@ -83,7 +83,8 @@ These come straight from the user's feedback; follow them.
 | Hero | "*mess.*" letters scatter and settle. "*make sense.*" sorts its own letters (`SortText`). Six notes organize around the portrait. The role rotates |
 | Sorting Room (`IdeaSorter`) | The scroll-driven particle funnel: gates → cut noise → lanes → board |
 | "Clear out." | `SortText` |
-| What I do (`Paths`) | A wireframe assembles itself. A kanban card walks to Done. The toolbox sorts itself by path |
+| The solution (`Paths`) | One card: a wireframe assembles itself (Build it), a dot rides the line through Ali's portrait, a kanban card walks to Done (Run it). The toolbox sorts itself, and its last chip keeps cycling "Notion → Linear" to show the stack never stops growing |
+| Floating CTA | A glass pill rises in from the roadmap on and names the station you picked; it steps aside at the contact section |
 | How I build (`Principles`) | The quote reads itself as you scroll. Each glyph draws in, then keeps an idle motion that matches its meaning |
 | Work | Cards slide into place when you filter. The dots on the "next idea" card sort into a line |
 | The path (`Journey`) | Translation words flip. The timeline draws as you scroll |
