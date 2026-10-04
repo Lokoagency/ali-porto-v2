@@ -30,7 +30,7 @@ No database, no API routes, no auth. Data is static TypeScript plus Notion (opti
 
 | Route | File | What it shows | Data |
 |---|---|---|---|
-| `/` | `src/app/page.tsx` | The home page: one story in 11 sections, plus the scroll rail. Fully static | none (copy from `site.ts`) |
+| `/` | `src/app/page.tsx` | The home page: the hero, then 01 Why, 02 Proof, 03 How, 04 Knowledge, 05 Let's talk, plus the scroll rail and the floating pill. Fully static | none (copy from `site.ts`) |
 | `/about` | `src/app/about/page.tsx` | Ali's path: the dark `Journey` band (translator → builder → developer & PM), a translation card and a timeline. Static | none (copy from `site.ts` → `journey`, `story.person`) |
 | `/work/[slug]` | `src/app/work/[slug]/page.tsx` | A case study: header, `Gallery`, numbered story, tools aside, live link, next case | `projects` |
 | `/journal` | `src/app/journal/page.tsx` | The journal index with tag filter (`JournalList`) | `getAllPosts()` |
