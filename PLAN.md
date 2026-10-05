@@ -94,7 +94,7 @@ The approved-baseline backup is at https://github.com/Lokoagency/ali-porto (bran
 
 ## Polish pass (pulled forward, 5 Oct)
 
-The user asked to polish now, while Phase 5 waits on Ali's material. Pass 1 is done: one thread ("keeping what you meant"), simple 01–08 labels, the hero underline, the four-versions strip, and skill-checklist fixes (hit areas, steady-width numbers, the quote's spacing). The full Phase 9 polish (every width, both themes, a 404 page, accessibility) still comes later.
+The user asked to polish now, while Phase 5 waits on Ali's material. Pass 2 is done too: the DNA strip is fully animated, plus the contact underline, the footer sort, the pill's arrow nudge and the chip lift. Pass 1: one thread ("keeping what you meant"), simple 01–08 labels, the hero underline, the four-versions strip, and skill-checklist fixes (hit areas, steady-width numbers, the quote's spacing). The full Phase 9 polish (every width, both themes, a 404 page, accessibility) still comes later.
 
 ## Phase 6: Admin dashboard for Ali (with client tracking)
 
@@ -150,6 +150,8 @@ What's left:
 - **Something to explore:** the "scattered ideas" hunt. Six messy client ideas are hidden around the house; sorting them onto the plaque wall shows the real project each became. The data is already in `world.ts` (`IDEAS`).
 - **Character:** Ali narrates a line on entering each room, and you can pet the cat.
 - **Bugs and controls:** a playtest pass on desktop, and touch controls on phones.
+
+- **Reported 5 Oct:** the user finds `/mind` "very very stuttery". Profile and fix it first in this phase (frame time, draw calls, shadows, post-processing, and React re-renders in the loop).
 
 **Done when** a first-time visitor gets it within about 10 seconds, finds something to do, and it stays smooth.
 

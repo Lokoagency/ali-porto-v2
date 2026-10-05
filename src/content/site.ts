@@ -247,12 +247,15 @@ export const story = {
     label: "Let's talk",
     heading: "Tell me what you mean. I'll take it from there.",
     italic: [3, 4],
+    // the same pen stroke as the hero's "meant." (the thread, closed)
+    underline: [4],
     // Ali's own closing line (Content Bank 11)
     lede: "Tell me what you're building and where it stands. The best way to get to know me, and see if I can stand behind all those words above, is a quick intro call.",
   },
   // the translator card in "The path": one word flipping between the two languages
   sameCraft: { label: "Same craft, new medium", en: "story", ar: "قصة" },
-  footer: "Built with care · No problem left unsorted",
+  // the footer line; the second half sorts its own letters (SortText)
+  footer: { lead: "Built with care", sort: "No problem left unsorted" },
   nextCard: { lead: "Your product could", em: "be next." },
 };
 

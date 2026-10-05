@@ -63,7 +63,7 @@ Ali's path (`home/Journey.tsx`) lives on its own page, `/about`.
 | # | Component | `id` | What it does |
 |---|---|---|---|
 | — | `home/Hero.tsx` | `top` | The hero: Ali speaking. Details below |
-| 01 | `home/Principles.tsx` | `how` | "Why I work this way": the scroll-read quote (the four versions, one DNA) and `FourVersions`, four tiles with a helix that fades step by step, then comes back sharp. Data: `story.how` (`quote`, `steps`, `fade`, `keep`). The `principles` data stays, because `/mind` uses it |
+| 01 | `home/Principles.tsx` | `how` | "Why I work this way": the scroll-read quote (the four versions, one DNA) and `FourVersions`, four tiles with a twisting `Helix` (an SVG strip sliding one 32 px period). Faded: blur, dimmed rungs, a wobble. Sharp: a dot rides the line, and the tiles pop and tick in sequence (`SWEEP` 1.2 s). Data: `story.how` (`quote`, `steps`, `fade`, `keep`). The `principles` data stays, because `/mind` uses it |
 | 02 | `home/Work.tsx` | `work` | "The work": project cards, the "your product could be next" card and the filter |
 | 03 | `home/IdeaSorter.tsx` | `process` | "The method": the Sorting Room, **unchanged** (Messy in. Clear out.). Details below |
 | 04 | `home/Paths.tsx` | `paths` | "One person, one path": one card with two halves (Build it, Run it) joined by Ali's portrait |

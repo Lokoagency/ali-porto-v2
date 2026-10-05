@@ -66,6 +66,7 @@ export function Contact() {
           <SplitHeading
             text={story.contact.heading}
             italic={story.contact.italic}
+            underline={story.contact.underline}
             className="font-display text-[clamp(2.6rem,6.4vw,5.4rem)] leading-[0.98]"
           />
           <Reveal delay={0.2}>

@@ -89,7 +89,9 @@ These come straight from the user's feedback; follow them.
 | Where | What |
 |---|---|
 | Hero | Deliberately calm: a CSS entrance, the wave, the portrait's parallax, and a pen stroke that underlines "meant." once (CSS `.anim-draw`). No loops |
-| 01 Why I work this way | Four tiles (your head → your words → the build → each user), each with the same helix. On a loop it fades step by step, then a teal line runs through and all four come back sharp |
+| 01 Why I work this way | Four tiles (your head → your words → the build → each user), each with the same twisting helix. Faded: blur, lost rungs, a wobble. With care: a teal dot carries it along the line, and each tile pops, ticks and lights its rungs as the dot arrives |
+| Contact | A pen stroke draws under "*mean.*", echoing the hero's "*meant.*" |
+| Footer | "No problem left unsorted" sorts its own letters |
 | Sorting Room (`IdeaSorter`) | The scroll-driven particle funnel: gates → cut noise → lanes → board |
 | "Clear out." | `SortText` |
 | The solution (`Paths`) | One card: a wireframe assembles itself (Build it), a dot rides the line through Ali's portrait, a kanban card walks to Done (Run it). The toolbox sorts itself, and its last chip keeps cycling "Notion → Linear" to show the stack never stops growing |

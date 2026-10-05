@@ -4,6 +4,31 @@ Newest first. **Add an entry with every change**, using the template in `DEVELOP
 
 ---
 
+## 2026-10-05: Polish pass 2: the DNA comes alive, more micro-animations
+
+**What:**
+- **The four-versions strip (01) is fully animated:**
+  - **The helix twists:** each tile's helix slides one wave period on a loop, so it looks like it's turning, and the later steps turn a little slower. Its strands draw in on first view.
+  - **Faded:** the later versions lose rungs (step 2 a few, step 4 most), blur and dim, and the tiles wobble slightly.
+  - **Passed along with care:** a teal dot travels the line from tile to tile (desktop). As it arrives, each tile pops (scale 1 → 1.04 → 1), its border turns teal, a tick draws in, and its rungs light up one after another. On phones the tiles do the same in sequence, without the line.
+  - It runs only on screen, and under reduced motion everything stays sharp and still.
+- **Contact:** a pen stroke draws under "*mean.*" once the heading lands, the same stroke as the hero's "*meant.*", which closes the thread. It's built as a new `underline` prop on `SplitHeading` (`story.contact.underline`).
+- **Footer:** "No problem left unsorted" now sorts its own letters (`SortText`, every 9 s). The data is `story.footer` = `{ lead, sort }`.
+- **The floating pill:** its arrow nudges forward every few seconds (not under reduced motion).
+- **Stack chips** lift a touch on hover. Hover only intensifies; the sorting still plays on its own.
+- **Noted for Phase 8:** the user reports that `/mind` is "very very stuttery". It's left for its phase.
+
+**Why:** the user's feedback: "add micro animations", "the 4 dna parts lack animations".
+
+**Verified:**
+- `tsc`, `lint` and `build` are clean.
+- In the browser (screenshots):
+  - The tiles pop and sharpen in sequence, with ticks, and the caption swaps.
+  - The faded state shows blur and missing rungs.
+  - "mean." gets its stroke.
+  - The footer line sorts.
+  - There's no sideways scroll.
+
 ## 2026-10-05: Polish pass 1: one thread ("keeping what you meant"), simple labels, micro-animations
 
 **What:**

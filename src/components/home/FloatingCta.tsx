@@ -92,7 +92,13 @@ export function FloatingCta() {
               <span className="flex h-9 items-center gap-2 rounded-full bg-ink px-4 text-[0.84rem] font-medium text-paper transition-colors duration-300 group-hover:bg-teal">
                 {c.action}
                 <span className="transition-transform duration-300 group-hover:translate-x-0.5">
-                  <Arrow />
+                  <motion.span
+                    className="inline-block"
+                    animate={reduce ? undefined : { x: [0, 4, 0] }}
+                    transition={{ duration: 0.6, repeat: Infinity, repeatDelay: 2.6, ease: "easeInOut" }}
+                  >
+                    <Arrow />
+                  </motion.span>
                 </span>
               </span>
             </Link>

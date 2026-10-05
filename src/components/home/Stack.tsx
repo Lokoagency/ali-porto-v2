@@ -108,7 +108,7 @@ export function Stack() {
               >
                 <span
                   data-on={focus ? on : "idle"}
-                  className="flex items-center gap-2 rounded-full border border-line bg-card py-1.5 pl-1.5 pr-3.5 text-[0.84rem] text-ink transition-[opacity,transform,filter,border-color,box-shadow] duration-500 ease-[cubic-bezier(.22,1,.36,1)] data-[on=false]:scale-[0.96] data-[on=false]:opacity-25 data-[on=false]:grayscale data-[on=true]:border-teal/50 data-[on=true]:shadow-[var(--shadow-sm)]"
+                  className="flex items-center gap-2 rounded-full border border-line bg-card py-1.5 pl-1.5 pr-3.5 text-[0.84rem] text-ink transition-[opacity,transform,filter,border-color,box-shadow] duration-500 ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-0.5 hover:shadow-[var(--shadow-sm)] data-[on=false]:scale-[0.96] data-[on=false]:opacity-25 data-[on=false]:grayscale data-[on=true]:border-teal/50 data-[on=true]:shadow-[var(--shadow-sm)]"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={t.icon} alt="" className="size-6 rounded-full bg-white object-contain p-0.5" loading="lazy" />

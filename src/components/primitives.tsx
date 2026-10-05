@@ -42,12 +42,15 @@ export function SplitHeading({
   className,
   delay = 0,
   italic = [],
+  underline = [],
 }: {
   text: string;
   className?: string;
   delay?: number;
   /** words (by index) to set in italic teal */
   italic?: number[];
+  /** words (by index) that get a pen stroke drawn under them once the heading has landed */
+  underline?: number[];
 }) {
   const words = text.split(" ");
   // One observer on the heading drives every word, so lines never reveal out of order.
@@ -68,11 +71,24 @@ export function SplitHeading({
           className="-mb-[0.14em] -mr-[0.08em] inline-block overflow-hidden pb-[0.14em] pr-[0.08em] align-bottom"
         >
           <motion.span
-            className={`inline-block ${italic.includes(i) ? "font-display-italic text-teal" : ""}`}
+            className={`relative inline-block ${italic.includes(i) ? "font-display-italic text-teal" : ""}`}
             variants={{ hidden: { y: "110%" }, shown: { y: "0%" } }}
             transition={{ duration: 0.85, ease: easeOut }}
           >
             {w}
+            {underline.includes(i) && (
+              <svg aria-hidden viewBox="0 0 200 16" preserveAspectRatio="none" className="pointer-events-none absolute -bottom-[0.02em] left-[2%] h-[0.16em] w-[96%] overflow-visible text-teal/70">
+                <motion.path
+                  d="M2 11c34-6 70-9 104-8 30 1 58 3 92 6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  variants={{ hidden: { pathLength: 0 }, shown: { pathLength: 1 } }}
+                  transition={{ duration: 0.8, delay: delay + 0.6, ease: [0.65, 0, 0.35, 1] }}
+                />
+              </svg>
+            )}
           </motion.span>
           {i < words.length - 1 && "\u00a0"}
         </span>
