@@ -2,7 +2,9 @@
 
 ## The idea
 
-**The story (since 4 Oct; reordered in round 6): hero → why → proof → how → knowledge → let's talk.**
+**The thread (polish pass, 5 Oct): keeping what you meant.** The hero promises "I build what you *meant.*" Every section picks that up: the four versions of a product (01), the work (02), the method that listens for what you mean (03), one path with no handover (04), a protocol that keeps it on track (05), and "Tell me what you mean" (08). New copy should serve this thread.
+
+**The order (since round 6):** hero → why → the work → how → the stack → let's talk. The labels are simple numbers, 01 to 08.
 - **The hero** is Ali speaking: bold, punchy and first person, "I build what you *meant.*" It stays calm: one headline, one line, two buttons and the portrait.
 - **The work comes second**, right after the philosophy's quote, so visitors see proof early.
 - **Never use the word "idea" in site copy.** The client's thing is their **product**. Ali solves the problem first, then builds the product.
@@ -86,7 +88,8 @@ These come straight from the user's feedback; follow them.
 
 | Where | What |
 |---|---|
-| Hero | Deliberately calm since round 4: a CSS entrance, the wave, and the portrait's parallax. No loops |
+| Hero | Deliberately calm: a CSS entrance, the wave, the portrait's parallax, and a pen stroke that underlines "meant." once (CSS `.anim-draw`). No loops |
+| 01 Why I work this way | Four tiles (your head → your words → the build → each user), each with the same helix. On a loop it fades step by step, then a teal line runs through and all four come back sharp |
 | Sorting Room (`IdeaSorter`) | The scroll-driven particle funnel: gates → cut noise → lanes → board |
 | "Clear out." | `SortText` |
 | The solution (`Paths`) | One card: a wireframe assembles itself (Build it), a dot rides the line through Ali's portrait, a kanban card walks to Done (Run it). The toolbox sorts itself, and its last chip keeps cycling "Notion → Linear" to show the stack never stops growing |

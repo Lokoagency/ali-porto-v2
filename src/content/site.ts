@@ -177,10 +177,10 @@ export const sorterStages = [
 
 
 /* ------------------------------------------------------------------
-   The story the home page tells:
-   the hero (Ali speaking: "I build what you meant.") → 01 why (Ali's quote) →
-   02 proof (the work) → 03 how (the method, one path, the protocol, working together) →
-   04 knowledge (the path, the stack) → 05 let's talk.
+   The story the home page tells, one thread: keeping what you meant.
+   hero ("I build what you meant.") → 01 why (four versions, one DNA) → 02 the work →
+   03 how I work (the Sorting Room) → 04 one path → 05 the protocol → 06 working together →
+   07 the stack → 08 let's talk ("Tell me what you mean.").
    Ali solves the problem first, then builds the product. Never say "idea".
 ------------------------------------------------------------------- */
 export const story = {
@@ -191,21 +191,25 @@ export const story = {
     em: "meant.",
     who: "I'm Ali Farghaly",
     role: "a developer and product manager.",
-    line: "Whatever your product looks like right now, I can probably step into it, from the database to the docs.",
+    line: "I take what's in your head and make it real, from the database to the docs, without losing what you meant on the way.",
     primary: "Tell me where you are",
     secondary: "See the work",
     badge: "Open to projects",
   },
   how: {
     index: "01",
-    label: "Why · The philosophy",
-    quote: "The input matters as much as the output. If you don't fully understand what you're working from, you'll build something that looks right but feels wrong.",
+    label: "Why I work this way",
+    // Ali's four-versions framework (Content Bank 3), said with "product"
+    quote: "Every product exists four times. My job is to keep all four sharing the same DNA.",
+    steps: ["In your head", "In your words", "In the build", "In each user's hands"],
+    fade: "Pass it along carelessly and it fades at every step, like a photo forwarded on WhatsApp.",
+    keep: "Pass it along with care and all four stay sharp.",
   },
-  problem: { index: "03", label: "How · The method", lead: "Messy in.", sort: "Clear out." },
-  solution: { index: "03", label: "How · One person, one path", heading: "One person, one path: build it right, then make it run.", italic: [2, 3] },
+  problem: { index: "03", label: "How I work", lead: "Messy in.", sort: "Clear out." },
+  solution: { index: "04", label: "One path", heading: "One person, one path. Nothing gets lost in a handover.", italic: [2, 3] },
   roadmap: {
-    index: "03",
-    label: "How · The protocol",
+    index: "05",
+    label: "The protocol",
     heading: "A protocol you can follow. A line you can track.",
     italic: [4, 9],
     // "tell Ali where you are": composes a WhatsApp or email message, nothing is stored on the site
@@ -220,8 +224,12 @@ export const story = {
       fine: "Opens WhatsApp or your email with the message already written. Nothing is stored on this site.",
     },
   },
-  together: { index: "03", label: "How · Working together", heading: "I give honest timelines, and I deliver on them.", italic: [2, 3] },
-  proof: { index: "02", label: "Proof · The work", heading: "What I built, and every hat I wore building it.", italic: [4, 5] },
+  together: { index: "06", label: "Working together", heading: "I give honest timelines, and I deliver on them.", italic: [2, 3] },
+  proof: {
+    index: "02",
+    label: "The work",
+    // the work filter (projects.ts categories); named like the two halves of the one path
+    filters: { All: "Everything", "No-Code": "Build it", Product: "Run it" }, heading: "What I built, and every hat I wore building it.", italic: [4, 5] },
   // on /about (moved off the home page in round 7)
   person: {
     index: "About",
@@ -231,14 +239,14 @@ export const story = {
     heading: "From translator to builder to product manager.",
     italic: [2, 4, 6, 7],
   },
-  stack: { index: "04", label: "Knowledge · The stack", heading: "Today's toolbox. Never the whole of it.", italic: [4, 5, 6] },
+  stack: { index: "07", label: "The stack", heading: "Today's toolbox. Never the whole of it.", italic: [4, 5, 6] },
   // the pill that appears once the visitor reaches the roadmap (until the contact section)
   cta: { idle: "Wherever you are on the line", picked: "Start at", action: "Let's talk" },
   contact: {
-    index: "05",
+    index: "08",
     label: "Let's talk",
-    heading: "Tell me where your product is. Let's find the problem first.",
-    italic: [9, 10],
+    heading: "Tell me what you mean. I'll take it from there.",
+    italic: [3, 4],
     // Ali's own closing line (Content Bank 11)
     lede: "Tell me what you're building and where it stands. The best way to get to know me, and see if I can stand behind all those words above, is a quick intro call.",
   },
@@ -276,7 +284,7 @@ export function stationMessage(m: { name: string; company: string; station: stri
 export type StationId = "discovery" | "definition" | "design" | "build" | "qa" | "launch" | "handover" | "grow";
 
 export const roadmap = {
-  lede: "Whatever your product looks like right now, there's a station for it. The entry point doesn't matter; the process adapts. Pick where you are and send it to me.",
+  lede: "Eight stations, each with something you can hold, so what you meant stays on track. Join wherever you are: the entry point doesn't matter, the process adapts.",
   stations: [
     { id: "discovery", name: "Discovery", what: "We find the real problem behind the product: who has it, how often, and what it costs them.", get: "A one-page problem statement", terms: ["Product discovery", "Stakeholder interviews", "Problem statement"] },
     { id: "definition", name: "Definition", what: "Users, scope and what success looks like. What's in and what's out, agreed up front.", get: "Scope doc and user stories", terms: ["Requirements gathering", "User stories", "MVP scope"] },

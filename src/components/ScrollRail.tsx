@@ -5,14 +5,14 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } fr
 
 const sections = [
   { id: "top", label: "Hello" },
-  { id: "how", label: "Why · The philosophy" },
-  { id: "work", label: "Proof · The work" },
-  { id: "process", label: "How · The method" },
-  { id: "paths", label: "How · One path" },
-  { id: "roadmap", label: "How · The protocol" },
-  { id: "together", label: "How · Working together" },
-  { id: "stack", label: "Knowledge · The stack" },
-  { id: "contact", label: "Let's talk" },
+  { id: "how", label: "01 Why I work this way" },
+  { id: "work", label: "02 The work" },
+  { id: "process", label: "03 How I work" },
+  { id: "paths", label: "04 One path" },
+  { id: "roadmap", label: "05 The protocol" },
+  { id: "together", label: "06 Working together" },
+  { id: "stack", label: "07 The stack" },
+  { id: "contact", label: "08 Let's talk" },
 ];
 
 const go = (y: number | HTMLElement) =>

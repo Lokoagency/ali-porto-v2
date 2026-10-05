@@ -92,6 +92,10 @@ The approved-baseline backup is at https://github.com/Lokoagency/ali-porto (bran
 
 **Done when** Ali has read every page and approved it.
 
+## Polish pass (pulled forward, 5 Oct)
+
+The user asked to polish now, while Phase 5 waits on Ali's material. Pass 1 is done: one thread ("keeping what you meant"), simple 01–08 labels, the hero underline, the four-versions strip, and skill-checklist fixes (hit areas, steady-width numbers, the quote's spacing). The full Phase 9 polish (every width, both themes, a 404 page, accessibility) still comes later.
+
 ## Phase 6: Admin dashboard for Ali (with client tracking)
 
 **Goal:** Ali runs his own site (journal, work, featured work) and tracks each client on the protocol, **without being able to break the design**.

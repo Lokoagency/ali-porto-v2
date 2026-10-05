@@ -51,7 +51,23 @@ export function Hero() {
         {/* Ali says it himself: one bold line, his core belief (intention over spec) */}
         <h1 className="font-display text-[clamp(3rem,7.4vw,6.2rem)] leading-[0.98] text-ink">
           <span className="anim-focus block pb-[0.08em]" style={{ animationDelay: "0.1s" }}>
-            {h.lead} <span className="font-display-italic text-teal">{h.em}</span>
+            {h.lead}{" "}
+            <span className="relative inline-block font-display-italic text-teal">
+              {h.em}
+              {/* a pen stroke underlines "meant." once the line has landed (pure CSS, so it plays before JS) */}
+              <svg aria-hidden viewBox="0 0 200 16" preserveAspectRatio="none" className="absolute -bottom-[0.06em] left-[2%] h-[0.16em] w-[96%] overflow-visible text-teal/70">
+                <path
+                  d="M2 11c34-6 70-9 104-8 30 1 58 3 92 6"
+                  pathLength="1"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  className="anim-draw"
+                  style={{ animationDelay: "0.85s" }}
+                />
+              </svg>
+            </span>
           </span>
         </h1>
 

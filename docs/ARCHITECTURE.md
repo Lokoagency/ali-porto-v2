@@ -63,15 +63,15 @@ Ali's path (`home/Journey.tsx`) lives on its own page, `/about`.
 | # | Component | `id` | What it does |
 |---|---|---|---|
 | — | `home/Hero.tsx` | `top` | The hero: Ali speaking. Details below |
-| 01 Why | `home/Principles.tsx` | `how` | "The philosophy": only the scroll-revealed quote, Ali's "The input matters as much as the output…". The principle cards (round 6), the living philosophy and the numbers strip (round 7) were removed. The `principles` data stays, because `/mind` uses it |
-| 02 Proof | `home/Work.tsx` | `work` | "The work": project cards, the "your product could be next" card and the filter |
-| 03 How | `home/IdeaSorter.tsx` | `process` | "The method": the Sorting Room, **unchanged** (Messy in. Clear out.). Details below |
-| 03 How | `home/Paths.tsx` | `paths` | "One person, one path": one card with two halves (Build it, Run it) joined by Ali's portrait |
-| 03 How | `home/Roadmap.tsx` | `roadmap` | "The protocol": the metro map (branch lines = Ali's four entry points), then the "tell Ali where you are" form (`#tell-ali`). Details below |
-| 03 How | `home/HowIWork.tsx` | `together` | "Working together": 4 cards from `workingStyle`, each with its own looping sketch |
-| 04 Knowledge | `home/Stack.tsx` | `stack` | "The stack": tool chips that sort themselves, a cycling "knows → picks up" chip, and a note |
+| 01 | `home/Principles.tsx` | `how` | "Why I work this way": the scroll-read quote (the four versions, one DNA) and `FourVersions`, four tiles with a helix that fades step by step, then comes back sharp. Data: `story.how` (`quote`, `steps`, `fade`, `keep`). The `principles` data stays, because `/mind` uses it |
+| 02 | `home/Work.tsx` | `work` | "The work": project cards, the "your product could be next" card and the filter |
+| 03 | `home/IdeaSorter.tsx` | `process` | "The method": the Sorting Room, **unchanged** (Messy in. Clear out.). Details below |
+| 04 | `home/Paths.tsx` | `paths` | "One person, one path": one card with two halves (Build it, Run it) joined by Ali's portrait |
+| 05 | `home/Roadmap.tsx` | `roadmap` | "The protocol": the metro map (branch lines = Ali's four entry points), then the "tell Ali where you are" form (`#tell-ali`). Details below |
+| 06 | `home/HowIWork.tsx` | `together` | "Working together": 4 cards from `workingStyle`, each with its own looping sketch |
+| 07 | `home/Stack.tsx` | `stack` | "The stack": tool chips that sort themselves, a cycling "knows → picks up" chip, and a note |
 | — | `home/MindTeaser.tsx` | — | Link card to `/mind` |
-| 05 | `home/Contact.tsx` | `contact` | "Let's talk": Ali's intro-call line and the contact options |
+| 08 | `home/Contact.tsx` | `contact` | "Let's talk": Ali's intro-call line and the contact options |
 
 **Hero** (`home/Hero.tsx`), rewritten in round 6: Ali speaks first.
 - **Eyebrow:** "👋 Have you met Ali?"

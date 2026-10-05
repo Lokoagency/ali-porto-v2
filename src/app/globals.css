@@ -178,12 +178,27 @@ li,
 .anim-portrait {
   animation: portrait-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+/* a hand-drawn stroke that writes itself in once (paths use pathLength="1") */
+@keyframes draw-in {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.anim-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw-in 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
 @media (prefers-reduced-motion: reduce) {
   .anim-focus,
   .anim-fade-up,
   .anim-blur-in,
   .anim-portrait {
     animation: none;
+  }
+  .anim-draw {
+    animation: none;
+    stroke-dashoffset: 0;
   }
 }
 

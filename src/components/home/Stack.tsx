@@ -80,7 +80,7 @@ export function Stack() {
                   role="tab"
                   aria-selected={on}
                   onClick={() => setPinned((cur) => (cur === k ? null : k))}
-                  className={`press relative h-8 rounded-full px-3.5 text-[0.78rem] ${on ? "text-paper" : "text-ink-soft hover:text-ink"}`}
+                  className={`press relative h-9 rounded-full px-4 text-[0.78rem] ${on ? "text-paper" : "text-ink-soft hover:text-ink"}`}
                 >
                   {on && (
                     <motion.span

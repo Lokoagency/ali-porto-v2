@@ -8,11 +8,8 @@ import { projects, type Project } from "@/content/projects";
 import { story } from "@/content/site";
 import { Arrow, Reveal, SectionLabel, SplitHeading, easeOut } from "../primitives";
 
-const filters = [
-  { key: "All", label: "Everything" },
-  { key: "No-Code", label: "The Builds" },
-  { key: "Product", label: "The Systems" },
-] as const;
+// named like the two halves of the one path (copy in story.proof.filters)
+const filters = (["All", "No-Code", "Product"] as const).map((key) => ({ key, label: story.proof.filters[key] }));
 type FilterKey = (typeof filters)[number]["key"];
 
 export function StatusTag({ status }: { status: Project["status"] }) {

@@ -4,6 +4,35 @@ Newest first. **Add an entry with every change**, using the template in `DEVELOP
 
 ---
 
+## 2026-10-05: Polish pass 1: one thread ("keeping what you meant"), simple labels, micro-animations
+
+**What:**
+- **One thread runs through the page: keeping what you meant.** The hero promise ("I build what you *meant.*") is picked up by every section:
+  - **Hero line:** "I take what's in your head and make it real, from the database to the docs, without losing what you meant on the way."
+  - **01 Why I work this way:** the scroll-read quote is now Ali's four-versions framework, "Every product exists four times. My job is to keep all four sharing the same DNA." It's followed by a new **four-step strip**: in your head, in your words, in the build, in each user's hands. Each tile shows the same small helix (the product's "DNA"). On a loop, the helix fades a little more at every step, "like a photo forwarded on WhatsApp"; then a teal line runs through and all four come back sharp ("Pass it along with care and all four stay sharp").
+  - **04 One path:** "One person, one path. Nothing gets lost in a handover."
+  - **05 The protocol:** the lede now says "so what you meant stays on track". It no longer repeats the hero's "whatever your product looks like".
+  - **08 Let's talk:** "Tell me what you mean. I'll take it from there." The old "find the problem first" is gone.
+- **Simple numbered labels:** 01 Why I work this way, 02 The work, 03 How I work, 04 One path, 05 The protocol, 06 Working together, 07 The stack, 08 Let's talk. "Chapter · Part" is gone. The scroll rail uses the same names.
+- **The work filter** reads Everything / **Build it / Run it**, matching the one path. "The Builds / The Systems" contradicted it. The labels are in `story.proof.filters`.
+- **Micro-animations and the skills checklist** (make-interfaces-feel-better, motion-patterns):
+  - **A pen stroke underlines "meant."** in the hero. It's pure CSS (`.anim-draw`, `pathLength="1"`), so it plays on first paint, and under reduced motion it's simply drawn.
+  - **The four-step strip** is gated by `useInView`, stops under reduced motion (all sharp), animates only opacity, blur and transform, and swaps its caption with `AnimatePresence mode="wait"` (a short exit, then a blur-in enter).
+  - **The scroll-read quote** now has real spaces between words, so copying it or using a screen reader no longer runs the words together.
+  - **Hit areas:** the roadmap's "Where are you now?" chips went from 36 to 40 px and the stack tabs from 32 to 36 px (inside a 44 px pill).
+  - **Steady-width numbers** on the roadmap's "You are here 0X/8" counter.
+  - Checked and fine: no `transition: all`, font smoothing on, headings balanced, body text pretty.
+
+**Why:** the user said the narrative "isn't quite there yet" and asked to fix and add micro-animations while following the skills. Their answers: the thread is "keeping what you meant", and the labels are simple numbers.
+
+**Verified:**
+- `tsc`, `lint` and `build` are clean.
+- In the browser:
+  - The underline animation finishes (dash offset 0).
+  - The four-step strip alternates between faded (blur 0 / 1.1 / 2.2 / 3.3 px) and sharp.
+  - The labels, filters and contact heading are right.
+  - There's no sideways scroll at 1440 or 375 px.
+
 ## 2026-10-05: The review branch on GitHub, and Phase 5 groundwork
 
 **What:**

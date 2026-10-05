@@ -199,7 +199,7 @@ export function Roadmap() {
               key={j.id}
               onClick={() => pick(ids.indexOf(j.at), on ? null : j.id)}
               aria-pressed={on}
-              className={`press flex h-9 items-center gap-2 rounded-full border px-3.5 text-[0.82rem] ${on ? "border-transparent bg-ink text-paper" : "border-line text-ink-soft hover:text-ink"}`}
+              className={`press flex h-10 items-center gap-2 rounded-full border px-4 text-[0.82rem] ${on ? "border-transparent bg-ink text-paper" : "border-line text-ink-soft hover:text-ink"}`}
             >
               <span className="size-2 rounded-full" style={{ background: j.color }} />
               {j.label}
@@ -369,7 +369,7 @@ export function Roadmap() {
             >
               <p className="eyebrow flex items-center gap-2">
                 <span className="pulse-dot size-2 rounded-full bg-teal" />
-                You are here · {String(active + 1).padStart(2, "0")}/{roadmap.stations.length}
+                You are here · <span className="tabular">{String(active + 1).padStart(2, "0")}/{roadmap.stations.length}</span>
               </p>
               <h3 className="mt-3 font-display text-[2rem] leading-tight">{station.name}</h3>
               {joining && (
