@@ -78,10 +78,11 @@ The approved-baseline backup is at https://github.com/Lokoagency/ali-porto (bran
 
 - Remove the journal section from the home page. The journal stays reachable from the nav (`/journal`).
 
-## Phase 5: Content (waiting on your content)
+## Phase 5: Content (active; waiting on Ali's material)
 
 **Goal:** every word, number, project and image on the site is Ali's real, approved content.
 
+- **5 Oct, in progress (the active phase):** the version for Ali's review is on the GitHub `review` branch. The groundwork is done: all copy lives in `site.ts`, there are no em dashes in visitor-facing text, and unused data is removed. Waiting on Ali's material: his published posts (to replace the three placeholder journal posts), TextWing screenshots and approval, the HYMA mockups, and the Editorial Rules.
 - **Started 5 Oct:** the copy is rewritten from Ali's Content Bank v2 (see `docs/CONTENT.md`, "Who Ali is"). Still to come: the HYMA Hi-Fi mockups (they need a claude.ai login to view), the Editorial Rules document, a TextWing case study (screenshots), and Ali's sign-off.
 - Bring in the content you send. Copy lives in `src/content/site.ts` and projects in `src/content/projects.ts`, so components don't change.
 - Replace the three placeholder journal posts in `content/journal/` with real ones. Or connect Notion (`NOTION_TOKEN` and `NOTION_JOURNAL_DB`, see README) so Ali can post without touching code.

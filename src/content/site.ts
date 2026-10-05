@@ -113,13 +113,6 @@ export const principles = [
   },
 ] as const;
 
-export const competencies = [
-  { title: "Roadmaps & Planning", body: "Breaking epics into user stories. Prioritizing on user needs and business goals. Backlogs that stay groomed and teams that stay focused." },
-  { title: "User Research & QA", body: "Usability testing. Recruiting and managing remote QA teams. Structured feedback loops that turn insights into sprint-ready improvements." },
-  { title: "Team Coordination", body: "Bridging product, design, and engineering. Standups and sprint reviews. Clear communication across timezones and disciplines." },
-  { title: "Documentation", body: "Writing that people actually read. Specs, user guides, internal wikis. Knowledge that survives team changes." },
-];
-
 // The path (Content Bank 2, 4, 14, 15). Client-facing only: nothing from Part B.
 export const journey = [
   {
@@ -230,7 +223,14 @@ export const story = {
   together: { index: "03", label: "How · Working together", heading: "I give honest timelines, and I deliver on them.", italic: [2, 3] },
   proof: { index: "02", label: "Proof · The work", heading: "What I built, and every hat I wore building it.", italic: [4, 5] },
   // on /about (moved off the home page in round 7)
-  person: { index: "About", label: "The path", heading: "From translator to builder to product manager.", italic: [2, 4, 6, 7] },
+  person: {
+    index: "About",
+    label: "The path",
+    // the running thread (Content Bank 1, agreed with Ali)
+    lede: "The medium keeps changing: languages, then apps, then docs. The discipline stays the same: care about the input as much as the output.",
+    heading: "From translator to builder to product manager.",
+    italic: [2, 4, 6, 7],
+  },
   stack: { index: "04", label: "Knowledge · The stack", heading: "Today's toolbox. Never the whole of it.", italic: [4, 5, 6] },
   // the pill that appears once the visitor reaches the roadmap (until the contact section)
   cta: { idle: "Wherever you are on the line", picked: "Start at", action: "Let's talk" },
@@ -246,6 +246,15 @@ export const story = {
   sameCraft: { label: "Same craft, new medium", en: "story", ar: "قصة" },
   footer: "Built with care · No problem left unsorted",
   nextCard: { lead: "Your product could", em: "be next." },
+};
+
+// The journal page (/journal)
+export const journalPage = {
+  eyebrow: "The journal",
+  heading: "Notes from a tidy mind.",
+  italic: [3, 4],
+  lede: "Where the work gets reflected on: builds, systems, the road from translator to product, and the thinking in between.",
+  description: "Ali's journal: the work, the journey, and the thinking in between.",
 };
 
 /** The message a visitor sends from the roadmap ("tell Ali where you are"). */

@@ -4,6 +4,25 @@ Newest first. **Add an entry with every change**, using the template in `DEVELOP
 
 ---
 
+## 2026-10-05: The review branch on GitHub, and Phase 5 groundwork
+
+**What:**
+- **GitHub:** the current version (phases 2–4 plus review rounds 2–7) is pushed to a new branch, **`review`** (https://github.com/Lokoagency/ali-porto/tree/review). `main` still holds the original baseline (`6129be9`) until Ali approves. The local branch was renamed `main` → `review` and tracks `origin/review`, so a plain `git push` can't touch `main`.
+- **Phase 5 groundwork** (things that don't need Ali's material):
+  - The last hard-coded copy moved into `site.ts`:
+    - the journal page's eyebrow, heading, lede and description (`journalPage`);
+    - the About page's intro (`story.person.lede`), now Ali's running thread: "The medium keeps changing… care about the input as much as the output."
+  - Em dashes are gone from visitor-facing text: the journal page, the gallery alt text, and the "05 — Let's talk" and "03 — How · The method" labels, which now use the same short rule as the other section labels.
+  - The unused `competencies` data is deleted.
+
+**Why:** the user asked to continue with the phases and chose a review branch over overriding `main`. Ali's material for Phase 5 (posts, TextWing screenshots, the mockups, the editorial rules) comes later.
+
+**Verified:**
+- `tsc`, `lint` and `build` are clean.
+- In the browser:
+  - `/` and `/about` have no em dashes and no "idea".
+  - `/journal`'s remaining dashes come from the placeholder posts, which are being replaced.
+
 ## 2026-10-05: Round 7: cleaner, the filler is gone
 
 **What:**

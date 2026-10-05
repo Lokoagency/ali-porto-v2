@@ -401,7 +401,7 @@ export function IdeaSorter() {
         {/* Header + stage narration */}
         <div ref={headRef} className="relative z-20 mx-auto flex max-w-[1200px] flex-col gap-5 px-5 pt-24 sm:px-8 md:flex-row md:items-end md:justify-between md:pt-28">
           <div>
-            <p className="eyebrow mb-3">{story.problem.index} — {story.problem.label}</p>
+            <p className="eyebrow mb-3">{story.problem.index}<span aria-hidden className="mx-3 inline-block h-px w-10 align-middle bg-teal/50" />{story.problem.label}</p>
             <h2 className="font-display text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.02]">
               {story.problem.lead}{" "}
               <SortText text={story.problem.sort} className="font-display-italic text-teal" delay={450} loop={7500} />

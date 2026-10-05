@@ -32,7 +32,7 @@ If you've just been handed this project, read this first. It covers what the pro
 | Content | Waiting on the user | They will send Ali's real content: Phase 5 |
 | SEO and social | Not started | No share images, sitemap, robots file or 404 page: Phases 9–10 |
 | Deployment | Not started | Vercel is planned: Phase 10 |
-| Version control | Git | Baseline backup on GitHub at `Lokoagency/ali-porto` (`main`, commit `6129be9`). Don't push over it until the client approves |
+| Version control | Git | Baseline backup on GitHub at `Lokoagency/ali-porto` (`main`, commit `6129be9`); don't push over it until the client approves. The current work is on the **`review`** branch (local and on GitHub) for Ali's review |
 
 Quality after Phase 0 (Lighthouse, production build, home page):
 

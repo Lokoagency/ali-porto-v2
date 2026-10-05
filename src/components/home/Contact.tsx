@@ -62,7 +62,7 @@ export function Contact() {
     <section id="contact" className="relative mx-auto max-w-[1200px] px-5 pb-20 pt-20 sm:px-8 md:pt-28">
       <div className="grid gap-14 lg:grid-cols-[1.2fr_1fr] lg:items-end">
         <div>
-          <p className="eyebrow mb-6">{story.contact.index} — {story.contact.label}</p>
+          <p className="eyebrow mb-6">{story.contact.index}<span aria-hidden className="mx-3 inline-block h-px w-10 align-middle bg-teal/50" />{story.contact.label}</p>
           <SplitHeading
             text={story.contact.heading}
             italic={story.contact.italic}

@@ -64,7 +64,7 @@ Then read whatever the task needs:
   - install a third-party skill (vet its files first);
   - publish or deploy anything;
   - do anything irreversible.
-- **Git:** the client-approval baseline is on GitHub at `Lokoagency/ali-porto` (`main`, commit `6129be9`). **Don't push over it until the client approves.** Commit locally, or on a branch, and push only when the user says so.
+- **Git:** the client-approval baseline is on GitHub at `Lokoagency/ali-porto` (`main`, commit `6129be9`). **Don't push over it until the client approves.** Work happens on the local branch **`review`**, which tracks `origin/review` (pushed 5 Oct for Ali's review). Commit locally, and push only when the user says so.
 
 ## Commands
 

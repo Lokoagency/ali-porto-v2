@@ -50,7 +50,7 @@ export function Gallery({ shots, name, device }: { shots: string[]; name: string
       >
         <Image
           src={shots[index]}
-          alt={`${name} — screen ${index + 1}`}
+          alt={`${name}, screen ${index + 1}`}
           fill
           sizes={phone ? "300px" : "(min-width: 1024px) 1100px, 100vw"}
           className={`pointer-events-none select-none ${phone ? "object-cover" : "object-contain object-top"}`}

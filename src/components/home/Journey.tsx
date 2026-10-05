@@ -87,8 +87,7 @@ export function Journey({ page = false }: { page?: boolean }) {
           />
           <Reveal>
             <p className="mt-6 max-w-[440px] text-[1rem] leading-relaxed text-ink-soft">
-              Translation taught me something useful: understand what one side needs and make sure the other side gets it.
-              That&apos;s product work, really. Bridging gaps. Preserving meaning.
+              {story.person.lede}
             </p>
           </Reveal>
           <Reveal delay={0.1}>
