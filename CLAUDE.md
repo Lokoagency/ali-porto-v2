@@ -27,8 +27,10 @@ Then read whatever the task needs:
 - **Phase 0** (review and optimisation): done, 4 Oct 2026.
 - **Phase 1** (GitHub backup): done, 4 Oct 2026.
 - **Phases 2–4** (narrative, roadmap metro map, journal only in the nav): built 4 Oct, with review rounds 2 and 3 the same day. Round 3 brought philosophy → methodology → protocol, corporate keywords and the "tell Ali where you are" form. Round 4 simplified the hero and made the page four chapters (why → how → knowledge → let's talk). **Never use the word "idea" in site copy; say "product".** Round 5 (5 Oct) rewrote the copy from Ali's Content Bank v2. Read "Who Ali is" in `docs/CONTENT.md` before writing any copy. Waiting for the client's approval.
-- **Next, after approval:** content (5), admin dashboard with client tracking (6), optimization (7), the deep dive `/mind` (8), polish (9), launch (10).
-- **`/mind` is on hold until Phase 8.** Don't work on it unless the user asks.
+- **Phase 6** (Ali's dashboard, front end): built 6 Oct. It covers `/admin` (work, featured drag-and-drop, journal, clients) and `/track#…` (the client's private link). Storage is browser-only for now.
+- **Live:** V2 is on Vercel at https://ali-porto-v2.vercel.app (project `ali-porto-v2`, team LOKO AGENCY, repo `Lokoagency/ali-porto-v2`, branch `main`). The old version is left alone as V1.
+- **Next:** content (5, waiting on Ali), database and magic-link login for the dashboard (7), optimization (8), the deep dive `/mind` (9), polish (10), launch (11).
+- **`/mind` is on hold until Phase 9.** Don't work on it unless the user asks.
 
 ## Rules
 
@@ -64,7 +66,7 @@ Then read whatever the task needs:
   - install a third-party skill (vet its files first);
   - publish or deploy anything;
   - do anything irreversible.
-- **Git:** the client-approval baseline is on GitHub at `Lokoagency/ali-porto` (`main`, commit `6129be9`). **Don't push over it until the client approves.** Work happens on the local branch **`review`**, which tracks `origin/review` (pushed 5 Oct for Ali's review). Commit locally, and push only when the user says so.
+- **Git:** the client-approval baseline is on GitHub at `Lokoagency/ali-porto` (`main`, commit `6129be9`). **Don't push over it until the client approves.** Work happens on the local branch **`review`**, which tracks `origin/review` (pushed 5 Oct for Ali's review). **V2 lives in a second repo, `Lokoagency/ali-porto-v2`** (git remote `v2`): `git push v2 review:main` deploys it to Vercel automatically. Commit locally, and push only when the user says so.
 
 ## Commands
 

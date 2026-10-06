@@ -5,11 +5,13 @@ Each phase ends with a review in the browser and a production build.
 
 > Docs: start with [`docs/HANDOFF.md`](docs/HANDOFF.md). Every change gets an entry in [`docs/CHANGELOG.md`](docs/CHANGELOG.md), an update to the relevant doc, and an update to this plan. The rules are in `CLAUDE.md`.
 
-**Where things stand (5 Oct 2026).** The site has five routes:
+**Where things stand (6 Oct 2026).** V2 is live on Vercel at https://ali-porto-v2.vercel.app (repo `Lokoagency/ali-porto-v2`). The site has these routes:
 - `/`: the hero (Ali speaking: "I build what you meant."), then 01 Why (Ali's quote), 02 Proof (the work), 03 How (the Sorting Room, one path, the protocol, working together), 04 Knowledge (the stack), the Mind teaser, 05 Let's talk
 - `/about`: Ali's path (translator → builder → developer & PM)
 - `/work/[slug]`: 7 case studies
 - `/journal` and `/journal/[slug]`: Notion-backed, with a Markdown fallback
+- `/admin`: Ali's dashboard (front end, browser-only storage for now)
+- `/track#…`: a client's private view of the protocol
 - `/mind`: on hold
 
 ---
@@ -48,7 +50,7 @@ Measured with Lighthouse on a production build of the home page:
 
 ## Phase order (set by the user, 4 Oct 2026)
 
-The client approves this version before anything replaces it. Updated 4 Oct (review round 2): after approval the order is **Content (5) → Admin dashboard (6) → Optimization (7) → Deep dive, `/mind` (8) → Polish (9) → Launch (10)**. The dashboard comes before optimization because it changes where the data comes from. Polish comes after the deep dive so it covers `/mind` too.
+The client approves this version before anything replaces it. Updated 4 Oct (review round 2): the order is **Content (5) → Admin dashboard, front end (6, built) → Database and login (7) → Optimization (8) → Deep dive, `/mind` (9) → Polish (10) → Launch (11)**. The dashboard comes before optimization because it changes where the data comes from. Polish comes after the deep dive so it covers `/mind` too.
 
 ## Phase 1: GitHub backup (done)
 
@@ -94,31 +96,37 @@ The approved-baseline backup is at https://github.com/Lokoagency/ali-porto (bran
 
 ## Polish pass (pulled forward, 5 Oct)
 
-The user asked to polish now, while Phase 5 waits on Ali's material. Pass 2 is done too: the DNA strip is fully animated, plus the contact underline, the footer sort, the pill's arrow nudge and the chip lift. Pass 1: one thread ("keeping what you meant"), simple 01–08 labels, the hero underline, the four-versions strip, and skill-checklist fixes (hit areas, steady-width numbers, the quote's spacing). The full Phase 9 polish (every width, both themes, a 404 page, accessibility) still comes later.
+The user asked to polish now, while Phase 5 waits on Ali's material. Pass 2 is done too: the DNA strip is fully animated, plus the contact underline, the footer sort, the pill's arrow nudge and the chip lift. Pass 1: one thread ("keeping what you meant"), simple 01–08 labels, the hero underline, the four-versions strip, and skill-checklist fixes (hit areas, steady-width numbers, the quote's spacing). The full Phase 10 polish (every width, both themes, a 404 page, accessibility) still comes later.
 
-## Phase 6: Admin dashboard for Ali (with client tracking)
+## Phase 6: Admin dashboard for Ali (front end) — built 6 Oct
 
 **Goal:** Ali runs his own site (journal, work, featured work) and tracks each client on the protocol, **without being able to break the design**.
 
-**Stack:** Supabase, the project Ali already uses for images: Postgres for the data, Auth for the login, Storage for images. The site keeps static pages and refreshes on demand when Ali saves (`revalidateTag`), so it stays fast.
+Built (front end only, at the user's request: "keep it in the front end till now"):
+- **`/admin`**, "Hi Ali. What changed?", with four tabs:
+  - **Work:** add, edit and remove projects. A live preview shows the real project card from the home page. Fields have design-safe limits (name 60, summary 140, and so on), and cover images must come from the Supabase bucket. Removing asks for confirmation.
+  - **Featured:** drag-and-drop ordering (motion `Reorder`, drag handles) with show/hide switches and a live, zoomed-out preview of the home grid. The first visible project is the double-width featured card.
+  - **Journal:** write and edit posts in Markdown with a draft/published switch, plus a live preview in the post template (`prose-ali`).
+  - **Clients:** add a client, move them along a mini metro line, add a note, and **copy a private link**.
+- **`/track#…`:** the client's private view of the metro map, with their train at their station, Ali's note, the date, and a "Message Ali" WhatsApp button. The data rides in the URL fragment, so nothing is stored on a server, and Ali sends a fresh link after each update.
+- **Storage for now:** this browser's localStorage. "Export changes" downloads a JSON file for the agency to apply to `src/content`, and "Reset to the live site" discards local edits. A yellow banner says so.
+- **Not yet:** the login (magic link), saving to a database, and publishing from the dashboard. All of that is Phase 7. `/admin` is `noindex` and not linked from the site; edits only ever affect the browser they're made in.
 
-- **Login:** `/admin`, Ali only (Supabase Auth, magic link or password plus row-level security). Not linked from the site.
-- **Data moves into the database:** `projects.ts`, the featured order and the journal are seeded into tables from today's files, so nothing is retyped. Ali's copy in `site.ts` can follow later.
-- **Journal:** write, edit, schedule and publish posts (rich text or Markdown, cover image, tags, a draft/published switch). The preview uses the real post template. This replaces the Notion plan.
-- **Work, inside the real design:** add, edit and remove projects in a form that renders **inside the site's own card and case-study templates**, so Ali sees exactly what visitors will see.
-  - Fields have the limits the design needs (title length, a two-line summary, image ratio and size), so a project can't overflow a card.
-  - Screenshots upload to Storage and are resized automatically.
-  - Statuses: Live, Private, Obsolete, and draft (hidden).
-- **Featured work, drag and drop:** a board that shows the home page's Work grid as it really looks (the first card is double-width). Ali drags projects in, out and around; the site updates on save.
-- **Client tracking (the protocol):**
-  - Ali creates a client, sets their station on the metro line, and ticks off each station's deliverables with notes and dates.
-  - The client gets a private link (`/track/<token>`) showing the same metro map with **their** train at their station, what's done and what's next.
-- **Requests inbox, optional:** the roadmap's "tell Ali where you are" can also save to the dashboard, next to WhatsApp and email.
-- **Guardrails:** drafts, preview before publish, undo and version history, input validation, and nothing deleted for good without confirming.
+## Phase 7: Connect the dashboard: database and login (Supabase)
 
-**Done when** Ali has posted to the journal, re-ordered featured work and updated a client's station from the dashboard, and the site still looks right on every width.
+**Goal:** what Ali changes in `/admin` goes live on the site, and only Ali can get in.
 
-## Phase 7: Optimization (performance and code health)
+- **The project:** Supabase, either Ali's (it already hosts the images) or a new agency one. Decide then.
+- **Login:** a magic link to Ali's email (the user's choice), with an allow-list and row-level security. `/admin` redirects to the login when signed out.
+- **Tables:** projects (with order and hidden), posts, clients and, optionally, requests. Seed them from today's `projects.ts` and `content/journal`, using the dashboard's export format.
+- **The site reads from the database** with on-demand revalidation (`revalidateTag`) whenever Ali saves, so pages stay static and fast.
+- **Uploads:** cover images and screenshots go straight to Storage from the dashboard, resized automatically.
+- **Client tracking:** `/track/<token>` reads from the database, so links stay valid after an update and can be revoked.
+- Version history and undo.
+
+**Done when** Ali logs in with his email, publishes a post, re-orders featured work and updates a client's station, and the live site reflects it within seconds.
+
+## Phase 8: Optimization (performance and code health)
 
 **Goal:** a mobile performance score of at least 90 under real throttling, with the motion and feel kept.
 
@@ -131,7 +139,7 @@ The user asked to polish now, while Phase 5 waits on Ali's material. Pass 2 is d
 
 **Done when** the targets hold on two consecutive runs and nothing looks or moves differently.
 
-## Phase 8: The deep dive, Ali's mind (`/mind`)
+## Phase 9: The deep dive, Ali's mind (`/mind`)
 
 **Goal:** a cozy, explorable home with character, running smoothly on ordinary laptops.
 
@@ -157,7 +165,7 @@ What's left:
 
 ---
 
-## Phase 9: Polish and UX
+## Phase 10: Polish and UX
 
 **Goal:** every section feels deliberate on phone, tablet and desktop, in light and dark themes.
 
@@ -170,7 +178,7 @@ What's left:
 
 **Done when** there are no layout bugs at those widths and keyboard and screen-reader paths work.
 
-## Phase 10: Launch
+## Phase 11: Launch
 
 **Goal:** live on Ali's domain, findable and shareable.
 
@@ -195,5 +203,5 @@ What's left:
 
 - **Phase 2 (now):** Ali's approval of the narrative, and his real "currently researching" topics and recent changes for the living philosophy.
 - **Phase 5:** the content (copy, project details, images and journal posts).
-- **Phase 6:** access to Ali's Supabase project (or permission to create the tables there), and how Ali wants to log in.
-- **Phase 10:** the domain, an analytics preference, and approval of the share-image design.
+- **Phase 7:** access to a Supabase project (Ali's or a new one). The login is decided: a magic link.
+- **Phase 11:** the domain, an analytics preference, and approval of the share-image design.

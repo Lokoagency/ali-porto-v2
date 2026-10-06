@@ -37,7 +37,7 @@ Since 5 Oct 2026 the copy comes from **Ali's Content Bank v2** (May 2026), which
 | Images | Ali's Supabase bucket | Referenced through `asset("file-name.ext")` |
 | `/mind` text (plaques, inspect cards, toasts) | `src/components/mind/world.ts` (`PLAQUES`) and `MindExperience.tsx` (`inspectCard`) | Mostly reuses `site.ts` and `projects.ts` |
 
-**Rule (the user, 4 Oct): never use the word "idea" in site copy.** Say "product" for the client's thing. (`/mind` still has its "scattered ideas" until Phase 8.)
+**Rule (the user, 4 Oct): never use the word "idea" in site copy.** Say "product" for the client's thing. (`/mind` still has its "scattered ideas" until Phase 9.)
 
 Section labels, numbers, headlines and the hero copy now live in `story` in `site.ts` (moved 4 Oct). Labels read "Chapter · Part" (for example "How · The protocol"). Some short UI phrases are still inside components:
 - `SplitHeading` texts in each section.
@@ -63,6 +63,7 @@ Moving these into `site.ts` is part of Phase 5.
 | `workingStyle` | 4 items: `title`, `body`, `glyph` (`sun`\|`scope`\|`time`\|`doc`) | Working together, `/mind` fridge |
 | `lanes`, `ideaFragments`, `sorterStages` | The Sorting Room's lanes, raw→clean chips (`{ raw, clean, lane }`), and the 5 stage captions | IdeaSorter |
 | `stats` | `{ value, suffix, label }[]`: 30+, 120+, 2, 4 yrs | Numbers. **Needs Ali's confirmation** |
+| `story.track` | The client tracking page's copy (label, heading, the fallback note, "Message Ali", the bad-link message) | `/track` |
 | `journalPage` | The journal page's `eyebrow`, `heading`, `italic`, `lede`, `description` | `/journal` |
 | `story` | The home page's narrative: `hero` (`eyebrow`, `lead` + `em` = the headline, `who`, `role`, `line`, `primary`, `secondary`, `badge`), then `stack`, `sameCraft` (the translator word), `footer`, `nextCard`, then `problem`, `solution`, `how`, `roadmap`, `proof`, `person`, `together`, `cta` (the floating pill: `idle`, `picked`, `action`), `roadmap.send` (the form's copy), `contact`, each with an `index`, a `label` and usually a `heading` plus `italic` word positions | Every home section. **Written for the site; needs Ali's approval** |
 | `stationMessage()` | Builds the WhatsApp/email text from the roadmap form | The protocol |
@@ -171,7 +172,7 @@ Post HTML is injected as-is, so only Ali or the agency should write posts.
 | Journal posts | Drafted by us | **Placeholder** |
 | Mind teaser copy | Written for this site | **Stale.** It says "Soon / on its way" |
 | TextWing case study | In the bank (AI dating assistant, GPT-4o Vision, Stripe, two 5-star reviews) | **Missing.** Needs screenshots and the client's OK to show it |
-| `/mind` scattered ideas (`IDEAS` in `world.ts`) | Written for this site; each maps to a real plaque | Not wired up yet (Phase 8) |
+| `/mind` scattered ideas (`IDEAS` in `world.ts`) | Written for this site; each maps to a real plaque | Not wired up yet (Phase 9) |
 
 ## Phase 5 intake checklist
 

@@ -4,6 +4,38 @@ Newest first. **Add an entry with every change**, using the template in `DEVELOP
 
 ---
 
+## 2026-10-06: Phase 6 (front end): Ali's dashboard, private client links, and V2 on Vercel
+
+**What:**
+- **`/admin`, "Hi Ali. What changed?"**, with four tabs:
+  - **Work:** add, edit and remove projects. The live preview is the real `ProjectCard` (now exported from `Work.tsx`). Fields have design-safe limits and live character counts, and cover images must be Supabase-bucket URLs, since that's the only host the site's images allow. Removing asks to confirm.
+  - **Featured:** drag-and-drop (motion `Reorder`, with drag handles so touch scrolling still works) and show/hide switches. A live preview of the home grid uses CSS `zoom`, and the first visible project is the double-width card.
+  - **Journal:** Markdown posts with title, excerpt, date, tags, a draft/published switch and a live preview in the post template.
+  - **Clients:** add a client, then tap a station on the mini metro line to move their train (the progress bar and a ring animate). Add a note, "Copy private link" (with a copied tick), "Preview their view", and remove.
+  - **Micro-interactions:** a sliding tab pill, content cross-fades, list items animating in and out, spring toggles, and 44 px hit areas on the small controls.
+- **`/track#…`**, the client's private link. It shows the metro map in a new `track` mode of `Roadmap`:
+  - the client's name and company, "Here's where your product is.", the train at their station, Ali's note and the updated date;
+  - "You are here" only for their own station;
+  - no visitor chips or send form, and instead a "Message Ali" WhatsApp button, prefilled.
+  - The data is base64 JSON in the URL fragment, which never reaches a server. A bad link shows a friendly message.
+- **Storage:** `lib/admin-store.ts` keeps edits in localStorage (`useSyncExternalStore`, synced across tabs). "Export changes" downloads JSON; "Reset to the live site" asks to confirm. A banner explains that edits stay in this browser until Phase 7.
+- **New Phase 7: database and login** (Supabase, magic link), at the user's request: "keep it in the front end till now and add this step as a phase". Later phases moved up by one: optimization 8, `/mind` 9, polish 10, launch 11.
+- **V2 on GitHub and Vercel:** this version was pushed to a new repo, **`Lokoagency/ali-porto-v2`** (branch `main`, from the local `review` branch via the `v2` remote). It's linked to a new Vercel project, **`ali-porto-v2`** (team LOKO AGENCY), at https://ali-porto-v2.vercel.app. The old version is left alone as V1.
+
+**Why:** the user asked to "do phase 6, push to vercel". Their answers: front end only for now, with the database as its own phase; a magic-link login (later); and a new repo for V2, keeping the old one as V1.
+
+**Verified:**
+- `tsc`, `lint` and `build` are clean (`/admin` and `/track` are static).
+- In the browser:
+  - The project editor opens with the live card preview.
+  - Featured lists drag handles, "Featured · double width" and the toggles.
+  - The journal editor previews the post.
+  - Adding a client and moving them to Build saves.
+  - Their `/track` link shows "You are here · 04/8 Build", the note and a prefilled WhatsApp link, with no chips or form.
+  - No console errors.
+  - At 375 px, `/`, `/admin` and `/track` have no sideways scroll.
+- The test client was cleared afterwards.
+
 ## 2026-10-05: Polish pass 2: the DNA comes alive, more micro-animations
 
 **What:**

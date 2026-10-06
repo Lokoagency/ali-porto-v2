@@ -95,7 +95,7 @@ Weight: JavaScript and CSS about 283 KB gzipped, fonts 196 KB, hero portrait abo
 2. List its `/_next/static/chunks/*` scripts and stylesheets.
 3. Gzip each one and add up the sizes.
 
-The biggest chunks are react-dom (about 70 KB), the Next.js router (about 44 KB) and motion (about 48 KB). Phase 7 (optimization) targets motion with LazyMotion and `m` components.
+The biggest chunks are react-dom (about 70 KB), the Next.js router (about 44 KB) and motion (about 48 KB). Phase 8 (optimization) targets motion with LazyMotion and `m` components.
 
 ## Lint patterns that pass (react-hooks v7)
 
@@ -134,7 +134,7 @@ This folder **isn't a git repository**, so nothing can be undone. Until the user
 
 Old `/mind` versions are in `%TEMP%\mind-backup\`, which the system may clean.
 
-## Deployment (planned, Phase 10)
+## Deployment (planned, Phase 11)
 
 - **Host:** Vercel. Set `NOTION_TOKEN` and `NOTION_JOURNAL_DB` there.
 - **Images:** the image optimiser runs on Vercel, and `next.config.ts` allows only the Supabase bucket. Add exact hosts only; never wildcards.

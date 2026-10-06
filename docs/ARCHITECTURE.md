@@ -32,6 +32,8 @@ No database, no API routes, no auth. Data is static TypeScript plus Notion (opti
 |---|---|---|---|
 | `/` | `src/app/page.tsx` | The home page: the hero, then 01 Why, 02 Proof, 03 How, 04 Knowledge, 05 Let's talk, plus the scroll rail and the floating pill. Fully static | none (copy from `site.ts`) |
 | `/about` | `src/app/about/page.tsx` | Ali's path: the dark `Journey` band (translator → builder → developer & PM), a translation card and a timeline. Static | none (copy from `site.ts` → `journey`, `story.person`) |
+| `/admin` | `src/app/admin/page.tsx` → `components/admin/AdminApp.tsx` | Ali's dashboard: Work (`WorkTab`), Featured (`FeaturedTab`, drag and drop), Journal (`JournalTab`), Clients (`ClientsTab`). `noindex` | Seeded at build from `projects.ts` and `content/journal/*.md`. Edits live in localStorage (`lib/admin-store.ts`, key `ali-admin-v1`) until Phase 7 |
+| `/track` | `src/app/track/page.tsx` → `components/admin/TrackView.tsx` | A client's private protocol view: `Roadmap` in `track` mode (their station pinned, no visitor chips or send form, a "Message Ali" button). `noindex` | The `#` fragment (base64 JSON from `trackLink()`) |
 | `/work/[slug]` | `src/app/work/[slug]/page.tsx` | A case study: header, `Gallery`, numbered story, tools aside, live link, next case | `projects` |
 | `/journal` | `src/app/journal/page.tsx` | The journal index with tag filter (`JournalList`) | `getAllPosts()` |
 | `/journal/[slug]` | `src/app/journal/[slug]/page.tsx` | A post (`.prose-ali`), `ReadingProgress`, "Keep reading" | `getAllPosts()` |

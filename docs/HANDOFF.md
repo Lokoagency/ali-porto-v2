@@ -28,10 +28,11 @@ If you've just been handed this project, read this first. It covers what the pro
 | Home page (`/`) | Built; the narrative was rewritten 4 Oct (3 rounds) | Since round 6: the hero (Ali speaking) → 01 Why → 02 Proof (the work) → 03 How → 04 Knowledge (the stack) → 05 Let's talk. Ali's path is on `/about`. Never use the word "idea". Includes the metro-map protocol and the "tell Ali where you are" form. See `ARCHITECTURE.md` |
 | Case studies (`/work/[slug]`) | Built | 7 projects, statically generated |
 | Journal (`/journal`, `/journal/[slug]`) | Built | Notion isn't connected yet; the 3 Markdown posts are placeholders |
-| Ali's mind (`/mind`) | Paused until Phase 8 | Working 3D house. See `MIND.md` |
+| Ali's dashboard (`/admin`, `/track`) | Front end built 6 Oct | Saves in the browser for now. The database and login come in Phase 7 |
+| Ali's mind (`/mind`) | Paused until Phase 9 | Working 3D house. See `MIND.md` |
 | Content | Waiting on the user | They will send Ali's real content: Phase 5 |
-| SEO and social | Not started | No share images, sitemap, robots file or 404 page: Phases 9–10 |
-| Deployment | Not started | Vercel is planned: Phase 10 |
+| SEO and social | Not started | No share images, sitemap, robots file or 404 page: Phases 10–11 |
+| Deployment | V2 live on Vercel | https://ali-porto-v2.vercel.app (project `ali-porto-v2`, repo `Lokoagency/ali-porto-v2`). The domain and SEO come at launch (Phase 11) |
 | Version control | Git | Baseline backup on GitHub at `Lokoagency/ali-porto` (`main`, commit `6129be9`); don't push over it until the client approves. The current work is on the **`review`** branch (local and on GitHub) for Ali's review |
 
 Quality after Phase 0 (Lighthouse, production build, home page):
@@ -48,11 +49,12 @@ Quality after Phase 0 (Lighthouse, production build, home page):
 1. **GitHub backup.** Done 4 Oct.
 2. **Narrative**, 3. **Roadmap**, 4. **Journal only in the nav.** Built 4 Oct, plus review round 2. Waiting for the client's approval.
 5. **Content.** Bring in the user's content and replace placeholders.
-6. **Admin dashboard (Supabase).** The journal, work inside the real templates, drag-and-drop featured work, and per-client tracking on the metro map.
-7. **Optimization.** Lighter animation setup (LazyMotion), more server components, aim for 90+ on mobile.
-8. **The deep dive, Ali's mind (`/mind`).** Lighting, character, the scattered-ideas hunt.
-9. **Polish and UX.** Every width, both themes, a 404 page, accessibility, `/mind` included.
-10. **Launch.** SEO and share images, analytics, Vercel, domain.
+6. **Admin dashboard, front end.** Built 6 Oct.
+7. **Database and login.** Supabase and a magic link, so the dashboard publishes for real.
+8. **Optimization.** A lighter animation setup (LazyMotion), more server components, 90+ on mobile.
+9. **The deep dive, Ali's mind (`/mind`).** Fix the stutter first, then lighting, character, the scattered-ideas hunt.
+10. **Polish and UX.** Every width, both themes, a 404 page, accessibility, `/mind` included.
+11. **Launch.** SEO and share images, analytics, the domain.
 
 The user asked to go phase by phase. Don't drift into later phases unless asked.
 
@@ -115,8 +117,8 @@ The user asked to go phase by phase. Don't drift into later phases unless asked.
   - Notion image links expire after an hour, so they need mirroring before launch.
   - Only the first 100 blocks of a Notion page are read, with no nested blocks.
   - Markdown and Notion HTML are injected unsanitised. That's fine while only Ali writes.
-- **Dim words:** the scroll-revealed words in "The philosophy" start at 30% opacity, which is below contrast guidelines by design. Lighthouse flags it. Decide in Phase 9.
-- **Missing pages and metadata:** no `not-found.tsx`, `sitemap.ts`, `robots.ts`, `metadataBase` or Open Graph images (Phase 10).
+- **Dim words:** the scroll-revealed words in "The philosophy" start at 30% opacity, which is below contrast guidelines by design. Lighthouse flags it. Decide in Phase 10.
+- **Missing pages and metadata:** no `not-found.tsx`, `sitemap.ts`, `robots.ts`, `metadataBase` or Open Graph images (Phase 11).
 - **`/mind` specifics** are in `MIND.md`.
 
 ## Things that live outside this folder
