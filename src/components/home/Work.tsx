@@ -22,7 +22,7 @@ export function StatusTag({ status }: { status: Project["status"] }) {
   );
 }
 
-function ProjectCard({ p, index }: { p: Project; index: number }) {
+export function ProjectCard({ p, index }: { p: Project; index: number }) {
   // cursor-following "Open" bubble
   const x = useMotionValue(0);
   const y = useMotionValue(0);

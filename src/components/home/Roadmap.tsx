@@ -138,13 +138,17 @@ function SendStation({ station, n, joining, onEngage }: { station: string; n: nu
   );
 }
 
-export function Roadmap() {
+/** A client's private view (from Ali's dashboard): their train sits at their station. */
+export type Track = { name: string; company: string; station: number; note: string; updated: string };
+
+export function Roadmap({ track }: { track?: Track } = {}) {
   const ref = useRef<HTMLElement>(null);
   const live = useInView(ref, { margin: "-15% 0px" });
   const reduce = useReducedMotion();
-  const [active, setActive] = useState(0);
+  const home = track ? Math.min(Math.max(track.station, 0), ids.length - 1) : 0;
+  const [active, setActive] = useState(home);
   const [join, setJoin] = useState<string | null>(null);
-  const [pinned, setPinned] = useState(false);
+  const [pinned, setPinned] = useState(!!track);
 
   // the train rides to "you are here" on its own until the visitor picks a station
   useEffect(() => {
@@ -153,7 +157,7 @@ export function Roadmap() {
     return () => clearInterval(id);
   }, [live, pinned, reduce]);
 
-  const d = useMotionValue(distOf(AT[ids[0]]));
+  const d = useMotionValue(distOf(AT[ids[home]]));
   const x = useTransform(d, (v) => pointAt(v)[0]);
   const y = useTransform(d, (v) => pointAt(v)[1]);
   const travelled = useTransform(d, (v) => v / TOTAL);
@@ -169,7 +173,7 @@ export function Roadmap() {
   }, [active, reduce, d]);
 
   const pick = (i: number, j: string | null = null) => {
-    dispatchEvent(new CustomEvent(ROADMAP_PICK, { detail: roadmap.stations[i].name }));
+    if (!track) dispatchEvent(new CustomEvent(ROADMAP_PICK, { detail: roadmap.stations[i].name }));
     setPinned(true);
     setJoin(j);
     setActive(i);
@@ -178,35 +182,51 @@ export function Roadmap() {
   const next = roadmap.stations[active + 1];
   const joining = roadmap.joins.find((j) => j.id === join);
   const s = story.roadmap;
+  const t = story.track;
+  // in a client's view, "you are here" only means their own station
+  const here = !track || active === home;
 
   return (
-    <section id="roadmap" ref={ref} className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
-      <SectionLabel index={s.index}>{s.label}</SectionLabel>
+    <section id={track ? "track" : "roadmap"} ref={ref} className={`mx-auto max-w-[1200px] px-5 sm:px-8 ${track ? "pb-20 pt-36 md:pb-28 md:pt-44" : "py-20 md:py-28"}`}>
+      <SectionLabel index={track ? t.label : s.index}>{track ? [track.name, track.company].filter(Boolean).join(" · ") : s.label}</SectionLabel>
       <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-        <SplitHeading text={s.heading} italic={s.italic} className="max-w-[720px] font-display text-[clamp(2.1rem,4.6vw,3.6rem)] leading-[1.04]" />
+        <SplitHeading
+          text={track ? t.heading : s.heading}
+          italic={track ? t.italic : s.italic}
+          className="max-w-[720px] font-display text-[clamp(2.1rem,4.6vw,3.6rem)] leading-[1.04]"
+        />
         <Reveal>
-          <p className="max-w-[360px] text-[0.98rem] leading-relaxed text-ink-soft">{roadmap.lede}</p>
+          <p className="max-w-[360px] text-[0.98rem] leading-relaxed text-ink-soft">{track ? track.note || t.fallback : roadmap.lede}</p>
+          {track?.updated && (
+            <p className="mt-2 font-mono text-[0.68rem] uppercase tracking-[0.12em] text-muted">
+              {t.updated} <span className="tabular">{track.updated}</span>
+            </p>
+          )}
         </Reveal>
       </div>
 
-      {/* where are you now? (the branch lines, as buttons) */}
-      <Reveal className="mt-10 flex flex-wrap items-center gap-2">
-        <span className="eyebrow mr-2 text-muted">Where are you now?</span>
-        {roadmap.joins.map((j) => {
-          const on = join === j.id;
-          return (
-            <button
-              key={j.id}
-              onClick={() => pick(ids.indexOf(j.at), on ? null : j.id)}
-              aria-pressed={on}
-              className={`press flex h-10 items-center gap-2 rounded-full border px-4 text-[0.82rem] ${on ? "border-transparent bg-ink text-paper" : "border-line text-ink-soft hover:text-ink"}`}
-            >
-              <span className="size-2 rounded-full" style={{ background: j.color }} />
-              {j.label}
-            </button>
-          );
-        })}
-      </Reveal>
+      {!track && (
+        <>
+        {/* where are you now? (the branch lines, as buttons) */}
+        <Reveal className="mt-10 flex flex-wrap items-center gap-2">
+          <span className="eyebrow mr-2 text-muted">Where are you now?</span>
+          {roadmap.joins.map((j) => {
+            const on = join === j.id;
+            return (
+              <button
+                key={j.id}
+                onClick={() => pick(ids.indexOf(j.at), on ? null : j.id)}
+                aria-pressed={on}
+                className={`press flex h-10 items-center gap-2 rounded-full border px-4 text-[0.82rem] ${on ? "border-transparent bg-ink text-paper" : "border-line text-ink-soft hover:text-ink"}`}
+              >
+                <span className="size-2 rounded-full" style={{ background: j.color }} />
+                {j.label}
+              </button>
+            );
+          })}
+        </Reveal>
+          </>
+      )}
 
       <div className="mt-6 grid gap-4 lg:grid-cols-[1fr_340px]">
         {/* the map (desktop) */}
@@ -369,7 +389,7 @@ export function Roadmap() {
             >
               <p className="eyebrow flex items-center gap-2">
                 <span className="pulse-dot size-2 rounded-full bg-teal" />
-                You are here · <span className="tabular">{String(active + 1).padStart(2, "0")}/{roadmap.stations.length}</span>
+                {here ? t.here : t.station} · <span className="tabular">{String(active + 1).padStart(2, "0")}/{roadmap.stations.length}</span>
               </p>
               <h3 className="mt-3 font-display text-[2rem] leading-tight">{station.name}</h3>
               {joining && (
@@ -408,7 +428,24 @@ export function Roadmap() {
         </div>
       </div>
 
-      <SendStation station={station.name} n={active + 1} joining={joining?.label} onEngage={() => setPinned(true)} />
+      {track ? (
+        <Reveal className="mt-4 flex flex-wrap items-center justify-between gap-4 rounded-[28px] border border-line bg-card p-6">
+          <p className="text-[0.98rem] text-ink-soft">{t.question}</p>
+          <a
+            href={`${contact.whatsapp}?text=${encodeURIComponent(`Hi Ali, it's ${track.name}. About my product at ${roadmap.stations[home].name}: `)}`}
+            target="_blank"
+            rel="noreferrer"
+            className="press group flex h-12 items-center gap-2 rounded-full bg-ink px-5 text-[0.9rem] font-medium text-paper shadow-[var(--shadow-md)] hover:bg-teal"
+          >
+            {t.talk}
+            <span className="transition-transform duration-300 group-hover:translate-x-0.5">
+              <Arrow />
+            </span>
+          </a>
+        </Reveal>
+      ) : (
+        <SendStation station={station.name} n={active + 1} joining={joining?.label} onEngage={() => setPinned(true)} />
+      )}
     </section>
   );
 }

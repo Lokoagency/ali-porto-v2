@@ -240,6 +240,19 @@ export const story = {
     italic: [2, 4, 6, 7],
   },
   stack: { index: "07", label: "The stack", heading: "Today's toolbox. Never the whole of it.", italic: [4, 5, 6] },
+  // a client's private tracking page (/track#…), made from Ali's dashboard
+  track: {
+    label: "Your project",
+    heading: "Here's where your product is.",
+    italic: [3, 4],
+    fallback: "Ali moves your train along as the work moves. Tap any station to see what happens there.",
+    updated: "Updated",
+    here: "You are here",
+    station: "Station",
+    question: "Questions about where things stand?",
+    talk: "Message Ali",
+    bad: "This link looks incomplete. Ask Ali for a fresh one.",
+  },
   // the pill that appears once the visitor reaches the roadmap (until the contact section)
   cta: { idle: "Wherever you are on the line", picked: "Start at", action: "Let's talk" },
   contact: {
