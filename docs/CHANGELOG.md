@@ -4,6 +4,12 @@ Newest first. **Add an entry with every change**, using the template in `DEVELOP
 
 ---
 
+## 2026-10-06: Fix: the dashboard switches
+
+**What:** the on/off switches in the dashboard (Featured work, and a post's published switch) showed their knob outside the track. The knob had no left anchor, so inside the button it started from the centre, and the 18 px slide pushed it past the edge. It's now anchored with `left-0` (`components/admin/ui.tsx`, `Toggle`).
+
+**Verified:** in the browser the knob sits at 18 px from the left / 2 px from the right when on, and 2 px / 18 px when off. `tsc`, `lint` and `build` are clean.
+
 ## 2026-10-06: Phase 6 (front end): Ali's dashboard, private client links, and V2 on Vercel
 
 **What:**

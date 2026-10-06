@@ -144,7 +144,7 @@ export function Toggle({ on, onChange, label }: { on: boolean; onChange: (v: boo
       className={`relative h-6 w-10 shrink-0 rounded-full transition-colors duration-300 before:absolute before:-inset-2.5 before:content-[""] ${on ? "bg-teal" : "bg-line-strong"}`}
     >
       <motion.span
-        className="absolute top-0.5 size-5 rounded-full bg-paper shadow-[var(--shadow-sm)]"
+        className="absolute left-0 top-0.5 size-5 rounded-full bg-paper shadow-[var(--shadow-sm)]"
         animate={{ x: on ? 18 : 2 }}
         transition={{ type: "spring", stiffness: 500, damping: 32 }}
       />
